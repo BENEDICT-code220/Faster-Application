@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylelivraisons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Livraisons</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher une livraison, un livreur....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <a href="parametres.html"><img id="img1" src="télécharger.jpg" alt="image jeune homme"></a>
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <h1 class="h1">Gestion des livraisons</h1>
+        <p id="p1">Suivez et gérez vos livraisons en temps réel et optimisez les délais.</p>
+        <a href="ajouter livreur.html"><button class="btn-plein"><i class="fa-solid fa-plus"></i> Ajouter un livreur</button></a>
+
+        <!-- cartes statistiques -->
+        <div id="c5">
+            <fieldset id="f4">
+                <div class="kh"><i class="fa-solid fa-box bleu"></i><p id="f4p1">35</p></div>
+                <p id="f4p2">Livraisons totales</p>
+            </fieldset>
+
+            <fieldset id="f5">
+                <div class="kh"><i class="fa-solid fa-circle-check vert"></i><p id="f5p1">18</p></div>
+                <p id="f5p2">Livraisons terminées</p>
+            </fieldset>
+
+            <fieldset id="f6">
+                <div class="kh"><i class="fa-regular fa-clock orange"></i><p id="f6p1">12</p></div>
+                <p id="f6p2">En cours</p>
+            </fieldset>
+
+            <fieldset id="f7">
+                <div class="kh"><i class="fa-solid fa-triangle-exclamation rouge"></i><p id="f7p1">5</p></div>
+                <p id="f7p2">En retard</p>
+            </fieldset>
+
+            <fieldset id="f8">
+                <div class="kh"><i class="fa-solid fa-bullseye rouge"></i><p id="f8p1">92,6%</p></div>
+                <p id="f8p2">Taux de réussite</p>
+            </fieldset>
+        </div>
+
+        <!-- Carte en temps réel -->
+        <fieldset id="g1" class="bloc-b">
+            <h3 class="gros">Carte des livraisons en temps réel</h3>
+            <div class="zone-carte">
+                <img id="carte" src="OIP.webp" alt="carte">
+                <div class="info-liv">
+                    <img src="bene.jpg" alt="">
+                    <div>
+                        <strong>Livreur #UV001</strong>
+                        <small>En route vers le client</small>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Délai moyen -->
+        <fieldset id="g2" class="bloc-b">
+            <h3 class="gros">Délai moyen de livraison</h3>
+            <div class="delai">
+                <i class="fa-regular fa-clock"></i>
+                <b>28 min</b>
+            </div>
+            <p class="tendance"><i class="fa-solid fa-arrow-up"></i> 16,4%</p>
+            <canvas id="mini" width="230" height="80"></canvas>
+        </fieldset>
+
+        <!-- Statut des livraisons -->
+        <fieldset id="g3" class="bloc-b">
+            <h3 class="gros">Statut des livraisons</h3>
+            <canvas id="camembert" width="250" height="170"></canvas>
+        </fieldset>
+
+        <!-- Livraisons récentes -->
+        <fieldset id="g4" class="bloc-b">
+            <h3 class="gros">Livraisons récentes</h3>
+
+            <table class="tableau">
+                <tr>
+                    <th>N° Livraison</th><th>Commande</th><th>Livreur</th><th>Statut</th><th>Heure</th><th>Action</th>
+                </tr>
+                <tr>
+                    <td>#LIV001</td><td>#CMD301</td>
+                    <td><img src="bene.jpg" class="mini-img" alt=""> John Doe</td>
+                    <td><span class="badge b-vert">Livrée</span></td><td>12 h 05</td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-pen-to-square act-bleu"></i></td>
+                </tr>
+                <tr>
+                    <td>#LIV002</td><td>#CMD302</td>
+                    <td><img src="bene.jpg" class="mini-img" alt=""> Paul Martin</td>
+                    <td><span class="badge b-orange">En cours</span></td><td>12 h 30</td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-pen-to-square act-bleu"></i></td>
+                </tr>
+                <tr>
+                    <td>#LIV003</td><td>#CMD303</td>
+                    <td><img src="bene.jpg" class="mini-img" alt=""> Marie Claire</td>
+                    <td><span class="badge b-vert">Livrée</span></td><td>09 h 40</td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-pen-to-square act-bleu"></i></td>
+                </tr>
+                <tr>
+                    <td>#LIV004</td><td>#CMD304</td>
+                    <td><img src="bene.jpg" class="mini-img" alt=""> John Doe</td>
+                    <td><span class="badge b-rouge">En retard</span></td><td>11 h 15</td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-pen-to-square act-bleu"></i></td>
+                </tr>
+                <tr>
+                    <td>#LIV005</td><td>#CMD305</td>
+                    <td><img src="bene.jpg" class="mini-img" alt=""> Jean Paul</td>
+                    <td><span class="badge b-vert">Livrée</span></td><td>08 h 50</td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-pen-to-square act-bleu"></i></td>
+                </tr>
+            </table>
+
+            <a href="liste livraisons.html"><button class="btn-plein bas">Voir toutes les livraisons</button></a>
+        </fieldset>
+
+<script>
+/* ---------- Petite courbe (délai moyen) ---------- */
+function courbeMini(idCanvas, vals) {
+  const c = document.getElementById(idCanvas), ctx = c.getContext("2d");
+  const W = c.width, H = c.height, marge = 6;
+  const max = Math.max(...vals), min = Math.min(...vals);
+  const pas = (W - 2 * marge) / (vals.length - 1);
+  const pos = (v, i) => [marge + i * pas, H - marge - ((v - min) / (max - min)) * (H - 2 * marge)];
+
+  ctx.clearRect(0, 0, W, H);
+
+  // zone sous la courbe
+  ctx.beginPath();
+  vals.forEach((v, i) => { const [x, y] = pos(v, i); if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y); });
+  ctx.lineTo(W - marge, H - marge);
+  ctx.lineTo(marge, H - marge);
+  ctx.closePath();
+  ctx.fillStyle = "rgba(46, 164, 79, 0.25)";
+  ctx.fill();
+
+  // ligne
+  ctx.beginPath();
+  vals.forEach((v, i) => { const [x, y] = pos(v, i); if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y); });
+  ctx.strokeStyle = "rgb(46, 164, 79)";
+  ctx.lineWidth = 2;
+  ctx.stroke();
+}
+
+/* ---------- Camembert (anneau + légende) ---------- */
+function camembert(idCanvas, donnees, couleurs, cx, lx) {
+  const c = document.getElementById(idCanvas), ctx = c.getContext("2d");
+  const W = c.width, H = c.height;
+  const noms = Object.keys(donnees), vals = Object.values(donnees);
+  const total = vals.reduce((a, b) => a + b, 0);
+  const cy = H / 2, r = 38;
+  const debutY = (H - noms.length * 28) / 2 + 14;
+
+  ctx.clearRect(0, 0, W, H);
+  let debut = -Math.PI / 2;
+  vals.forEach((v, i) => {
+    const angle = (v / total) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, debut, debut + angle);
+    ctx.strokeStyle = couleurs[i];
+    ctx.lineWidth = 26;
+    ctx.stroke();
+    debut += angle;
+
+    // légende
+    const y = debutY + i * 28;
+    ctx.fillStyle = couleurs[i];
+    ctx.beginPath();
+    ctx.arc(lx, y, 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "#000";
+    ctx.font = "bold 11px Arial";
+    ctx.textAlign = "left";
+    ctx.fillText(noms[i], lx + 12, y + 4);
+    ctx.fillStyle = "#999";
+    ctx.font = "10px Arial";
+    ctx.textAlign = "right";
+    ctx.fillText(Math.round(v / total * 100) + "%", W - 4, y + 4);
+  });
+
+  // total au centre
+  ctx.fillStyle = "#000";
+  ctx.font = "bold 16px Arial";
+  ctx.textAlign = "center";
+  ctx.fillText(total, cx, cy + 6);
+}
+
+/* ---------- Utilisation : remplace par tes données ---------- */
+courbeMini("mini", [34, 31, 33, 29, 30, 27, 28]);
+camembert("camembert", { "Terminées": 18, "En cours": 12, "En retard": 5 },
+          ["rgb(46, 164, 79)", "rgb(255, 193, 7)", "rgb(229, 57, 53)"], 65, 130);
+</script>
+
+    </fieldset>
+
+</body>
+</html>

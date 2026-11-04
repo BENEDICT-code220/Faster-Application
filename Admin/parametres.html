@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleParametres.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Paramètres</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- ===== Informations personnelles ===== -->
+        <fieldset id="a1" class="carte">
+            <h3 class="titre">Informations personnelles</h3>
+
+            <div class="profil">
+                <div class="photo-ronde">
+                    <a href="parametres.html"><img id="img1" src="télécharger.jpg" alt="image jeune homme"></a>
+                    <span class="verif"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <div class="profil-txt">
+                    <strong>Edwin Nkemegni</strong>
+                    <span><i class="fa-regular fa-envelope"></i> EdwinNkemegni@gmail.com</span>
+                    <span><i class="fa-solid fa-mobile-screen"></i> 649 43 78 00</span>
+                    <span><i class="fa-solid fa-location-dot"></i> Douala, Cameroun</span>
+                </div>
+            </div>
+
+            <div class="formulaire">
+                <div class="champ">
+                    <label for="nom">Nom complet</label>
+                    <input id="nom" type="text">
+                </div>
+                <div class="champ">
+                    <label for="email">Email</label>
+                    <input id="email" type="email">
+                </div>
+                <div class="champ">
+                    <label for="tel">Téléphone</label>
+                    <input id="tel" type="tel">
+                </div>
+                <div class="champ">
+                    <label for="naiss">Date de naissance</label>
+                    <input id="naiss" type="date">
+                </div>
+                <div class="champ">
+                    <label for="pays">Pays</label>
+                    <input id="pays" type="text">
+                </div>
+                <div class="champ">
+                    <label for="ville">Ville</label>
+                    <input id="ville" type="text">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- ===== Photo de profil ===== -->
+        <fieldset id="a2" class="carte">
+            <h3 class="titre petit">Photo de profil</h3>
+            <div class="centre">
+                <div class="photo-ronde grande">
+                    <img class="avatar-photo" src="télécharger.jpg" alt="Photo de profil">
+                    <span class="verif"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <input id="fichier" type="file" accept="image/*" hidden>
+                <button class="btn-contour" onclick="document.getElementById('fichier').click()">Changer la photo</button>
+            </div>
+        </fieldset>
+
+        <!-- ===== Supprimer le compte ===== -->
+        <fieldset id="a3" class="carte">
+            <p class="alerte-txt">Cette action est irréversible. Toutes les données seront supprimées</p>
+            <button class="btn-danger" onclick="confirm('Voulez-vous vraiment supprimer votre compte ?')">
+                <i class="fa-regular fa-trash-can"></i> Supprimer le compte
+            </button>
+        </fieldset>
+
+        <!-- ===== Sécurité ===== -->
+        <fieldset id="a4" class="carte">
+            <div class="entete">
+                <div class="titre-icone">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                        <h3>Sécurité</h3>
+                        <small>Protégez votre compte</small>
+                    </div>
+                </div>
+                <button class="btn-clair">Modifier</button>
+            </div>
+
+            <div class="ligne">
+                <span>Mot de passe</span>
+                <div class="mdp">
+                    <input id="mdp" type="password" value="12345678" readonly>
+                    <i id="oeil" class="fa-regular fa-eye-slash" onclick="voirMdp()"></i>
+                </div>
+            </div>
+
+            <div class="ligne">
+                <span>Authentification à double facteurs</span>
+                <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+            </div>
+
+            <hr>
+
+            <div class="connexion">
+                <div class="ligne-c">
+                    <strong>Dernière connexion</strong>
+                    <small>Windows • Chrome</small>
+                </div>
+                <div class="ligne-c">
+                    <span><i class="point-vert"></i> Aujourd'hui à 15 : 59</span>
+                    <small>Douala, Cameroun</small>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- ===== Notifications ===== -->
+        <fieldset id="a5" class="carte">
+            <div class="titre-icone gros">
+                <i class="fa-solid fa-bell"></i>
+                <h3>Notifications</h3>
+            </div>
+
+            <div class="ligne notif">
+                <span><i class="fa-regular fa-envelope"></i> Notifications par Mail</span>
+                <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+            </div>
+            <div class="ligne notif">
+                <span><i class="fa-solid fa-mobile-screen"></i> Notifications par SMS</span>
+                <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+            </div>
+            <div class="ligne notif">
+                <span><i class="fa-solid fa-tag"></i> Promotions et offres</span>
+                <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+            </div>
+            <div class="ligne notif">
+                <span><i class="fa-regular fa-bell"></i> Notifications push</span>
+                <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+            </div>
+        </fieldset>
+
+        <!-- ===== Préférences ===== -->
+        <fieldset id="a6" class="carte">
+            <div class="titre-icone">
+                <i class="fa-solid fa-gear"></i>
+                <div>
+                    <h3>Préférences</h3>
+                    <small>Personnalisez votre expérience</small>
+                </div>
+            </div>
+
+            <div class="prefs">
+                <div class="champ-p">
+                    <label>Langue</label>
+                    <select>
+                        <option>Français</option>
+                        <option>English</option>
+                        <option>Chinois</option>
+                        <option>Allemand</option>
+                        <option>Portugais</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="champ-p">
+                    <label>Devise</label>
+                    <select>
+                        <option>FCFA(XAF)</option>
+                        <option>EUR</option>
+                        <option>USD</option>
+                        <option>Yuan</option>
+                        <option>Yen</option>
+                        <option>Franc Congolais</option>
+                        <option>Live sterling</option>
+                        <option>Naira</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="champ-p">
+                    <label>Thèmes</label>
+                    <div class="themes">
+                        <button class="theme actif" title="Clair"><i class="fa-solid fa-sun"></i></button>
+                        <button class="theme" title="Sombre"><i class="fa-solid fa-moon"></i></button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- ===== Confidentialité ===== -->
+        <fieldset id="a7" class="carte">
+            <div class="entete">
+                <div class="titre-icone gros">
+                    <i class="fa-solid fa-lock"></i>
+                    <h3>Confidentialité</h3>
+                </div>
+                <button class="btn-clair">Gérer</button>
+            </div>
+
+            <div class="ligne lien">
+                <span><i class="fa-regular fa-file-lines"></i> Politiques et confidentialité</span>
+            </div>
+            <div class="ligne lien">
+                <span><i class="fa-regular fa-file-lines"></i> Conditions d'utilisation</span>
+            </div>
+        </fieldset>
+
+<script>
+/* afficher / cacher le mot de passe */
+function voirMdp() {
+    const champ = document.getElementById("mdp");
+    const oeil = document.getElementById("oeil");
+    if (champ.type === "password") {
+        champ.type = "text";
+        oeil.className = "fa-regular fa-eye";
+    } else {
+        champ.type = "password";
+        oeil.className = "fa-regular fa-eye-slash";
+    }
+}
+
+/* changer la photo de profil (aperçu immédiat) */
+document.getElementById("fichier").addEventListener("change", function () {
+    const fichier = this.files[0];
+    if (!fichier) return;
+    const lecteur = new FileReader();
+    lecteur.onload = e => {
+        document.querySelectorAll(".avatar-photo").forEach(img => img.src = e.target.result);
+    };
+    lecteur.readAsDataURL(fichier);
+});
+
+/* choix du thème : un seul actif */
+document.querySelectorAll(".theme").forEach(bouton => {
+    bouton.addEventListener("click", () => {
+        document.querySelectorAll(".theme").forEach(b => b.classList.remove("actif"));
+        bouton.classList.add("actif");
+    });
+});
+</script>
+
+    </fieldset>
+
+</body>
+</html>

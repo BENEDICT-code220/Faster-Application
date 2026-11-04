@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleAd.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+    <fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher une commande, un client....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <a href="parametres.html"><img id="img1" src="télécharger.jpg" alt="image jeune homme"></a>
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <h1 class="h1">Bonjour, Nkemegni !</h1>
+        <p id="p1">Voici un aperçu complet de votre activité aujourd'hui</p>
+
+        <!-- cartes statistiques -->
+        <div id="c5">
+            <fieldset id="f4">
+                <div class="kh"><i class="fa-solid fa-bag-shopping bleu"></i><p id="f4p1">250</p></div>
+                <p id="f4p2">Commandes</p>
+                <p id="f4p3"><i class="fa-solid fa-arrow-up"></i> 12% <span class="spf">Cette semaine</span></p>
+            </fieldset>
+
+            <fieldset id="f5">
+                <div class="kh"><i class="fa-solid fa-truck vert"></i><p id="f5p1">45</p></div>
+                <p id="f5p2">En cours de livraison</p>
+                <p id="f5p3"><i class="fa-solid fa-arrow-up"></i> 8% <span class="spf">Cette semaine</span></p>
+            </fieldset>
+
+            <fieldset id="f6">
+                <div class="kh"><i class="fa-solid fa-box-open vert"></i><p id="f6p1">120</p></div>
+                <p id="f6p2">Livraisons terminées</p>
+                <p id="f6p3"><i class="fa-solid fa-arrow-up"></i> 15% <span class="spf">Cette semaine</span></p>
+            </fieldset>
+
+            <fieldset id="f7">
+                <div class="kh"><i class="fa-regular fa-circle-xmark rouge"></i><p id="f7p1">15</p></div>
+                <p id="f7p2">Annulées</p>
+                <p id="f7p3"><i class="fa-solid fa-arrow-down"></i> 6% <span class="spf">Cette semaine</span></p>
+            </fieldset>
+
+            <fieldset id="f8">
+                <div class="kh"><i class="fa-solid fa-wallet bleu"></i><p id="f8p1">12 450 000 <span>FCFA</span></p></div>
+                <p id="f8p2">Chiffre d'affaires</p>
+                <p id="f8p3"><i class="fa-solid fa-arrow-up"></i> 10% <span class="spf">Cette semaine</span></p>
+            </fieldset>
+        </div>
+
+        <!-- Aperçu des commandes -->
+        <fieldset id="f9">
+            <div class="entete">
+                <h3>Aperçu des commandes</h3>
+                <select><option>Cette semaine</option><option>Ce mois</option></select>
+            </div>
+            <canvas id="histo" width="310" height="185"></canvas>
+            <div class="leg">
+                <span><i class="pt" style="background:rgb(46,164,79)"></i>Livrées</span>
+                <span><i class="pt" style="background:rgb(214,41,62)"></i>Annulées</span>
+            </div>
+        </fieldset>
+
+        <!-- Statut des commandes -->
+        <fieldset id="f10">
+            <h3 class="titre-vert">Statut des commandes</h3>
+            <canvas id="camembert" width="280" height="200"></canvas>
+        </fieldset>
+
+        <!-- Livraison en cours -->
+        <fieldset id="f11">
+            <h3 style="margin-top: 0.4px;">Livraison en cours</h3>
+            <img id="img2" src="OIP.webp" alt="carte">
+
+            <div class="suivi">
+                <img id="img3" src="liv.webp" alt="livreur">
+                <div>
+                    <small>Commande #CMD1450</small>
+                    <strong>John Doe</strong>
+                </div>
+                <a href="suivi-livreurs.html"><button class="btn-bleu">Voir le suivi</button></a>
+            </div>
+        </fieldset>
+
+        <!-- Activités récentes -->
+        <fieldset id="f12">
+            <h3 class="gros">Activité récente</h3>
+            <div class="act"><i class="fa-solid fa-bag-shopping"></i><span>Nouvelle commande #CMD1250</span><small>Il y a 2 min</small></div>
+            <div class="act"><i class="fa-solid fa-bag-shopping"></i><span>Nouvelle commande #CMD1232</span><small>Il y a 2 min</small></div>
+            <div class="act"><i class="fa-solid fa-box-open"></i><span>Livraison terminée #CMD1255</span><small>Il y a 2 min</small></div>
+            <div class="act"><i class="fa-solid fa-box-open"></i><span>Livraison terminée #CMD1254</span><small>Il y a 2 min</small></div>
+            <div class="act"><i class="fa-solid fa-wallet"></i><span>Paiement reçu #PAY5454</span><small>Il y a 2 min</small></div>
+        </fieldset>
+
+        <!-- Top livreurs -->
+        <fieldset id="f13">
+            <h3 class="gros">Top Livreurs</h3>
+
+            <div class="liv">
+                <b>1</b>
+                <img src="liv0.webp" alt="">
+                <span class="nomL">John Doe</span>
+                <div class="perf"><strong>98%</strong><small>190 Livraisons</small></div>
+            </div>
+
+            <div class="liv">
+                <b>2</b>
+                <img src="liv2.webp" alt="">
+                <span class="nomL">Paul Martin</span>
+                <div class="perf"><strong>95%</strong><small>210 Livraisons</small></div>
+            </div>
+
+            <div class="liv">
+                <b>3</b>
+                <img src="liv0.webp" alt="">
+                <span class="nomL">Marie Claire</span>
+                <div class="perf"><strong>93%</strong><small>180 Livraisons</small></div>
+            </div>
+
+            <a href="liste livreurs.html"><button class="btn-bleu centre">Voir tous les livreurs</button></a>
+        </fieldset>
+
+        <!-- Chiffre d'affaires -->
+        <fieldset id="f14">
+            <h3 class="gros">Chiffre d'affaires</h3>
+            <div class="entete">
+                <span class="montant">12 450 000 <small>FCFA</small></span>
+                <select><option>Cette semaine</option><option>Ce mois</option></select>
+            </div>
+            <canvas id="ca" width="310" height="185"></canvas>
+        </fieldset>
+
+<script>
+const COULEURS = ["rgb(46, 164, 79)", "rgb(47, 128, 237)", "orange", "rgb(229, 57, 53)"];
+
+/* ---------- Histogramme (2 barres par jour : livrées / annulées) ---------- */
+function histogramme(idCanvas, donnees) {
+  const c = document.getElementById(idCanvas), ctx = c.getContext("2d");
+  const W = c.width, H = c.height, gauche = 28, bas = 22, haut = 8;
+  const noms = Object.keys(donnees);
+  const hu = H - bas - haut, max = 100;
+  const lg = (W - gauche - 5) / noms.length;
+
+  ctx.clearRect(0, 0, W, H);
+  ctx.font = "10px Arial";
+
+  // grille + valeurs de l'axe Y
+  ctx.strokeStyle = "#cfcfcf";
+  ctx.fillStyle = "#333";
+  ctx.textAlign = "right";
+  for (let v = 0; v <= max; v += 20) {
+    const y = haut + hu - (v / max) * hu;
+    ctx.beginPath(); ctx.moveTo(gauche, y); ctx.lineTo(W - 5, y); ctx.stroke();
+    ctx.fillText(v, gauche - 4, y + 3);
+  }
+
+  noms.forEach((nom, i) => {
+    const [livrees, annulees] = donnees[nom];
+    const x = gauche + i * lg + lg * 0.12;
+    const lb = lg * 0.3;
+
+    const h1 = (livrees / max) * hu;
+    ctx.fillStyle = "rgb(46, 164, 79)";
+    ctx.fillRect(x, haut + hu - h1, lb, h1);
+
+    const h2 = (annulees / max) * hu;
+    ctx.fillStyle = "rgb(214, 41, 62)";
+    ctx.fillRect(x + lb + 2, haut + hu - h2, lb, h2);
+
+    ctx.fillStyle = "#000";
+    ctx.textAlign = "center";
+    ctx.fillText(nom, x + lb, H - 7);
+  });
+}
+
+/* ---------- Camembert (anneau + légende) ---------- */
+function camembert(idCanvas, donnees) {
+  const c = document.getElementById(idCanvas), ctx = c.getContext("2d");
+  const W = c.width, H = c.height;
+  const noms = Object.keys(donnees), vals = Object.values(donnees);
+  const total = vals.reduce((a, b) => a + b, 0);
+  const cx = 75, cy = H / 2 - 5, r = 52;
+
+  ctx.clearRect(0, 0, W, H);
+  let debut = -Math.PI / 2;
+  vals.forEach((v, i) => {
+    const angle = (v / total) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, debut, debut + angle);
+    ctx.strokeStyle = COULEURS[i % COULEURS.length];
+    ctx.lineWidth = 34;
+    ctx.stroke();
+    debut += angle;
+
+    // légende
+    ctx.fillStyle = COULEURS[i % COULEURS.length];
+    ctx.beginPath();
+    ctx.arc(168, 62 + i * 30, 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "#000";
+    ctx.font = "bold 11px Arial";
+    ctx.textAlign = "left";
+    ctx.fillText(noms[i], 180, 66 + i * 30);
+    ctx.fillStyle = "#999";
+    ctx.font = "10px Arial";
+    ctx.textAlign = "right";
+    ctx.fillText(Math.round(v / total * 100) + "%", W - 4, 66 + i * 30);
+  });
+
+  // total au centre
+  ctx.fillStyle = "#000";
+  ctx.font = "bold 18px Arial";
+  ctx.textAlign = "center";
+  ctx.fillText(total, cx, cy + 6);
+}
+
+/* ---------- Barres du chiffre d'affaires (en millions) ---------- */
+function barres(idCanvas, donnees) {
+  const c = document.getElementById(idCanvas), ctx = c.getContext("2d");
+  const W = c.width, H = c.height, gauche = 32, bas = 22, haut = 8, max = 6;
+  const noms = Object.keys(donnees), vals = Object.values(donnees);
+  const hu = H - bas - haut;
+  const lg = (W - gauche) / noms.length;
+
+  ctx.clearRect(0, 0, W, H);
+  ctx.font = "11px Arial";
+
+  ctx.strokeStyle = "#e3e3e3";
+  ctx.fillStyle = "#333";
+  ctx.textAlign = "right";
+  for (let v = 0; v <= max; v += 2) {
+    const y = haut + hu - (v / max) * hu;
+    ctx.beginPath(); ctx.moveTo(gauche, y); ctx.lineTo(W, y); ctx.stroke();
+    ctx.fillText(v === 0 ? "0" : v + "M", gauche - 5, y + 4);
+  }
+
+  noms.forEach((nom, i) => {
+    const h = (vals[i] / max) * hu;
+    const lb = lg * 0.5;
+    const x = gauche + i * lg + (lg - lb) / 2;
+    const g = ctx.createLinearGradient(0, haut + hu - h, 0, haut + hu);
+    g.addColorStop(0, "rgb(47, 128, 237)");
+    g.addColorStop(1, "rgb(11, 79, 179)");
+    ctx.fillStyle = g;
+    ctx.fillRect(x, haut + hu - h, lb, h);
+    ctx.fillStyle = "#000";
+    ctx.textAlign = "center";
+    ctx.fillText(nom, x + lb / 2, H - 6);
+  });
+}
+
+/* ---------- Utilisation : remplace par tes données ---------- */
+histogramme("histo", { Lun: [5, 3], Mar: [65, 25], Mer: [55, 15], Jeu: [20, 5], Ven: [95, 30], Sam: [60, 20], Dim: [100, 45] });
+camembert("camembert", { "Livrées": 120, "En cours": 45, "En attentes": 70, "Annulées": 15 });
+barres("ca", { Lun: 4, Mar: 3, Mer: 4.6, Jeu: 6, Ven: 3.7, Sam: 3, Dim: 6 });
+</script>
+
+    </fieldset>
+
+</body>
+</html>

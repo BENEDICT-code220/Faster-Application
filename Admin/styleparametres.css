@@ -1,0 +1,459 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: rgb(237, 237, 237);
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+fieldset{
+    margin: 0;
+    padding: 0;
+    border: none;
+    min-width: 0;
+}
+
+
+
+/* ================= MENU GAUCHE ================= */
+#f1{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 220px;
+    padding-top: 10px;
+    background-color: rgba(0, 30, 59, 0.936);
+    color: white;
+    z-index: 20;
+}
+
+.h{
+    margin: 0 0 30px 10px;
+    font-size: 24px;
+}
+
+#f1 h3{
+    margin: 0 0 6px 0;
+    font-size: 15px;
+}
+
+#f1 h3 a{
+    display: block;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+#f1 h3 a i{
+    width: 30px;
+    font-size: 18px;
+}
+
+#l9 a{
+    background-color: rgb(30, 144, 255);
+}
+
+#f1 h3 a:hover{
+    color: rgb(81, 142, 255);
+}
+
+#l10{
+    position: absolute;
+    bottom: 5px;
+    left: -1px;
+    
+}
+
+#l10 a:active{
+    color: red;
+}
+
+
+/* ================= ZONE PRINCIPALE ================= */
+#f2{
+    position: relative;
+    width: 1100px;
+    height: 800px;
+    margin-left: 220px;
+    background-color: white;
+}
+
+/* ---------- cartes ---------- */
+.carte{
+    position: absolute;
+    padding: 18px;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 4px 4px 8px rgb(215, 215, 215);
+}
+
+#a1{ top: 30px;  left: 30px;  width: 620px; height: 310px; }
+#a2{ top: 30px;  left: 675px; width: 395px; height: 180px; }
+#a3{ top: 230px; left: 675px; width: 395px; height: 110px; }
+#a4{ top: 360px; left: 30px;  width: 520px; height: 215px; }
+#a5{ top: 360px; left: 575px; width: 495px; height: 215px; }
+#a6{ top: 595px; left: 30px;  width: 520px; height: 170px; }
+#a7{ top: 595px; left: 575px; width: 495px; height: 170px; }
+
+.titre{
+    margin: 0 0 10px 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.titre.petit{
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.entete{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titre-icone{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.titre-icone > i{
+    font-size: 22px;
+}
+
+.titre-icone h3{
+    margin: 0;
+    font-size: 17px;
+}
+
+.titre-icone.gros h3{
+    font-size: 18px;
+}
+
+.titre-icone small{
+    display: block;
+    font-size: 11px;
+    color: rgb(130, 130, 130);
+}
+
+/* ---------- photo de profil ---------- */
+.photo-ronde{
+    position: relative;
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+}
+
+.photo-ronde.grande{
+    width: 72px;
+    height: 72px;
+}
+
+.photo-ronde img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.verif{
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    background-color: rgb(30, 100, 235);
+    color: white;
+    font-size: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profil{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.profil-txt{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 12px;
+    color: rgb(110, 110, 110);
+}
+
+.profil-txt strong{
+    color: black;
+    font-size: 13px;
+}
+
+.profil-txt i{
+    width: 16px;
+    color: rgb(90, 90, 90);
+}
+
+/* ---------- formulaire ---------- */
+.formulaire{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 40px;
+}
+
+.champ label{
+    display: block;
+    margin-bottom: 3px;
+    font-size: 11px;
+}
+
+.champ input{
+    width: 100%;
+    height: 32px;
+    padding: 0 10px;
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.champ input:focus{
+    outline: none;
+    border-color: rgb(30, 100, 235);
+}
+
+/* ---------- boutons ---------- */
+.centre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-contour{
+    background-color: white;
+    color: rgb(30, 100, 235);
+    border: 1px solid rgb(30, 100, 235);
+    border-radius: 6px;
+    padding: 6px 22px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btn-contour:hover{
+    background-color: rgb(30, 100, 235);
+    color: white;
+}
+
+.alerte-txt{
+    margin: 0 0 12px 0;
+    text-align: center;
+    font-size: 11.5px;
+}
+
+.btn-danger{
+    display: block;
+    margin: 0 auto;
+    width: 230px;
+    height: 38px;
+    border: 1px solid rgb(229, 57, 83);
+    border-radius: 6px;
+    background-color: rgb(255, 228, 232);
+    color: rgb(214, 41, 62);
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-danger:hover{
+    background-color: rgb(255, 205, 212);
+}
+
+.btn-clair{
+    border: none;
+    border-radius: 6px;
+    padding: 5px 16px;
+    background-color: rgb(214, 230, 255);
+    color: rgb(30, 100, 235);
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-clair:hover{
+    background-color: rgb(190, 215, 255);
+}
+
+/* ---------- lignes (sécurité, notifications, confidentialité) ---------- */
+.ligne{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.mdp{
+    position: relative;
+    width: 220px;
+}
+
+.mdp input{
+    width: 100%;
+    height: 30px;
+    padding: 0 34px 0 14px;
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 6px;
+    letter-spacing: 3px;
+}
+
+.mdp i{
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    color: rgb(120, 120, 120);
+    cursor: pointer;
+}
+
+hr{
+    margin: 14px 0 8px 0;
+    border: none;
+    border-top: 1px solid rgb(228, 228, 228);
+}
+
+.ligne-c{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.ligne-c small{
+    color: rgb(120, 120, 120);
+    font-size: 11px;
+}
+
+.point-vert{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background-color: rgb(46, 184, 92);
+    vertical-align: middle;
+}
+
+.notif i, .lien i{
+    width: 28px;
+    font-size: 16px;
+}
+
+.notif, .lien{
+    margin-top: 14px;
+}
+
+.lien{
+    cursor: pointer;
+}
+
+.lien:hover{
+    color: rgb(30, 100, 235);
+}
+
+/* ---------- interrupteurs ---------- */
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.switch input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider{
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background-color: rgb(205, 205, 205);
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+.slider::before{
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+    transition: transform .2s;
+}
+
+.switch input:checked + .slider{
+    background-color: rgb(46, 184, 92);
+}
+
+.switch input:checked + .slider::before{
+    transform: translateX(20px);
+}
+
+/* ---------- préférences ---------- */
+.prefs{
+    display: flex;
+    gap: 40px;
+    margin-top: 16px;
+}
+
+.champ-p label{
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+}
+
+.champ-p select{
+    width: 110px;
+    height: 30px;
+    padding: 0 8px;
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 6px;
+    background-color: white;
+    font-size: 12px;
+}
+
+.themes{
+    display: flex;
+    gap: 14px;
+}
+
+.theme{
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 8px;
+    background-color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.theme.actif{
+    border-color: rgb(30, 100, 235);
+    background-color: rgb(238, 244, 255);
+    color: rgb(30, 100, 235);
+}

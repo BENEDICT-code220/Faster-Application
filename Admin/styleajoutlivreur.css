@@ -1,0 +1,451 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: rgb(237, 237, 237);
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+fieldset{
+    margin: 0;
+    padding: 0;
+    border: none;
+    min-width: 0;
+}
+
+
+
+/* ================= MENU GAUCHE ================= */
+#f1{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 220px;
+    padding-top: 10px;
+    background-color: rgba(0, 30, 59, 0.936);
+    color: white;
+    z-index: 20;
+}
+
+.h{
+    margin: 0 0 30px 10px;
+    font-size: 24px;
+}
+
+#f1 h3{
+    margin: 0 0 6px 0;
+    font-size: 15px;
+}
+
+#f1 h3 a{
+    display: block;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+#f1 h3 a i{
+    width: 30px;
+    font-size: 18px;
+}
+
+#l5 a{
+    background-color: rgb(30, 144, 255);
+}
+
+#f1 h3 a:hover{
+    color: rgb(81, 142, 255);
+}
+
+#l10{
+    position: absolute;
+    bottom: 5px;
+    left: -1px;
+    
+}
+
+#l10 a:active{
+    color: red;
+}
+
+
+/* ================= ZONE PRINCIPALE ================= */
+#f2{
+    position: relative;
+    width: 1100px;
+    height: 790px;
+    margin-left: 220px;
+    background-color: rgb(222, 236, 255);
+}
+
+/* ---------- barre du haut ---------- */
+#f3{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 76px;
+    background-color: rgb(250, 246, 246);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+#s{
+    position: absolute;
+    left: 32px;
+    top: 28px;
+    font-size: 15px;
+    color: rgb(40, 40, 40);
+    z-index: 2;
+}
+
+#i11{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 300px;
+    height: 36px;
+    padding-left: 38px;
+    border: 1px solid rgb(236, 234, 234);
+    background-color: rgb(238, 238, 238);
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+#i11:focus{
+    outline: none;
+    border-color: #0d6efd;
+}
+
+#cloche, #mail{
+    position: absolute;
+    top: 24px;
+    font-size: 24px;
+    color: rgb(30, 144, 255);
+}
+
+#cloche{ right: 255px; }
+#mail{ right: 210px; }
+
+#point{
+    position: absolute;
+    top: 22px;
+    right: 204px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+#img1{
+    position: absolute;
+    top: 13px;
+    right: 135px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#imD2{
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    width: 110px;
+}
+
+#poste{
+    margin: 0;
+    font-size: 16px;
+    color: black;
+}
+
+#nom{
+    margin: 2px 0 0 0;
+    font-size: 12px;
+    color: black;
+}
+
+/* ---------- cartes de formulaire ---------- */
+.carte{
+    position: absolute;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid rgb(215, 215, 215);
+    border-radius: 10px;
+    box-shadow: 2px 3px 8px rgb(200, 205, 215);
+}
+
+.titre-carte{
+    margin: 0 0 16px 0;
+    font-size: 15px;
+}
+
+.titre-carte i{
+    margin-right: 6px;
+    color: rgb(30, 100, 235);
+}
+
+.lab{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.req{
+    color: red;
+}
+
+.inp{
+    width: 100%;
+    height: 34px;
+    padding: 0 10px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 6px;
+    background-color: rgb(248, 248, 248);
+    font-size: 12.5px;
+    font-family: inherit;
+}
+
+.inp:focus{
+    outline: none;
+    border-color: rgb(30, 100, 235);
+    background-color: white;
+}
+
+select.inp{
+    color: rgb(100, 100, 100);
+}
+
+/* ---------- boutons ---------- */
+.btn-blanc{
+    display: inline-block;
+    padding: 9px 26px;
+    border: 1px solid rgb(30, 100, 235);
+    border-radius: 8px;
+    background-color: white;
+    color: rgb(30, 100, 235);
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-blanc:hover{
+    background-color: rgb(235, 242, 255);
+}
+
+.btn-bleu{
+    padding: 9px 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(30, 144, 255);
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0.9px 1.5px 5px rgb(170, 190, 220);
+}
+
+.btn-bleu:hover{
+    background-color: rgb(20, 110, 220);
+}
+
+.btn-bleu i, .btn-blanc i{
+    margin-right: 6px;
+}
+
+#c4{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+}
+
+/* ================= FORMULAIRE EN 2 COLONNES ================= */
+.entete-simple{
+    position: absolute;
+    top: 90px;
+    left: 95px;
+}
+
+.entete-simple h1{
+    margin: 0;
+    font-size: 26px;
+}
+
+.entete-simple p{
+    margin: 2px 0 0 0;
+    font-size: 12px;
+    color: rgb(100, 110, 130);
+}
+
+#c1{
+    top: 165px;
+    left: 95px;
+    width: 910px;
+    height: 520px;
+    padding: 24px 30px;
+    background-color: rgb(250, 250, 250);
+}
+
+.titre-grand{
+    margin: 0 0 18px 20px;
+    font-size: 18px;
+}
+
+.deux-col{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 50px;
+}
+
+.champ{
+    margin-bottom: 14px;
+}
+
+/* téléphone avec indicatif */
+.tel{
+    display: flex;
+    height: 34px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 6px;
+    background-color: rgb(248, 248, 248);
+    overflow: hidden;
+}
+
+.tel .ind{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 10px 0 0;
+    border-right: 1px solid rgb(200, 200, 200);
+    font-size: 12px;
+    background-color: rgb(244, 244, 244);
+}
+
+.tel .ind i{
+    font-size: 9px;
+    color: rgb(120, 120, 120);
+}
+
+.tel input{
+    flex: 1;
+    min-width: 0;
+    padding: 0 12px;
+    border: none;
+    background-color: transparent;
+    font-size: 12.5px;
+    font-family: inherit;
+}
+
+.tel input:focus{
+    outline: none;
+}
+
+.drapeau{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(to right, rgb(0, 122, 94) 33.3%, rgb(206, 17, 38) 33.3% 66.6%, rgb(252, 209, 22) 66.6%);
+    color: rgb(252, 209, 22);
+    font-size: 11px;
+}
+
+/* mot de passe avec l'oeil */
+.mdp-champ{
+    position: relative;
+}
+
+.mdp-champ .inp{
+    padding-right: 36px;
+}
+
+.mdp-champ i{
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    color: rgb(100, 100, 100);
+    cursor: pointer;
+}
+
+/* photo de profil */
+.photo-box{
+    position: relative;
+    height: 150px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 2px 3px 5px rgb(205, 205, 205);
+}
+
+.photo-box > span{
+    position: absolute;
+    left: 14px;
+    top: 10px;
+    font-size: 12px;
+}
+
+.photo-ronde{
+    position: relative;
+    width: 56px;
+    height: 56px;
+    margin-top: 12px;
+}
+
+.photo-ronde img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.verif{
+    position: absolute;
+    right: -2px;
+    bottom: 2px;
+    width: 15px;
+    height: 15px;
+    border-radius: 4px;
+    background-color: rgb(30, 100, 235);
+    color: white;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-photo{
+    padding: 4px 22px;
+    border: 1px solid rgb(205, 215, 235);
+    border-radius: 6px;
+    background-color: white;
+    color: rgb(30, 100, 235);
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.btn-photo:hover{
+    background-color: rgb(235, 242, 255);
+}
+
+#c4{
+    top: 705px;
+    left: 95px;
+    width: 910px;
+}

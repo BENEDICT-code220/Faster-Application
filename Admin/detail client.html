@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleDetailClient.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Détail du client</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher une commande, un client....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <a href="parametres.html"><img id="img1" src="télécharger.jpg" alt="image jeune homme"></a>
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <a href="liste-clients.html" class="btn-retour2"><i class="fa-solid fa-arrow-left"></i> Retour</a>
+
+        <fieldset id="c1" class="profil">
+            <img class="grand-avatar" src="bene.jpg" alt="Photo">
+            <div class="infos">
+                <div class="nom-ligne">
+                    <h1>John Doe</h1>
+                    <span class="badge b-vert">Actif</span>
+                </div>
+                <p class="depuis">Client depuis le 02/02/2025</p>
+                <p class="contact"><i class="fa-solid fa-phone"></i> +237 6 55555555</p>
+                <p class="contact"><i class="fa-regular fa-envelope"></i> Johndoe@gmail.com</p>
+                <p class="contact"><i class="fa-solid fa-location-dot"></i> Douala</p>
+            </div>
+
+            <div class="actions">
+                <button class="btn-actions" onclick="menuActions()">Actions</button>
+                <div id="menuActions" class="menu-actions" hidden>
+                    <a href="#"><i class="fa-regular fa-pen-to-square"></i> Modifier</a>
+                    <a href="#"><i class="fa-solid fa-ban"></i> Suspendre</a>
+                    <a href="#" class="danger" onclick="return confirm('Supprimer ce client ?')"><i class="fa-regular fa-trash-can"></i> Supprimer</a>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="stats">
+            <div class="stat s-gris">
+                
+                <div><small>Commandes</small><strong>15</strong></div>
+            </div>
+            <div class="stat s-vert">
+                <i class="fa-regular fa-circle-check"></i>
+                <div><small>CA généré</small><strong>325 000 FCFA</strong></div>
+            </div>
+            <div class="stat s-violet">
+                <i class="fa-regular fa-floppy-disk"></i>
+                <div><small>Livraisons</small><strong>12</strong></div>
+            </div>
+        </div>
+
+        <h2 class="titre-section">Historique des commandes</h2>
+        <div id="c3">
+            <div class="entete-t"><span>Référence</span><span>Date</span><span>Montant</span><span>Statut</span></div>
+            <div class="ligne-t"><span>#CMD001</span><span>02/02/2026</span><span>25 000 FCFA</span><span><span class="badge b-vert">Livrée</span></span></div>
+            <div class="ligne-t"><span>#CMD002</span><span>02/02/2026</span><span>25 000 FCFA</span><span><span class="badge b-vert">Livrée</span></span></div>
+            <div class="ligne-t"><span>#CMD003</span><span>02/02/2026</span><span>25 000 FCFA</span><span><span class="badge b-vert">Livrée</span></span></div>
+            <div class="ligne-t"><span>#CMD004</span><span>02/02/2026</span><span>25 000 FCFA</span><span><span class="badge b-bleu">En cours</span></span></div>
+        </div>
+
+<script>
+/* ---------- menu « Actions » ---------- */
+function menuActions() {
+  const menu = document.getElementById("menuActions");
+  menu.hidden = !menu.hidden;
+}
+
+/* fermer le menu en cliquant ailleurs */
+document.addEventListener("click", e => {
+  if (!e.target.closest(".actions")) {
+    document.getElementById("menuActions").hidden = true;
+  }
+});
+</script>
+
+    </fieldset>
+
+</body>
+</html>

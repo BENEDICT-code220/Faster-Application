@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleClientProfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Profil</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+    <fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3><a href="client acceuil.html"><i class="fa-solid fa-house"></i>Accueil</a></h3>
+        <h3><a href="client produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3><a href="client panier.html"><i class="fa-solid fa-bag-shopping"></i>Mes commandes</a></h3>
+        <h3><a href="client profil.html" class="actif"><i class="fa-regular fa-user"></i>Profil</a></h3>
+        <h3><a href="client livreurs.html"><i class="fa-solid fa-box-open"></i>Livraisons</a></h3>
+        <h3><a href="client suivi.html"><i class="fa-regular fa-eye"></i>Suivi</a></h3>
+        <h3><a href="client paiement.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3><a href="client historique.html"><i class="fa-solid fa-clock-rotate-left"></i>Historique</a></h3>
+        <!--<h3><a href="#"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>-->
+        <h3 class="bas-menu"><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <div class="recherche"><i class="fa-solid fa-magnifying-glass"></i><input id="i11" type="search" placeholder="Recherche un livreur"></div>
+            <div class="droite">
+                <a href="#" class="icone-haut"><i class="fa-regular fa-bell"></i><span class="point"></span></a>
+            <a href="client panier.html" class="icone-haut"><i class="fa-solid fa-cart-shopping"></i><span class="nb" id="nbPanier" hidden>0</span></a>
+                <div class="user-haut">
+                    <a href="client profil.html"><img src="bene.jpg" alt="Photo"></a>
+                    <div><strong>Mike Awono</strong><small>Client</small></div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="profil-grille">
+            <div>
+                <h3 class="titre-p">Informations personnelles</h3>
+
+                <div class="avatar-ligne">
+                    <img id="photoP" src="bene.jpg" alt="Photo de profil">
+                    <div>
+                        <strong>Mike Awono</strong>
+                        <button type="button" class="btn-contour" onclick="document.getElementById('fichierP').click()">changer la photo</button>
+                        <input type="file" id="fichierP" accept="image/*" hidden>
+                    </div>
+                </div>
+
+                <div class="formulaire">
+                    <div>
+                        <label for="nomC">Nom complet</label>
+                        <input class="inp" id="nomC" type="text" value="Mike Awono">
+                    </div>
+                    <div>
+                        <label for="emailC">Email</label>
+                        <input class="inp" id="emailC" type="email" value="mikeawono@gmail.com">
+                    </div>
+                    <div>
+                        <label for="telC">Téléphone</label>
+                        <input class="inp" id="telC" type="tel" value="+237 6 71 47 17 01">
+                    </div>
+                    <div>
+                        <label for="naissC">Date de naissance</label>
+                        <input class="inp" id="naissC" type="date" value="">
+                    </div>
+                    <div>
+                        <label for="genreC">Genre</label>
+                        <select class="inp" id="genreC"><option value="">Sélectionner</option><option selected>Homme</option><option>Femme</option></select>
+                    </div>
+                    <div>
+                        <label for="villeC">Ville</label>
+                        <select class="inp" id="villeC"><option value="">Sélectionner</option><option selected>Douala</option><option>Yaoundé</option><option>Bafoussam</option></select>
+                    </div>
+                </div>
+
+                <button class="btn-bleu pleine" onclick="alert('Modifications enregistrées !')">Enregistrer les modifications</button>
+                <a href="#" class="btn-contour pleine"><i class="fa-solid fa-circle-info"></i> Politiques et confidentialité</a>
+            </div>
+
+            <fieldset class="preferences">
+                <h3>Mes préférences</h3>
+
+                <label class="pref-titre" for="langue">Langue</label>
+                <select id="langue"><option>Français</option><option>English</option></select>
+
+                <label class="pref-titre">Thème</label>
+                <label class="theme-opt"><span>Système</span><input type="radio" name="theme" value="systeme"></label>
+                <label class="theme-opt"><span>Clair</span><input type="radio" name="theme" value="clair" checked></label>
+                <label class="theme-opt"><span>Sombre</span><input type="radio" name="theme" value="sombre"></label>
+            </fieldset>
+        </div>
+
+    </fieldset>
+
+<script>
+/* ---------- panier (mémorisé dans le navigateur) ---------- */
+const CLE = "appdeliverPanier";
+
+function lirePanier() {
+  try { return JSON.parse(localStorage.getItem(CLE)) || []; } catch (e) { return []; }
+}
+
+function sauverPanier(p) {
+  try { localStorage.setItem(CLE, JSON.stringify(p)); } catch (e) {}
+  majBadge();
+}
+
+function majBadge() {
+  const n = lirePanier().reduce((a, x) => a + x.qte, 0);
+  const b = document.getElementById("nbPanier");
+  if (b) { b.textContent = n; b.hidden = (n === 0); }
+}
+
+function ajouterAuPanier(nom, prix, icone) {
+  const p = lirePanier();
+  const existant = p.find(x => x.nom === nom);
+  if (existant) existant.qte++; else p.push({ nom: nom, prix: prix, icone: icone, qte: 1 });
+  sauverPanier(p);
+}
+
+function fcfa(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+/* boutons « Ajouter » des cartes produits */
+document.querySelectorAll(".ajouter").forEach(b => {
+  b.addEventListener("click", () => {
+    ajouterAuPanier(b.dataset.nom, Number(b.dataset.prix), b.dataset.ic);
+    const avant = b.innerHTML;
+    b.innerHTML = '<i class="fa-solid fa-check"></i> Ajouté';
+    setTimeout(() => b.innerHTML = avant, 900);
+  });
+});
+
+majBadge();
+
+/* ---------- changer la photo ---------- */
+document.getElementById("fichierP").addEventListener("change", function () {
+  const f = this.files[0];
+  if (!f) return;
+  const lecteur = new FileReader();
+  lecteur.onload = e => document.getElementById("photoP").src = e.target.result;
+  lecteur.readAsDataURL(f);
+});
+
+/* ---------- thème : système / clair / sombre ---------- */
+function appliquerTheme(choix) {
+  let sombre = (choix === "sombre");
+  if (choix === "systeme") sombre = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  document.body.classList.toggle("sombre", sombre);
+  try { localStorage.setItem("appdeliverTheme", choix); } catch (e) {}
+}
+
+document.querySelectorAll("input[name='theme']").forEach(r => {
+  r.addEventListener("change", () => appliquerTheme(r.value));
+});
+
+try {
+  const memo = localStorage.getItem("appdeliverTheme");
+  if (memo) {
+    document.querySelector("input[name='theme'][value='" + memo + "']").checked = true;
+    appliquerTheme(memo);
+  }
+} catch (e) {}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylelivreuracceuil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Tableau de bord livreur</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+    <fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3><a href="livreur acceuil.html" class="actif"><i class="fa-solid fa-house"></i>Accueil</a></h3>
+        <h3><a href="livreur livraisons.html"><i class="fa-solid fa-truck"></i>Mes livraisons</a></h3>
+        <h3><a href="livreur carte.html"><i class="fa-solid fa-map-location-dot"></i>Carte</a></h3>
+        <h3><a href="livreur profil.html"><i class="fa-regular fa-user"></i>Profil</a></h3>
+        <h3><a href="#"><i class="fa-regular fa-circle-question"></i>Aide</a></h3>
+        <h3 class="bas-menu"><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <div class="recherche"><i class="fa-solid fa-magnifying-glass"></i><input id="i11" type="search" placeholder="Recherche ..."></div>
+            <div class="droite">
+                <a href="#" class="icone-haut"><i class="fa-regular fa-bell"></i><span class="point"></span></a>
+                <div class="user-haut">
+                    <img src="bene.jpg" alt="Photo">
+                    <div><strong>Amarachoukou isoken</strong><small>Livreur</small></div>
+                </div>
+            </div>
+        </fieldset>
+
+        <h1 class="bonjour">Hello Amarachoukou </h1>
+
+        <div class="stats-liv">
+            <div class="stat-l s-bleu">
+                <div class="rond-i"><i class="fa-solid fa-box"></i></div>
+                <small>Livraisons du jour</small><b>4</b><em>+1 par rapport à hier</em>
+            </div>
+            <div class="stat-l s-vert">
+                <div class="rond-i"><i class="fa-regular fa-circle-check"></i></div>
+                <small>Livraisons réussies</small><b>75%</b><em>+3 par rapport à hier</em>
+            </div>
+            <div class="stat-l s-orange">
+                <div class="rond-i"><i class="fa-solid fa-rotate"></i></div>
+                <small>Livraisons en cours</small><b>1</b><em>en ce moment</em>
+            </div>
+            <div class="stat-l s-rouge">
+                <div class="rond-i"><i class="fa-regular fa-clock"></i></div>
+                <small>Livraisons en retard</small><b>0</b><em>aujourd'hui</em>
+            </div>
+        </div>
+
+        <div class="bas-liv">
+            <div>
+                <h3 class="titre-p" style="font-size: 15px;">Ma tournée du jour</h3>
+
+                <div class="cmd-liv" data-cmd="#CMD324" data-client="Mike Awono" data-tel="+237 671 47 17 01" data-lieu="Bonamoussadi, Douala" data-montant="25 000" data-etat="En cours">
+                    <span class="ico or"><i class="fa-solid fa-truck-fast"></i></span>
+                    <div class="infos"><strong>#CMD324</strong><small>Mike Awono</small><small>Bonamoussadi, Douala</small></div>
+                    <div class="fin"><span>25 000 FCFA</span><span class="petit-badge b-or">En route</span></div>
+                </div>
+                <div class="cmd-liv" data-cmd="#CMD224" data-client="Lucy Nana" data-tel="+237 675 34 28 34" data-lieu="Makepe, Douala" data-montant="15 000" data-etat="Livré">
+                    <span class="ico vt"><i class="fa-solid fa-box-open"></i></span>
+                    <div class="infos"><strong>#CMD224</strong><small>Lucy Nana</small><small>Makepe, Douala</small></div>
+                    <div class="fin"><span>15 000 FCFA</span><span class="petit-badge b-vt">Livré</span></div>
+                </div>
+                <div class="cmd-liv" data-cmd="#CMD424" data-client="Douglas Ateba" data-tel="+237 677 10 20 30" data-lieu="Akwa, Douala" data-montant="20 000" data-etat="Livré">
+                    <span class="ico vt"><i class="fa-solid fa-box-open"></i></span>
+                    <div class="infos"><strong>#CMD424</strong><small>Douglas Ateba</small><small>Akwa, Douala</small></div>
+                    <div class="fin"><span>20 000 FCFA</span><span class="petit-badge b-vt">Livré</span></div>
+                </div>
+                <div class="cmd-liv" data-cmd="#CMD162" data-client="Andy Mbarga" data-tel="+237 699 55 44 33" data-lieu="Bonapriso, Douala" data-montant="40 000" data-etat="Livré">
+                    <span class="ico vt"><i class="fa-solid fa-box-open"></i></span>
+                    <div class="infos"><strong>#CMD162</strong><small>Andy Mbarga</small><small>Bonapriso, Douala</small></div>
+                    <div class="fin"><span>40 000 FCFA</span><span class="petit-badge b-vt">Livré</span></div>
+                </div>
+            </div>
+
+            <div class="carte map-carte">
+                <img class="map-img" src="OIP.webp" alt="Carte des livraisons">
+                <div class="map-bas">
+                    <div><small>Position livraison</small><strong>#CMD324</strong><small>Bonamoussadi, Douala</small></div>
+                    <a href="livreur livraisons.html" class="btn-bleu">Mes livraisons</a>
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+
+    <!-- ========== TIROIR : DÉTAILS DE LA COMMANDE ========== -->
+    <aside class="tiroir" id="tiroir" hidden>
+        <div class="tiroir-tete">
+            <h3>Détails de la commande</h3>
+            <button class="fermer-t" id="fermerT" title="Fermer"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="num-cmd"><span id="tNum">#CMD2347</span><span class="petit-badge b-or" id="tEtat">En cours</span></div>
+
+        <div class="bloc-t">
+            <a href="livreur profil.html"><img src="bene.jpg" alt="Photo"></a>
+            <div><small>Client(e)</small><strong id="tClient">Lucy Nana</strong><small id="tTel">+237 675 34 28 34</small></div>
+            <i class="fa-solid fa-chevron-right chev"></i>
+        </div>
+        <div class="bloc-t">
+            <i class="fa-solid fa-location-dot"></i>
+            <div><small>Adresse de livraison</small><strong id="tLieu">Bonamoussadi, Douala</strong></div>
+            <i class="fa-solid fa-chevron-right chev"></i>
+        </div>
+        <div class="bloc-t">
+            <i class="fa-solid fa-shoe-prints"></i>
+            <div><small>Articles</small><strong>Nike Adapt BB</strong><small>2 x 250 000 FCFA</small></div>
+            <i class="fa-solid fa-chevron-right chev"></i>
+        </div>
+        <div class="bloc-t">
+            <i class="fa-regular fa-credit-card"></i>
+            <div><small>Paiement</small><strong>Master card</strong><small id="tMontant">500 000 FCFA</small></div>
+            <i class="fa-solid fa-chevron-right chev"></i>
+        </div>
+    </aside>
+
+<script>
+/* ---------- ouverture du tiroir « détails de la commande » ---------- */
+document.querySelectorAll(".cmd-liv").forEach(ligne => {
+  ligne.addEventListener("click", () => {
+    document.getElementById("tNum").textContent = ligne.dataset.cmd;
+    document.getElementById("tEtat").textContent = ligne.dataset.etat;
+    document.getElementById("tClient").textContent = ligne.dataset.client;
+    document.getElementById("tTel").textContent = ligne.dataset.tel;
+    document.getElementById("tLieu").textContent = ligne.dataset.lieu;
+    document.getElementById("tMontant").textContent = ligne.dataset.montant + " FCFA";
+    document.getElementById("tiroir").hidden = false;
+  });
+});
+
+function fermerTiroir() { document.getElementById("tiroir").hidden = true; }
+document.getElementById("fermerT").addEventListener("click", fermerTiroir);
+document.addEventListener("keydown", e => { if (e.key === "Escape") fermerTiroir(); });
+</script>
+
+</body>
+</html>

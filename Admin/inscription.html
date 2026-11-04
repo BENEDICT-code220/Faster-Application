@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Page d'inscription</title>
+        <link rel="stylesheet" href="styleinscription.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    </head>
+    <body>
+         <div>
+            <img src="image.jpg" alt="">
+            <fieldset class="fieldset">
+                <form action="">
+                    
+                    <h3>Créer un compte</h3>
+
+                    <span class="champ">
+                        <i class="fa-regular fa-user ic"></i>
+                        <input id="i1" type="text" placeholder="Nom">
+                    </span><br>
+
+                    <span class="champ">
+                        <i class="fa-regular fa-user ic"></i>
+                        <input id="i2" type="text" placeholder="Prénom">
+                    </span><br>
+
+                    <span class="champ">
+                        <i class="fa-regular fa-envelope ic"></i>
+                        <input id="i3" type="email" placeholder="Adresse Email">
+                    </span><br>
+
+                    <span class="champ">
+                        <i class="fa-solid fa-phone ic"></i>
+                        <input id="i4" type="tel" placeholder="Téléphone">
+                    </span><br>
+
+                    <span class="champ">
+                        <i class="fa-solid fa-lock ic"></i>
+                        <input id="i5" type="password" placeholder="Mot de passe">
+                        <i id="oeil5" class="fa-regular fa-eye ic-droite" onclick="voirMdp('i5','oeil5')"></i>
+                    </span><br>
+
+                    <span class="champ">
+                        <i class="fa-solid fa-shield-halved ic"></i>
+                        <input id="i6" type="password" placeholder="Confirmer le mot de passe">
+                        <i id="oeil6" class="fa-regular fa-eye ic-droite" onclick="voirMdp('i6','oeil6')"></i>
+                    </span><br>
+
+                    <div class="ligne-checkbox">
+                        <input type="checkbox" id="i7" name="accepte">
+                        <label id="label" for="i7"> Accepter les <span id="sp1">conditions d'utilisation</span></label>
+                    </div>
+                    <a href="index.html"><input id="i8" type="button" value="S'inscrire"></a>
+                    <p><a id="l1" href="index.html">Vous avez déjà un compte? <span id="sp2">Se Connecter</span></a></p>
+
+                </form>
+            </fieldset>
+            </div>
+
+        <script>
+        /* afficher / cacher un mot de passe */
+        function voirMdp(idChamp, idOeil) {
+            const champ = document.getElementById(idChamp);
+            const oeil = document.getElementById(idOeil);
+            if (champ.type === "password") {
+                champ.type = "text";
+                oeil.className = "fa-regular fa-eye-slash ic-droite";
+            } else {
+                champ.type = "password";
+                oeil.className = "fa-regular fa-eye ic-droite";
+            }
+        }
+        </script>
+    </body>
+</html>

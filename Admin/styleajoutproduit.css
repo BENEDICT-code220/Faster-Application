@@ -1,0 +1,485 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: white;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+fieldset{
+    margin: 0;
+    padding: 0;
+    border: none;
+    min-width: 0;
+}
+
+/* ================= MENU GAUCHE ================= */
+#f1{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 220px;
+    padding: 20px 12px;
+    background-color: rgba(0, 30, 59, 0.936);
+    color: white;
+    z-index: 20;
+}
+
+.h{
+    margin: 0 0 30px 10px;
+    font-size: 24px;
+}
+
+#f1 h3{
+    margin: 0 0 6px 0;
+    font-size: 15px;
+}
+
+#f1 h3 a{
+    display: block;
+    padding: 12px 14px;
+    border-radius: 8px;
+}
+
+#f1 h3 a i{
+    width: 30px;
+    font-size: 18px;
+}
+
+/* lien actif */
+#l6 a{
+    background-color: rgb(30, 144, 255);
+}
+
+#f1 h3 a:hover{
+    color: rgb(81, 142, 255);
+}
+
+#l10{
+    position: absolute;
+    bottom: 20px;
+    left: 12px;
+    right: 12px;
+}
+
+#l10 a:active{
+    color: red;
+}
+
+/* ================= ZONE PRINCIPALE ================= */
+#f2{
+    position: relative;
+    width: 1100px;
+    height: 760px;
+    margin-left: 220px;
+    background-color: rgb(222, 236, 255);
+}
+
+/* ---------- barre du haut ---------- */
+#f3{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 76px;
+    background-color: rgb(250, 246, 246);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+#s{
+    position: absolute;
+    left: 32px;
+    top: 28px;
+    font-size: 15px;
+    color: rgb(40, 40, 40);
+    z-index: 2;
+}
+
+#i11{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 300px;
+    height: 36px;
+    padding-left: 38px;
+    border: 1px solid rgb(236, 234, 234);
+    background-color: rgb(238, 238, 238);
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+#i11:focus{
+    outline: none;
+    border-color: #0d6efd;
+}
+
+#cloche, #mail{
+    position: absolute;
+    top: 24px;
+    font-size: 24px;
+    color: rgb(30, 144, 255);
+}
+
+#cloche{ right: 255px; }
+#mail{ right: 210px; }
+
+#point{
+    position: absolute;
+    top: 22px;
+    right: 204px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+#img1{
+    position: absolute;
+    top: 13px;
+    right: 135px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#imD2{
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    width: 110px;
+}
+
+#poste{
+    margin: 0;
+    font-size: 16px;
+    color: black;
+}
+
+#nom{
+    margin: 2px 0 0 0;
+    font-size: 12px;
+    color: black;
+}
+
+/* ---------- cartes de formulaire ---------- */
+.carte{
+    position: absolute;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid rgb(215, 215, 215);
+    border-radius: 10px;
+    box-shadow: 2px 3px 8px rgb(200, 205, 215);
+}
+
+.titre-carte{
+    margin: 0 0 16px 0;
+    font-size: 15px;
+}
+
+.titre-carte i{
+    margin-right: 6px;
+    color: rgb(30, 100, 235);
+}
+
+.lab{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.req{
+    color: red;
+}
+
+.inp{
+    width: 100%;
+    height: 34px;
+    padding: 0 10px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 6px;
+    background-color: rgb(248, 248, 248);
+    font-size: 12.5px;
+    font-family: inherit;
+}
+
+.inp:focus{
+    outline: none;
+    border-color: rgb(30, 100, 235);
+    background-color: white;
+}
+
+select.inp{
+    color: rgb(100, 100, 100);
+}
+
+/* ---------- boutons ---------- */
+.btn-blanc{
+    display: inline-block;
+    padding: 9px 26px;
+    border: 1px solid rgb(30, 100, 235);
+    border-radius: 8px;
+    background-color: white;
+    color: rgb(30, 100, 235);
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-blanc:hover{
+    background-color: rgb(235, 242, 255);
+}
+
+.btn-bleu{
+    padding: 9px 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(30, 144, 255);
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0.9px 1.5px 5px rgb(170, 190, 220);
+}
+
+.btn-bleu:hover{
+    background-color: rgb(20, 110, 220);
+}
+
+.btn-bleu i, .btn-blanc i{
+    margin-right: 6px;
+}
+
+#c4{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+}
+
+/* ================= AJOUTER UN PRODUIT ================= */
+.entete-page{
+    position: absolute;
+    top: 92px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icone-page{
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background-color: rgb(205, 222, 250);
+    color: rgb(30, 100, 235);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+}
+
+.entete-page h1{
+    margin: 0;
+    font-size: 22px;
+}
+
+.entete-page p{
+    margin: 2px 0 0 0;
+    font-size: 11px;
+    color: rgb(140, 150, 175);
+}
+
+.btn-retour{
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    padding: 10px 20px;
+    border: 1px solid rgb(30, 100, 235);
+    border-radius: 8px;
+    background-color: white;
+    color: rgb(30, 100, 235);
+    font-size: 14px;
+}
+
+.btn-retour:hover{
+    background-color: rgb(235, 242, 255);
+}
+
+#c1{ top: 175px; left: 30px;  width: 590px; height: 470px; }
+#c2{ top: 175px; left: 645px; width: 425px; height: 205px; }
+#c3{ top: 395px; left: 645px; width: 425px; height: 250px; }
+
+.ligne2{
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 0 20px;
+    margin-bottom: 14px;
+}
+
+.ligne3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0 20px;
+    margin-bottom: 14px;
+}
+
+.pleine{
+    margin-bottom: 14px;
+}
+
+textarea.inp{
+    height: 120px;
+    padding: 10px;
+    resize: none;
+}
+
+.suffixe{
+    position: relative;
+}
+
+.suffixe span{
+    position: absolute;
+    right: 12px;
+    top: 9px;
+    font-size: 11px;
+    color: rgb(120, 120, 120);
+}
+
+.suffixe .inp{
+    padding-right: 52px;
+}
+
+.statut-ligne{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 34px;
+    font-size: 11px;
+}
+
+/* interrupteur bleu */
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+}
+
+.switch input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider{
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background-color: rgb(205, 205, 205);
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+.slider::before{
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: white;
+    transition: transform .2s;
+}
+
+.switch input:checked + .slider{
+    background-color: rgb(30, 144, 255);
+}
+
+.switch input:checked + .slider::before{
+    transform: translateX(16px);
+}
+
+/* zone de dépôt d'image */
+.zone-depot{
+    height: 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    border: 1.5px dashed rgb(30, 144, 255);
+    border-radius: 6px;
+    background-color: rgb(235, 244, 255);
+    cursor: pointer;
+}
+
+.zone-depot.survol{
+    background-color: rgb(210, 230, 255);
+}
+
+.zone-depot i{
+    font-size: 24px;
+    color: rgb(30, 144, 255);
+}
+
+.zone-depot strong{
+    font-size: 11px;
+}
+
+.zone-depot small{
+    font-size: 10px;
+    color: rgb(120, 130, 150);
+}
+
+.apercu-ligne{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    font-size: 11px;
+}
+
+.apercu{
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background-color: rgb(235, 235, 235);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: rgb(90, 90, 90);
+    font-size: 20px;
+}
+
+.apercu img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#c3 .pleine{
+    margin-bottom: 10px;
+}
+
+#c4{
+    top: 670px;
+    left: 30px;
+    width: 1040px;
+    height: 70px;
+    padding: 0 24px;
+    background-color: rgb(245, 247, 252);
+    border-radius: 6px;
+}

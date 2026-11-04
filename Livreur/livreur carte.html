@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleLivreurCarte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Carte</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+    <fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3><a href="livreur acceuil.html"><i class="fa-solid fa-house"></i>Accueil</a></h3>
+        <h3><a href="livreur livraisons.html"><i class="fa-solid fa-truck"></i>Mes livraisons</a></h3>
+        <h3><a href="livreur carte.html" class="actif"><i class="fa-solid fa-map-location-dot"></i>Carte</a></h3>
+        <h3><a href="livreur profil.html"><i class="fa-regular fa-user"></i>Profil</a></h3>
+        <!--<h3><a href="#"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>-->
+        <h3><a href="#"><i class="fa-regular fa-circle-question"></i>Aide</a></h3>
+        <h3 class="bas-menu"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <div class="recherche"><i class="fa-solid fa-magnifying-glass"></i><input id="i11" type="search" placeholder="Recherche ..."></div>
+            <div class="droite">
+                <a href="#" class="icone-haut"><i class="fa-regular fa-bell"></i><span class="point"></span></a>
+                <div class="user-haut">
+                    <a href="livreur profil.html"><img src="bene.jpg" alt="Photo"></a>
+                    <div><strong>Amarachoukou isoken</strong><small>Livreur</small></div>
+                </div>
+            </div>
+        </fieldset>
+
+        <h3 class="titre-p">Itinéraire</h3>
+
+        <div class="entete-carte">
+            <button class="btn-pos" id="btnPos"><i class="fa-solid fa-location-dot"></i> Ma position actuelle</button>
+            <button class="btn-pos" id="btnDest"><i class="fa-solid fa-flag-checkered"></i> Destination</button>
+        </div>
+
+        <div class="grande-carte" id="carte">
+            <img class="map-img" src="images.jpg" alt="Carte">
+            <i class="fa-solid fa-location-dot epingle bleue" id="epPos" style="left: 28%; top: 62%;"></i>
+            <i class="fa-solid fa-location-dot epingle" id="epDest" style="left: 68%; top: 34%;"></i>
+            <i class="fa-solid fa-location-dot epingle" id="epChoix" hidden></i>
+            <div class="info-pt" id="infoPt" hidden></div>
+            <button class="btn-bleu btn-select" id="btnSelect"><i class="fa-solid fa-crosshairs"></i> Sélectionner un point</button>
+        </div>
+
+    </fieldset>
+
+<script>
+/* ---------- sélection d'un point sur la carte ---------- */
+const carte = document.getElementById("carte");
+const btnSelect = document.getElementById("btnSelect");
+let selection = false;
+
+btnSelect.addEventListener("click", () => {
+  selection = !selection;
+  carte.classList.toggle("selection", selection);
+  btnSelect.innerHTML = selection
+    ? '<i class="fa-solid fa-xmark"></i> Annuler la sélection'
+    : '<i class="fa-solid fa-crosshairs"></i> Sélectionner un point';
+});
+
+carte.addEventListener("click", e => {
+  if (!selection || e.target.closest(".btn-select")) return;
+  const r = carte.getBoundingClientRect();
+  const x = e.clientX - r.left, y = e.clientY - r.top;
+  const ep = document.getElementById("epChoix");
+  ep.style.left = x + "px";
+  ep.style.top = y + "px";
+  ep.hidden = false;
+
+  const info = document.getElementById("infoPt");
+  info.textContent = "Point sélectionné (" + Math.round(x / r.width * 100) + " %, " + Math.round(y / r.height * 100) + " %)";
+  info.hidden = false;
+
+  selection = false;
+  carte.classList.remove("selection");
+  btnSelect.innerHTML = '<i class="fa-solid fa-crosshairs"></i> Sélectionner un point';
+});
+
+/* boutons du haut : mettre en avant la position / la destination */
+function clignoter(id) {
+  const ep = document.getElementById(id);
+  ep.style.transition = "transform .25s";
+  ep.style.transform = "translate(-50%, -100%) scale(1.6)";
+  setTimeout(() => ep.style.transform = "translate(-50%, -100%)", 450);
+}
+document.getElementById("btnPos").addEventListener("click", () => clignoter("epPos"));
+document.getElementById("btnDest").addEventListener("click", () => clignoter("epDest"));
+</script>
+
+</body>
+</html>

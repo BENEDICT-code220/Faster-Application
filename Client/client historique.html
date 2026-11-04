@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleClientHistorique.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Historique</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+    <fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3><a href="client acceuil.html"><i class="fa-solid fa-house"></i>Accueil</a></h3>
+        <h3><a href="client produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3><a href="client panier.html"><i class="fa-solid fa-bag-shopping"></i>Mes commandes</a></h3>
+        <h3><a href="client profil.html"><i class="fa-regular fa-user"></i>Profil</a></h3>
+        <h3><a href="client livreurs.html"><i class="fa-solid fa-box-open"></i>Livraisons</a></h3>
+        <h3><a href="client suivi.html"><i class="fa-regular fa-eye"></i>Suivi</a></h3>
+        <h3><a href="client paiement.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3><a href="client historique.html" class="actif"><i class="fa-solid fa-clock-rotate-left"></i>Historique</a></h3>
+        <!--<h3><a href="#"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>-->
+        <h3 class="bas-menu"><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <div class="recherche"><i class="fa-solid fa-magnifying-glass"></i><input id="i11" type="search" placeholder="Recherche un article ..."></div>
+            <div class="droite">
+                <a href="#" class="icone-haut"><i class="fa-regular fa-bell"></i><span class="point"></span></a>
+            <a href="client panier.html" class="icone-haut"><i class="fa-solid fa-cart-shopping"></i><span class="nb" id="nbPanier" hidden>0</span></a>
+                <div class="user-haut">
+                    <a href="client profil.html"><img src="bene.jpg" alt="Photo"></a>
+                    <div><strong>Mike Awono</strong><small>Client</small></div>
+                </div>
+            </div>
+        </fieldset>
+
+        <h3 class="titre-p" style="font-size: 15px;">Historiques de mes activités</h3>
+
+        <div class="onglets-h">
+            <button class="onglet-h actif" data-onglet="commandes">Commandes</button>
+            <button class="onglet-h" data-onglet="paiements">Paiements</button>
+        </div>
+
+        <div class="filtres-h">
+            <label class="date-champ"><i class="fa-regular fa-calendar"></i> Du <input id="du" type="date" value="2026-09-18"></label>
+            <label class="date-champ"><i class="fa-regular fa-calendar"></i> Au <input id="au" type="date" value="2026-09-28"></label>
+            <select id="statut"></select>
+        </div>
+
+        <div id="panneau-commandes">
+            <div class="tete-h"><span>#</span><span>Description</span><span>Montant</span><span>Statut</span><span>Date</span></div>
+                <div class="rang-h" data-statut="En livraison" data-date="2026-09-18"><b>#CMD1</b><span>Burger king</span><span>3 500 FCFA</span><span class="st-bleu">En livraison</span><span>18/09/26</span></div>
+                <div class="rang-h" data-statut="Livrée" data-date="2026-09-20"><b>#CMD2</b><span>Burger king</span><span>3 500 FCFA</span><span class="st-vert">Livrée</span><span>20/09/26</span></div>
+                <div class="rang-h" data-statut="Livrée" data-date="2026-09-23"><b>#CMD3</b><span>Burger king</span><span>3 500 FCFA</span><span class="st-vert">Livrée</span><span>23/09/26</span></div>
+                <div class="rang-h" data-statut="Livrée" data-date="2026-09-25"><b>#CMD4</b><span>Casque BT</span><span>8 000 FCFA</span><span class="st-vert">Livrée</span><span>25/09/26</span></div>
+                <div class="rang-h" data-statut="Livrée" data-date="2026-09-27"><b>#CMD5</b><span>T-Shirt Otaku</span><span>3 500 FCFA</span><span class="st-vert">Livrée</span><span>27/09/26</span></div>
+                <div class="rang-h" data-statut="Annulée" data-date="2026-09-27"><b>#CMD6</b><span>Nike adapt BB</span><span>3 500 FCFA</span><span class="st-rouge">Annulée</span><span>27/09/26</span></div>
+                <div class="rang-h" data-statut="Livrée" data-date="2026-09-28"><b>#CMD7</b><span>Deodorant AXE</span><span>10 000 FCFA</span><span class="st-vert">Livrée</span><span>28/09/26</span></div>
+        </div>
+
+        <div id="panneau-paiements" hidden>
+            <div class="tete-h"><span>#</span><span>Description</span><span>Montant</span><span>Statut</span><span>Date</span></div>
+                <div class="rang-h" data-statut="Réussi" data-date="2026-09-18"><b>#PAY1</b><span>Burger king</span><span>3 500 FCFA</span><span class="st-vert">Réussi</span><span>18/09/26</span></div>
+                <div class="rang-h" data-statut="Réussi" data-date="2026-09-20"><b>#PAY2</b><span>Burger king</span><span>3 500 FCFA</span><span class="st-vert">Réussi</span><span>20/09/26</span></div>
+                <div class="rang-h" data-statut="En attente" data-date="2026-09-23"><b>#PAY3</b><span>Burger king</span><span>3 500 FCFA</span><span class="st-orange">En attente</span><span>23/09/26</span></div>
+                <div class="rang-h" data-statut="Réussi" data-date="2026-09-25"><b>#PAY4</b><span>Casque BT</span><span>8 000 FCFA</span><span class="st-vert">Réussi</span><span>25/09/26</span></div>
+                <div class="rang-h" data-statut="Échec" data-date="2026-09-27"><b>#PAY5</b><span>T-Shirt Otaku</span><span>3 500 FCFA</span><span class="st-rouge">Échec</span><span>27/09/26</span></div>
+                <div class="rang-h" data-statut="Réussi" data-date="2026-09-27"><b>#PAY6</b><span>Nike adapt BB</span><span>3 500 FCFA</span><span class="st-vert">Réussi</span><span>27/09/26</span></div>
+                <div class="rang-h" data-statut="Réussi" data-date="2026-09-28"><b>#PAY7</b><span>Deodorant AXE</span><span>10 000 FCFA</span><span class="st-vert">Réussi</span><span>28/09/26</span></div>
+        </div>
+
+    </fieldset>
+
+<script>
+/* ---------- panier (mémorisé dans le navigateur) ---------- */
+const CLE = "appdeliverPanier";
+
+function lirePanier() {
+  try { return JSON.parse(localStorage.getItem(CLE)) || []; } catch (e) { return []; }
+}
+
+function sauverPanier(p) {
+  try { localStorage.setItem(CLE, JSON.stringify(p)); } catch (e) {}
+  majBadge();
+}
+
+function majBadge() {
+  const n = lirePanier().reduce((a, x) => a + x.qte, 0);
+  const b = document.getElementById("nbPanier");
+  if (b) { b.textContent = n; b.hidden = (n === 0); }
+}
+
+function ajouterAuPanier(nom, prix, icone) {
+  const p = lirePanier();
+  const existant = p.find(x => x.nom === nom);
+  if (existant) existant.qte++; else p.push({ nom: nom, prix: prix, icone: icone, qte: 1 });
+  sauverPanier(p);
+}
+
+function fcfa(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+/* boutons « Ajouter » des cartes produits */
+document.querySelectorAll(".ajouter").forEach(b => {
+  b.addEventListener("click", () => {
+    ajouterAuPanier(b.dataset.nom, Number(b.dataset.prix), b.dataset.ic);
+    const avant = b.innerHTML;
+    b.innerHTML = '<i class="fa-solid fa-check"></i> Ajouté';
+    setTimeout(() => b.innerHTML = avant, 900);
+  });
+});
+
+majBadge();
+
+const OPTIONS = {
+  commandes: ["Tous les résultats", "En livraison", "Livrée", "Annulée"],
+  paiements: ["Tous les résultats", "Réussi", "En attente", "Échec"]
+};
+let onglet = "commandes";
+
+function remplirStatuts() {
+  document.getElementById("statut").innerHTML = OPTIONS[onglet].map(o => "<option>" + o + "</option>").join("");
+}
+
+/* ---------- filtre par dates et par statut ---------- */
+function appliquer() {
+  const du = document.getElementById("du").value;
+  const au = document.getElementById("au").value;
+  const st = document.getElementById("statut").value;
+  document.querySelectorAll("#panneau-" + onglet + " .rang-h").forEach(ligne => {
+    const d = ligne.dataset.date;
+    const ok = (!du || d >= du) && (!au || d <= au) && (st === "Tous les résultats" || ligne.dataset.statut === st);
+    ligne.style.display = ok ? "" : "none";
+  });
+}
+
+/* ---------- changement d'onglet ---------- */
+document.querySelectorAll(".onglet-h").forEach(b => {
+  b.addEventListener("click", () => {
+    document.querySelectorAll(".onglet-h").forEach(x => x.classList.remove("actif"));
+    b.classList.add("actif");
+    onglet = b.dataset.onglet;
+    document.getElementById("panneau-commandes").hidden = (onglet !== "commandes");
+    document.getElementById("panneau-paiements").hidden = (onglet !== "paiements");
+    remplirStatuts();
+    appliquer();
+  });
+});
+
+["du", "au", "statut"].forEach(id => document.getElementById(id).addEventListener("change", appliquer));
+
+remplirStatuts();
+appliquer();
+</script>
+
+</body>
+</html>

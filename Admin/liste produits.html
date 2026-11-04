@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleListeProduits.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Liste des produits</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher un produit.......">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <a href="parametres.html"><img id="img1" src="télécharger.jpg" alt="image jeune homme"></a>
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <div class="titre-liste">
+            <a href="produits.html" class="fleche" title="Retour"><i class="fa-solid fa-arrow-left"></i></a>
+            <h1>Liste des produits</h1>
+        </div>
+
+        <div class="outils">
+            <a href="ajouter-produit.html" class="btn-ajout"><i class="fa-solid fa-plus"></i> Ajouter</a>
+            <div class="filtre">
+                <button class="btn-filtrer" onclick="menuFiltre()">Filtrer <i class="fa-solid fa-filter"></i></button>
+                <div id="menuFiltre" class="menu-filtre" hidden>
+                <button class="actif" data-filtre="tous">Tous les produits</button>
+                <button data-filtre="actif">Actifs</button>
+                <button data-filtre="faible">Stock faible</button>
+                <button data-filtre="rupture">En rupture</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="c3">
+            <div class="tete"><span>Id</span><span>Produit</span><span>Catégorie</span><span>Prix</span><span>Stock</span><span>Statut</span><span>Actions</span></div>
+            <div class="zone-scroll">
+                <div class="rang-c" data-statut="actif"><span>1</span><span><span class="avec-image"><i class="vignette fa-solid fa-bag-shopping"></i>Sac sacte</span></span><span>Mode</span><span>10 000 FCFA</span><span>14</span><span><span class="etat e-vert">Actif</span></span><span><i class="fa-solid fa-pen-to-square act-bleu"></i><i class="fa-solid fa-trash act-rouge"></i></span></div>
+                <div class="rang-c" data-statut="actif"><span>2</span><span><span class="avec-image"><i class="vignette fa-solid fa-headphones"></i>Casque Bluetooth</span></span><span>Électronique</span><span>15 000 FCFA</span><span>14</span><span><span class="etat e-vert">Actif</span></span><span><i class="fa-solid fa-pen-to-square act-bleu"></i><i class="fa-solid fa-trash act-rouge"></i></span></div>
+                <div class="rang-c" data-statut="faible"><span>3</span><span><span class="avec-image"><i class="vignette fa-solid fa-mobile-screen"></i>iPhone 14</span></span><span>Électronique</span><span>450 000 FCFA</span><span><b class="faible">3</b></span><span><span class="etat e-orange">Stock faible</span></span><span><i class="fa-solid fa-pen-to-square act-bleu"></i><i class="fa-solid fa-trash act-rouge"></i></span></div>
+                <div class="rang-c" data-statut="actif"><span>4</span><span><span class="avec-image"><i class="vignette fa-solid fa-spray-can-sparkles"></i>Parfum Fanangé</span></span><span>Beauté</span><span>5 000 FCFA</span><span>14</span><span><span class="etat e-vert">Actif</span></span><span><i class="fa-solid fa-pen-to-square act-bleu"></i><i class="fa-solid fa-trash act-rouge"></i></span></div>
+                <div class="rang-c" data-statut="rupture"><span>5</span><span><span class="avec-image"><i class="vignette fa-solid fa-shoe-prints"></i>Air force</span></span><span>Mode</span><span>35 000 FCFA</span><span><b class="faible">0</b></span><span><span class="etat e-rouge">En rupture</span></span><span><i class="fa-solid fa-pen-to-square act-bleu"></i><i class="fa-solid fa-trash act-rouge"></i></span></div>
+                <div class="rang-c" data-statut="rupture"><span>6</span><span><span class="avec-image"><i class="vignette fa-solid fa-futbol"></i>Ballon</span></span><span>Sport</span><span>8 000 FCFA</span><span><b class="faible">0</b></span><span><span class="etat e-rouge">En rupture</span></span><span><i class="fa-solid fa-pen-to-square act-bleu"></i><i class="fa-solid fa-trash act-rouge"></i></span></div>
+                <div class="rang-c" data-statut="actif"><span>7</span><span><span class="avec-image"><i class="vignette fa-solid fa-stopwatch"></i>Montre connectée</span></span><span>Électronique</span><span>25 000 FCFA</span><span>22</span><span><span class="etat e-vert">Actif</span></span><span><i class="fa-solid fa-pen-to-square act-bleu"></i><i class="fa-solid fa-trash act-rouge"></i></span></div>
+                <div class="rang-c" data-statut="faible"><span>8</span><span><span class="avec-image"><i class="vignette fa-solid fa-shirt"></i>Robe d'été</span></span><span>Mode</span><span>12 000 FCFA</span><span><b class="faible">5</b></span><span><span class="etat e-orange">Stock faible</span></span><span><i class="fa-solid fa-pen-to-square act-bleu"></i><i class="fa-solid fa-trash act-rouge"></i></span></div>
+                <div class="rang-c" data-statut="actif"><span>9</span><span><span class="avec-image"><i class="vignette fa-solid fa-blender"></i>Mixeur</span></span><span>Maison</span><span>20 000 FCFA</span><span>18</span><span><span class="etat e-vert">Actif</span></span><span><i class="fa-solid fa-pen-to-square act-bleu"></i><i class="fa-solid fa-trash act-rouge"></i></span></div>
+                <div class="rang-c" data-statut="actif"><span>10</span><span><span class="avec-image"><i class="vignette fa-solid fa-droplet"></i>Crème visage</span></span><span>Beauté</span><span>7 500 FCFA</span><span>40</span><span><span class="etat e-vert">Actif</span></span><span><i class="fa-solid fa-pen-to-square act-bleu"></i><i class="fa-solid fa-trash act-rouge"></i></span></div>
+            </div>
+        </div>
+
+<script>
+/* ---------- menu « Filtrer » ---------- */
+function menuFiltre() {
+  const menu = document.getElementById("menuFiltre");
+  menu.hidden = !menu.hidden;
+}
+
+document.addEventListener("click", e => {
+  if (!e.target.closest(".filtre")) {
+    document.getElementById("menuFiltre").hidden = true;
+  }
+});
+
+/* ---------- filtrer les lignes par statut ---------- */
+document.querySelectorAll("#menuFiltre button").forEach(bouton => {
+  bouton.addEventListener("click", () => {
+    document.querySelectorAll("#menuFiltre button").forEach(b => b.classList.remove("actif"));
+    bouton.classList.add("actif");
+
+    const filtre = bouton.dataset.filtre;
+    document.querySelectorAll(".rang-c").forEach(ligne => {
+      ligne.style.display = (filtre === "tous" || ligne.dataset.statut === filtre) ? "" : "none";
+    });
+    document.getElementById("menuFiltre").hidden = true;
+  });
+});
+</script>
+
+    </fieldset>
+
+</body>
+</html>

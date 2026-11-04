@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleAjoutLivreur.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Ajouter un livreur</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher une commande, un client....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <a href="parametres.html"><img id="img1" src="télécharger.jpg" alt="image jeune homme"></a>
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <div class="entete-simple">
+            <h1>Ajouter un livreur</h1>
+            <p>Remplissez les informations ci-dessous pour ajouter un nouveau livreur.</p>
+        </div>
+
+        <form id="formulaire" onsubmit="return enregistrer(event)">
+            <fieldset id="c1" class="carte">
+                <h3 class="titre-grand">Informations principales</h3>
+                <div class="deux-col">
+                    <div class="col">
+                    <div class="champ">
+                        <label class="lab" for="nomL">Nom <span class="req">*</span></label>
+                        <input class="inp" id="nomL" type="text" placeholder="Ex : Dupont" required>
+                    </div>
+                    <div class="champ">
+                        <label class="lab" for="prenomL">Prénom <span class="req">*</span></label>
+                        <input class="inp" id="prenomL" type="text" placeholder="Ex : Dupont" required>
+                    </div>
+                    <div class="champ">
+                        <label class="lab">Téléphone <span class="req">*</span></label>
+                        <div class="tel">
+                            <span class="ind"><span class="drapeau">★</span> +237 <i class="fa-solid fa-chevron-down"></i></span>
+                            <input type="tel" placeholder="6 xx xx xx xx" required>
+                        </div>
+                    </div>
+                    <div class="champ">
+                        <label class="lab" for="mdp">Mot de passe <span class="req">*</span></label>
+                        <div class="mdp-champ">
+                            <input class="inp" id="mdp" type="password" placeholder="Min 8 caractères" minlength="8" required>
+                            <i id="oeil" class="fa-regular fa-eye" onclick="voirMdp()"></i>
+                        </div>
+                    </div>
+                    <div class="champ">
+                        <label class="lab" for="vehicule">Type de véhicule <span class="req">*</span></label>
+                        <select class="inp" id="vehicule" required>
+                            <option value="">Sélectionner</option>
+                            <option>Moto</option>
+                            <option>Vélo</option>
+                            <option>Voiture</option>
+                            <option>Tricycle</option>
+                        </select>
+                    </div>
+                    <div class="champ">
+                        <label class="lab" for="immat">Immatriculation <span class="req">*</span></label>
+                        <input class="inp" id="immat" type="text" placeholder="Ex : LT 1254 PQ" required>
+                    </div>
+                    </div>
+                    <div class="col">
+                    
+                    <div class="champ">
+                        <label class="lab" for="emailL">Email <span class="req">*</span></label>
+                        <input class="inp" id="emailL" type="email" placeholder="Ex : Dupont@gmail.com" required>
+                    </div>
+                    <div class="champ">
+                        <label class="lab" for="zone">Zone d'intervention <span class="req">*</span></label>
+                        <select class="inp" id="zone" required>
+                            <option value="">Sélectionner</option>
+                            <option>Douala</option>
+                            <option>Yaoundé</option>
+                            <option>Bafoussam</option>
+                            <option>Autres</option>
+                        </select>
+                    </div>
+                    <div class="photo-box">
+                        <span>Photo de profil</span>
+                        <div class="photo-ronde">
+                            <img id="photo" src="Capture d’écran 2026-10-28 111029.jpg" alt="Photo de profil">
+                            <span class="verif"><i class="fa-solid fa-check"></i></span>
+                        </div>
+                        <button type="button" class="btn-photo" onclick="document.getElementById('fichierPhoto').click()">Changer la photo</button>
+                        <input type="file" id="fichierPhoto" accept="image/*" hidden>
+                    </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div id="c4">
+                <a href="livreurs.html" class="btn-blanc">Annuler</a>
+                <button type="submit" class="btn-bleu"><i class="fa-regular fa-floppy-disk"></i> Enregistrer le livreur</button>
+            </div>
+        </form>
+
+<script>
+/* ---------- afficher / cacher le mot de passe ---------- */
+function voirMdp() {
+  const champ = document.getElementById("mdp");
+  const oeil = document.getElementById("oeil");
+  if (champ.type === "password") {
+    champ.type = "text";
+    oeil.className = "fa-regular fa-eye-slash";
+  } else {
+    champ.type = "password";
+    oeil.className = "fa-regular fa-eye";
+  }
+}
+
+/* ---------- changer la photo (aperçu immédiat) ---------- */
+const fichierPhoto = document.getElementById("fichierPhoto");
+fichierPhoto.addEventListener("change", () => {
+  const f = fichierPhoto.files[0];
+  if (!f) return;
+  const lecteur = new FileReader();
+  lecteur.onload = e => document.getElementById("photo").src = e.target.result;
+  lecteur.readAsDataURL(f);
+});
+
+/* ---------- enregistrement ---------- */
+function enregistrer(e) {
+  e.preventDefault();
+  alert("Livreur enregistré avec succès !");
+  window.location.href = "livreurs.html";
+  return false;
+}
+</script>
+
+    </fieldset>
+
+</body>
+</html>

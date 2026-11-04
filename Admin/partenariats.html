@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylePartenariats.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Faster - Partenariats</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher une station....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <img id="img1" src="télécharger.jpg" alt="image jeune homme">
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <div class="entete-page">
+            <div>
+                <h1 class="titre-page">Partenariats</h1>
+                <p class="sous-titre">Les stations-service qui ravitaillent les véhicules des livreurs</p>
+            </div>
+            <div class="actions-haut">
+                <a href="finances.html" class="btn-blanc"><i class="fa-solid fa-coins"></i> Voir les finances</a>
+                <button class="btn-bleu" id="btnNouveau"><i class="fa-solid fa-plus"></i> Nouveau partenariat</button>
+            </div>
+        </div>
+
+        <!-- chiffres clés (calculés depuis le tableau) -->
+        <div class="kpis">
+            <div class="kpi"><span class="ic i-vert"><i class="fa-solid fa-handshake"></i></span><div><small>Entreprises partenaires actives</small><strong id="kStations">0</strong></div></div>
+            <div class="kpi"><span class="ic i-bleu"><i class="fa-solid fa-gas-pump"></i></span><div><small>Produits distribués (ce mois)</small><strong id="kLitres">0</strong></div></div>
+            <div class="kpi"><span class="ic i-orange"><i class="fa-solid fa-money-bill-wave"></i></span><div><small>Dépenses engagées</small><strong id="kDepenses">0</strong></div></div>
+            <div class="kpi"><span class="ic i-violet"><i class="fa-solid fa-percent"></i></span><div><small>Économies grâce aux remises</small><strong id="kEco">0</strong></div></div>
+        </div>
+
+        <div class="corps-pa">
+
+            <!-- liste des partenaires -->
+            <section class="carte-a">
+                <h3>Entreprises partenaires</h3>
+                <div class="outils-pa">
+                    <input class="champ-rech" id="rechSt" type="search" placeholder="Rechercher une station ou un quartier...">
+                    <select class="champ-rech" id="selStatut">
+                        <option value="">Tous les statuts</option>
+                        <option value="actif">Actif</option>
+                        <option value="negociation">En négociation</option>
+                        <option value="expire">Expiré</option>
+                        <option value="suspendu">Suspendu</option>
+                    </select>
+                </div>
+                <div class="defile">
+                    <table class="tableau">
+                        <thead><tr><th>Entreprise</th><th>Quartier</th><th>Produits</th><th>Remise</th><th>Fin du contrat</th><th>Conso( L & Kg)</th><th>Montant net</th><th>Statut</th></tr></thead>
+                        <tbody id="corpsSt"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- fiche de la station sélectionnée + carte -->
+            <aside class="carte-a fiche-st">
+                <h3><span id="stNom">—</span><span class="badge" id="stBadge">—</span></h3>
+                <p><span>Quartier</span><b id="stQuartier">—</b></p>
+                <p><span>Contact</span><b id="stContact">—</b></p>
+                <p><span>Carburants</span><b id="stCarb">—</b></p>
+                <p><span>Remise négociée</span><b id="stRemise">—</b></p>
+                <p><span>Livreurs ravitaillés</span><b id="stLiv">—</b></p>
+                <p><span>Économies du mois</span><b class="eco" id="stEco">—</b></p>
+
+                <div class="contrat"><b>Contrat</b> : <span id="stContrat">—</span></div>
+                <div class="piste-c"><span id="stBarre" style="width:0%"></span></div>
+                <small id="stReste" style="color:#666;font-size:11px">—</small>
+
+                <div class="actions-st">
+                    <button class="btn-bleu" id="btnRenouveler"><i class="fa-solid fa-rotate"></i> Renouveler</button>
+                    <button class="btn-blanc" id="btnSuspendre"><i class="fa-solid fa-pause"></i> Suspendre</button>
+                    <a href="#" class="btn-blanc" id="stTel"><i class="fa-solid fa-phone"></i> Appeler</a>
+                </div>
+
+                <div class="carte-st" id="carteSt"><img src="OIP.webp" alt="Carte des stations"></div>
+            </aside>
+        </div>
+
+        <!-- ravitaillements -->
+        <section class="carte-a">
+            <h3>Ravitaillements récents des livreurs</h3>
+            <div class="defile">
+                <table class="tableau">
+                    <thead><tr><th>Date</th><th>Livreur</th><th>Entreprise</th><th>Quantité</th><th>Montant net</th><th>N° du bon</th></tr></thead>
+                    <tbody id="corpsRav"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- fenêtre : nouveau partenariat -->
+        <div class="voile" id="voile" hidden>
+            <form class="fenetre" id="formPa">
+                <h3>Nouveau partenariat</h3>
+                <div class="champs-grille">
+                    <div class="large"><label for="fNom">Nom de l'entreprise*</label><input class="champ-rech" id="fNom" type="text" placeholder="Ex : Blessing Énergie, Santa Lucia" required></div>
+                    <div><label for="fQuartier">Quartier</label><input class="champ-rech" id="fQuartier" type="text" placeholder="Ex : Bali" required></div>
+                    <div><label for="fTel">Téléphone du contact</label><input class="champ-rech" id="fTel" type="tel" placeholder="+237 6 ..."></div>
+                    <div><label for="fRemise">Remise négociée (%)</label><input class="champ-rech" id="fRemise" type="number" min="0" max="30" value="4" required></div>
+                    <div>
+                        <label>Produits fournis</label>
+                        <div class="carburants"><label><input type="checkbox" name="carb" value="Produits vivriers" checked>Produits vivriers</label><label><input type="checkbox" name="carb" value="Super" checked> Super</label><label><input type="checkbox" name="carb" value="Gasoil"> Gasoil</label></div>
+                    </div>
+                    <div><label for="fDebut">Début du contrat</label><input class="champ-rech" id="fDebut" type="date" required></div>
+                    <div><label for="fFin">Fin du contrat</label><input class="champ-rech" id="fFin" type="date" required></div>
+                    <div class="large">
+                        <label for="fStatut">Statut</label>
+                        <select class="champ-rech" id="fStatut"><option value="negociation">En négociation</option><option value="actif">Actif</option></select>
+                    </div>
+                </div>
+                <div class="pied-fenetre">
+                    <button type="button" class="btn-blanc" id="btnAnnuler">Annuler</button>
+                    <button type="submit" class="btn-bleu"><i class="fa-regular fa-floppy-disk"></i> Enregistrer</button>
+                </div>
+            </form>
+        </div>
+
+<script>
+/* ======================================================================
+   PARTENARIATS — JavaScript
+   Les partenaires sont des ENTREPRISES (stations-service, supermarchés,
+   grossistes...) qui fournissent des PRODUITS aux livreurs.
+   Les quantités sont comptées en litres (L) ou en kilogrammes (Kg).
+   ====================================================================== */
+
+/* ---------- données ---------- */
+const AUJOURDHUI = "2026-11-03";
+
+/* prix avant remise (FCFA) par litre et par kilogramme */
+const PRIX_LITRE = 850;
+const PRIX_KG = 600;
+
+/* unité de mesure de chaque produit fourni */
+const UNITES = {
+  "Super": "L",
+  "Gasoil": "L",
+  "Boissons": "L",
+  "Produits vivriers": "Kg",
+  "Appareils électriques": "Kg"
+};
+
+/* icône affichée sur la carte selon le produit */
+const ICONES = {
+  "Super": "fa-gas-pump",
+  "Gasoil": "fa-gas-pump",
+  "Boissons": "fa-bottle-water",
+  "Produits vivriers": "fa-basket-shopping",
+  "Appareils électriques": "fa-plug"
+};
+
+/* carb = liste des produits fournis par l'entreprise
+   conso = quantité fournie ce mois-ci (en L ou en Kg selon les produits) */
+let entreprises = [
+  { id: 1, nom: "Santa Lucia",                quartier: "Akwa",         carb: ["Produits vivriers"],   remise: 8, debut: "2026-03-01", fin: "2027-02-28", conso: 1200, statut: "actif",       contact: "M. Eyenga",  tel: "+237677000001", livreurs: 9, x: 50, y: 33 },
+  { id: 2, nom: "Station Bonamoussadi Fuel",  quartier: "Bonamoussadi", carb: ["Super"],               remise: 5, debut: "2026-02-01", fin: "2027-01-31", conso: 710,  statut: "actif",       contact: "Mme Tchoua", tel: "+237677000002", livreurs: 8, x: 22, y: 50 },
+  { id: 3, nom: "Station Ndokoti Oil",        quartier: "Ndokoti",      carb: ["Super", "Gasoil"],     remise: 3, debut: "2026-04-15", fin: "2027-04-14", conso: 640,  statut: "actif",       contact: "M. Bell",    tel: "+237677000003", livreurs: 7, x: 65, y: 62 },
+  { id: 4, nom: "Station Makepe Pétrole",     quartier: "Makepe",       carb: ["Super"],               remise: 6, debut: "2026-01-10", fin: "2026-12-31", conso: 520,  statut: "actif",       contact: "M. Njoya",   tel: "+237677000004", livreurs: 6, x: 80, y: 66 },
+  { id: 5, nom: "Super U",                    quartier: "Bonamoussadi", carb: ["Boissons"],            remise: 4, debut: "2026-05-01", fin: "2027-04-30", conso: 3000, statut: "actif",       contact: "Mme Fotso",  tel: "+237677000005", livreurs: 5, x: 10, y: 74 },
+  { id: 6, nom: "Station Logpom Énergie",     quartier: "Logpom",       carb: ["Super"],               remise: 5, debut: "2026-06-01", fin: "2027-05-31", conso: 380,  statut: "actif",       contact: "M. Kamga",   tel: "+237677000006", livreurs: 4, x: 35, y: 83 },
+  { id: 7, nom: "China Tesco",                quartier: "Bonamoussadi", carb: ["Appareils électriques"], remise: 0, debut: "2026-11-15", fin: "2027-11-14", conso: 0,    statut: "negociation", contact: "M. Mballa",  tel: "+237677000007", livreurs: 0, x: 90, y: 20 },
+  { id: 8, nom: "Station Kotto Carburant",    quartier: "Kotto",        carb: ["Super"],               remise: 4, debut: "2025-10-01", fin: "2026-09-30", conso: 0,    statut: "actif",       contact: "Mme Ndjock", tel: "+237677000008", livreurs: 0, x: 90, y: 40 }
+];
+
+/* st = id de l'entreprise · litres et/ou kg = quantité prise par le livreur */
+const RAVITAILLEMENTS = [
+  { date: "2026-11-01", livreur: "John Doe",     st: 1, kg: 1000, bon: "BON-2611-0142" },
+  { date: "2026-11-01", livreur: "Paul Martin",  st: 2, litres: 5.5,bon: "BON-2611-0141" },
+  { date: "2026-10-31", livreur: "Marie Claire", st: 4, litres: 7.0, bon: "BON-2610-0139" },
+  { date: "2026-10-31", livreur: "Alice Ndong",  st: 5, kg: 900, bon: "BON-2610-0138" },
+  { date: "2026-10-30", livreur: "Éric Tchamba", st: 3, litres: 5.0,bon: "BON-2610-0135" },
+  { date: "2026-10-30", livreur: "Jean Paul",    st: 1, kg: 1000, bon: "BON-2610-0133" },
+  { date: "2026-10-29", livreur: "Samuel Fouda", st: 6, litres: 5.5, bon: "BON-2610-0130" }
+];
+
+let selection = 1;     /* id de l'entreprise sélectionnée */
+
+/* ---------- petits outils ---------- */
+function fcfa(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
+function dateFr(iso) { const p = iso.split("-"); return p[2] + "/" + p[1] + "/" + p[0]; }
+
+/* statut réel : un contrat « actif » dont la date de fin est passée devient « expiré » */
+function statutReel(e) {
+  if (e.statut === "actif" && e.fin < AUJOURDHUI) return "expire";
+  return e.statut;
+}
+const LIBELLES = { actif: "Actif", negociation: "En négociation", expire: "Expiré", suspendu: "Suspendu" };
+const CLASSES = { actif: "b-vert", negociation: "b-orange", expire: "b-rouge", suspendu: "b-gris" };
+
+/* ---------- unités : L, Kg ou « L & Kg » ---------- */
+function uniteDe(e) {
+  const unites = new Set(e.carb.map(p => UNITES[p] || "L"));
+  return unites.size > 1 ? "L & Kg" : Array.from(unites)[0];
+}
+
+function prixUnite(e) {
+  const u = uniteDe(e);
+  if (u === "Kg") return PRIX_KG;
+  if (u === "L") return PRIX_LITRE;
+  return (PRIX_LITRE + PRIX_KG) / 2;      /* produits en L et en Kg : prix moyen */
+}
+
+function iconeDe(e) { return ICONES[e.carb[0]] || "fa-building"; }
+
+function brut(e) { return e.conso * prixUnite(e); }
+function net(e) { return brut(e) * (1 - e.remise / 100); }
+function eco(e) { return brut(e) - net(e); }
+
+/* quantité d'un ravitaillement : « 6,0 L », « 6,0 Kg » ou « 6,0 L & 6,0 Kg » */
+function texteQuantite(r) {
+  const parties = [];
+  if (r.litres) parties.push(r.litres.toFixed(1).replace(".", ",") + " L");
+  if (r.kg) parties.push(r.kg.toFixed(1).replace(".", ",") + " Kg");
+  return parties.join(" & ");
+}
+
+/* ---------- chiffres clés ---------- */
+function afficherKpis() {
+  const actives = entreprises.filter(e => statutReel(e) === "actif");
+
+  /* total des quantités : les entreprises « Kg » d'un côté, toutes les autres en litres */
+  let litres = 0, kilos = 0;
+  actives.forEach(e => { if (uniteDe(e) === "Kg") kilos += e.conso; else litres += e.conso; });
+
+  document.getElementById("kStations").textContent = actives.length;
+  document.getElementById("kLitres").innerHTML = fcfa(litres) + " <span>L</span> & " + fcfa(kilos) + " <span>Kg</span>";
+  document.getElementById("kDepenses").innerHTML = fcfa(actives.reduce((a, e) => a + net(e), 0)) + " <span>FCFA</span>";
+  document.getElementById("kEco").innerHTML = fcfa(actives.reduce((a, e) => a + eco(e), 0)) + " <span>FCFA</span>";
+}
+
+/* ---------- tableau des entreprises ---------- */
+function afficherTableau() {
+  const texte = document.getElementById("rechSt").value.toLowerCase();
+  const st = document.getElementById("selStatut").value;
+  const corps = document.getElementById("corpsSt");
+  corps.innerHTML = "";
+
+  entreprises.filter(e =>
+    (!texte || (e.nom + " " + e.quartier + " " + e.carb.join(" ")).toLowerCase().includes(texte)) &&
+    (!st || statutReel(e) === st)
+  ).forEach(e => {
+    const r = statutReel(e);
+    const tr = document.createElement("tr");
+    tr.className = e.id === selection ? "sel" : "";
+    tr.innerHTML = "<td><b>" + e.nom + "</b></td><td>" + e.quartier + "</td>" +
+      "<td>" + e.carb.map(c => '<span class="carbu">' + c + "</span>").join("") + "</td>" +
+      "<td>" + e.remise + " %</td><td>" + dateFr(e.fin) + "</td>" +
+      "<td>" + fcfa(e.conso) + " " + uniteDe(e) + "</td>" +
+      "<td>" + fcfa(net(e)) + " FCFA</td><td><span class='badge " + CLASSES[r] + "'>" + LIBELLES[r] + "</span></td>";
+    tr.addEventListener("click", () => { selection = e.id; tout(); });
+    corps.appendChild(tr);
+  });
+}
+
+/* ---------- fiche de l'entreprise sélectionnée ---------- */
+function afficherFiche() {
+  const e = entreprises.find(x => x.id === selection);
+  if (!e) return;
+  const r = statutReel(e);
+
+  document.getElementById("stNom").textContent = e.nom;
+  const b = document.getElementById("stBadge");
+  b.textContent = LIBELLES[r];
+  b.className = "badge " + CLASSES[r];
+  document.getElementById("stQuartier").textContent = e.quartier;
+  document.getElementById("stContact").textContent = e.contact + " · " + e.tel.replace(/(\+237)(\d{3})(\d{3})(\d{3})/, "$1 $2 $3 $4");
+  document.getElementById("stCarb").textContent = e.carb.join(", ");
+  document.getElementById("stRemise").textContent = e.remise + " %";
+  document.getElementById("stLiv").textContent = e.livreurs;
+  document.getElementById("stEco").textContent = fcfa(eco(e)) + " FCFA";
+  document.getElementById("stContrat").textContent = dateFr(e.debut) + " → " + dateFr(e.fin);
+  document.getElementById("stTel").href = "tel:" + e.tel;
+
+  /* avancement du contrat */
+  const d0 = new Date(e.debut), d1 = new Date(e.fin), d = new Date(AUJOURDHUI);
+  const pct = Math.max(0, Math.min(100, (d - d0) / (d1 - d0) * 100));
+  const reste = Math.round((d1 - d) / 86400000);
+  document.getElementById("stBarre").style.width = pct + "%";
+  document.getElementById("stReste").textContent = reste >= 0 ? reste + " jours restants" : "Contrat expiré depuis " + (-reste) + " jours";
+
+  document.getElementById("btnSuspendre").innerHTML = e.statut === "suspendu"
+    ? '<i class="fa-solid fa-play"></i> Réactiver' : '<i class="fa-solid fa-pause"></i> Suspendre';
+}
+
+/* ---------- carte : une icône par entreprise ---------- */
+function afficherCarte() {
+  const carte = document.getElementById("carteSt");
+  carte.querySelectorAll(".pin").forEach(p => p.remove());
+  entreprises.forEach(e => {
+    const p = document.createElement("div");
+    p.className = "pin p-" + statutReel(e) + (e.id === selection ? " sel" : "");
+    p.style.left = e.x + "%";
+    p.style.top = e.y + "%";
+    p.title = e.nom;
+    p.innerHTML = '<i class="fa-solid ' + iconeDe(e) + '"></i>';
+    p.addEventListener("click", () => { selection = e.id; tout(); });
+    carte.appendChild(p);
+  });
+}
+
+/* ---------- ravitaillements récents (en L et/ou en Kg) ---------- */
+function afficherRavitaillements() {
+  document.getElementById("corpsRav").innerHTML = RAVITAILLEMENTS.map(r => {
+    const e = entreprises.find(x => x.id === r.st);
+    const montant = ((r.litres || 0) * PRIX_LITRE + (r.kg || 0) * PRIX_KG) * (1 - e.remise / 100);
+    return "<tr><td>" + dateFr(r.date) + "</td><td>" + r.livreur + "</td><td>" + e.nom + "</td>" +
+           "<td>" + texteQuantite(r) + "</td><td>" + fcfa(montant) + " FCFA</td><td>" + r.bon + "</td></tr>";
+  }).join("");
+}
+
+function tout() { afficherKpis(); afficherTableau(); afficherFiche(); afficherCarte(); }
+
+/* ---------- actions sur l'entreprise ---------- */
+document.getElementById("btnRenouveler").addEventListener("click", () => {
+  const e = entreprises.find(x => x.id === selection);
+  const f = new Date(e.fin > AUJOURDHUI ? e.fin : AUJOURDHUI);
+  f.setFullYear(f.getFullYear() + 1);
+  e.fin = f.toISOString().slice(0, 10);
+  e.statut = "actif";
+  tout();
+  alert("Contrat de " + e.nom + " renouvelé jusqu'au " + dateFr(e.fin) + ".");
+});
+
+document.getElementById("btnSuspendre").addEventListener("click", () => {
+  const e = entreprises.find(x => x.id === selection);
+  e.statut = (e.statut === "suspendu") ? "actif" : "suspendu";
+  tout();
+});
+
+/* ---------- filtres ---------- */
+document.getElementById("rechSt").addEventListener("input", afficherTableau);
+document.getElementById("selStatut").addEventListener("change", afficherTableau);
+
+/* ---------- fenêtre « nouveau partenariat » ---------- */
+const voile = document.getElementById("voile");
+
+document.getElementById("btnNouveau").addEventListener("click", () => {
+  document.getElementById("fDebut").value = AUJOURDHUI;
+  const f = new Date(AUJOURDHUI);
+  f.setFullYear(f.getFullYear() + 1);
+  document.getElementById("fFin").value = f.toISOString().slice(0, 10);
+  voile.hidden = false;
+});
+
+document.getElementById("btnAnnuler").addEventListener("click", () => voile.hidden = true);
+voile.addEventListener("click", e => { if (e.target === voile) voile.hidden = true; });
+
+document.getElementById("formPa").addEventListener("submit", ev => {
+  ev.preventDefault();
+  const produits = Array.from(document.querySelectorAll("input[name='carb']:checked")).map(c => c.value);
+  if (!produits.length) { alert("Choisissez au moins un produit fourni par l'entreprise."); return; }
+
+  entreprises.push({
+    id: Date.now(),
+    nom: document.getElementById("fNom").value.trim(),
+    quartier: document.getElementById("fQuartier").value.trim(),
+    carb: produits,
+    remise: Number(document.getElementById("fRemise").value),
+    debut: document.getElementById("fDebut").value,
+    fin: document.getElementById("fFin").value,
+    conso: 0,
+    statut: document.getElementById("fStatut").value,
+    contact: "—",
+    tel: document.getElementById("fTel").value.replace(/\s/g, "") || "+237600000000",
+    livreurs: 0,
+    x: 10 + Math.random() * 80,
+    y: 15 + Math.random() * 70
+  });
+
+  selection = entreprises[entreprises.length - 1].id;
+  ev.target.reset();
+  voile.hidden = true;
+  tout();
+});
+
+tout();
+afficherRavitaillements();
+</script>
+
+    </fieldset>
+
+</body>
+</html>

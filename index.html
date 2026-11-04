@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Page de connexion</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    </head>
+    <body>
+         <div>
+            <img src="image.jpg" alt="">
+            <fieldset class="fieldset">
+                <form action="">
+                    <h3>Se connecter</h3>
+
+                    <span class="champ">
+                        <i class="fa-regular fa-envelope ic" style="top: 8px;"></i>
+                        <input id="i1" type="email" name="" placeholder="Email">
+                    </span><br>
+
+                    <span class="champ">
+                        <i class="fa-solid fa-lock ic" style="top: 5px;"></i>
+                        <input id="i2" type="password" name="" placeholder="Mot de passe">
+                        <i id="oeil" class="fa-regular fa-eye ic-droite" onclick="voirMdp()"></i>
+                    </span>
+
+                    <p><a id="l1" href="#">Mot de passe oublié?</a></p>
+                    <a href="Client/client acceuil.html">
+                        <input id="i3" type="button" name="" value="Se connecter">
+                    </a>
+                    <p><a href="inscription.html" id="l2">Vous n'avez pas de compte? <span id="spl2">Inscrivez-vous</span></a></p>
+                </form>
+            </fieldset>
+        </div>
+
+        <script>
+        /* afficher / cacher le mot de passe */
+        function voirMdp() {
+            const champ = document.getElementById("i2");
+            const oeil = document.getElementById("oeil");
+            if (champ.type === "password") {
+                champ.type = "text";
+                oeil.className = "fa-regular fa-eye-slash ic-droite";
+            } else {
+                champ.type = "password";
+                oeil.className = "fa-regular fa-eye ic-droite";
+            }
+        }
+        </script>
+    </body>
+</html>

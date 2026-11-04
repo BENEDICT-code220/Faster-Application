@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleListeLivraisons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Liste des livraisons</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher une livraison.......">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <a href="parametres.html"><img id="img1" src="télécharger.jpg" alt="image jeune homme"></a>
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <div class="titre-liste">
+            <a href="livraisons.html" class="fleche" title="Retour"><i class="fa-solid fa-arrow-left"></i></a>
+            <h1>Liste des livraisons</h1>
+        </div>
+
+        <div class="outils">
+            <div class="filtre">
+                <button class="btn-filtrer" onclick="menuFiltre()">Filtrer <i class="fa-solid fa-filter"></i></button>
+                <div id="menuFiltre" class="menu-filtre" hidden>
+                <button class="actif" data-filtre="tous">Toutes les livraisons</button>
+                <button data-filtre="livree">Livrées</button>
+                <button data-filtre="encours">En cours</button>
+                <button data-filtre="retard">En retard</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="c3">
+            <div class="tete"><span>N° Livraison</span><span>Commande</span><span>Livreur</span><span>Client</span><span>Heure</span><span>Statut</span></div>
+            <div class="zone-scroll">
+                <div class="rang-c" data-statut="livree"><span><b>#LIV001</b></span><span>#CMD301</span><span><span class="avec-image"><img class="avatar" src="bene.jpg" alt="">John Doe</span></span><span>Paul Martin</span><span>12 h 05</span><span><span class="etat e-vert">Livrée</span></span></div>
+                <div class="rang-c" data-statut="encours"><span><b>#LIV002</b></span><span>#CMD302</span><span><span class="avec-image"><img class="avatar" src="bene.jpg" alt="">Paul Martin</span></span><span>Marie Claire</span><span>12 h 30</span><span><span class="etat e-bleu">En cours</span></span></div>
+                <div class="rang-c" data-statut="livree"><span><b>#LIV003</b></span><span>#CMD303</span><span><span class="avec-image"><img class="avatar" src="bene.jpg" alt="">Marie Claire</span></span><span>Jean Paul</span><span>09 h 40</span><span><span class="etat e-vert">Livrée</span></span></div>
+                <div class="rang-c" data-statut="retard"><span><b>#LIV004</b></span><span>#CMD304</span><span><span class="avec-image"><img class="avatar" src="bene.jpg" alt="">John Doe</span></span><span>Alice Ndong</span><span>11 h 15</span><span><span class="etat e-rouge">En retard</span></span></div>
+                <div class="rang-c" data-statut="livree"><span><b>#LIV005</b></span><span>#CMD305</span><span><span class="avec-image"><img class="avatar" src="bene.jpg" alt="">Jean Paul</span></span><span>Samuel Fouda</span><span>08 h 50</span><span><span class="etat e-vert">Livrée</span></span></div>
+                <div class="rang-c" data-statut="encours"><span><b>#LIV006</b></span><span>#CMD306</span><span><span class="avec-image"><img class="avatar" src="bene.jpg" alt="">Alice Ndong</span></span><span>Carine Mbella</span><span>13 h 10</span><span><span class="etat e-bleu">En cours</span></span></div>
+                <div class="rang-c" data-statut="livree"><span><b>#LIV007</b></span><span>#CMD307</span><span><span class="avec-image"><img class="avatar" src="bene.jpg" alt="">Samuel Fouda</span></span><span>Éric Tchamba</span><span>10 h 25</span><span><span class="etat e-vert">Livrée</span></span></div>
+                <div class="rang-c" data-statut="retard"><span><b>#LIV008</b></span><span>#CMD308</span><span><span class="avec-image"><img class="avatar" src="bene.jpg" alt="">Éric Tchamba</span></span><span>Nadia Owona</span><span>14 h 00</span><span><span class="etat e-rouge">En retard</span></span></div>
+                <div class="rang-c" data-statut="encours"><span><b>#LIV009</b></span><span>#CMD309</span><span><span class="avec-image"><img class="avatar" src="bene.jpg" alt="">Nadia Owona</span></span><span>Patrick Nkou</span><span>15 h 20</span><span><span class="etat e-bleu">En cours</span></span></div>
+                <div class="rang-c" data-statut="livree"><span><b>#LIV010</b></span><span>#CMD310</span><span><span class="avec-image"><img class="avatar" src="bene.jpg" alt="">Patrick Nkou</span></span><span>John Doe</span><span>07 h 45</span><span><span class="etat e-vert">Livrée</span></span></div>
+            </div>
+        </div>
+
+<script>
+/* ---------- menu « Filtrer » ---------- */
+function menuFiltre() {
+  const menu = document.getElementById("menuFiltre");
+  menu.hidden = !menu.hidden;
+}
+
+document.addEventListener("click", e => {
+  if (!e.target.closest(".filtre")) {
+    document.getElementById("menuFiltre").hidden = true;
+  }
+});
+
+/* ---------- filtrer les lignes par statut ---------- */
+document.querySelectorAll("#menuFiltre button").forEach(bouton => {
+  bouton.addEventListener("click", () => {
+    document.querySelectorAll("#menuFiltre button").forEach(b => b.classList.remove("actif"));
+    bouton.classList.add("actif");
+
+    const filtre = bouton.dataset.filtre;
+    document.querySelectorAll(".rang-c").forEach(ligne => {
+      ligne.style.display = (filtre === "tous" || ligne.dataset.statut === filtre) ? "" : "none";
+    });
+    document.getElementById("menuFiltre").hidden = true;
+  });
+});
+</script>
+
+    </fieldset>
+
+</body>
+</html>

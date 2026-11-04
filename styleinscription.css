@@ -1,0 +1,136 @@
+img{
+    border-radius: 1.5%;
+    width: 520px;
+    height: 610px;
+    margin-left: 130px;
+    margin-top: 19px;
+    position: absolute ;
+}
+
+.fieldset{
+    width: 490px;
+    height: 550px;
+    border-radius: 1%;  
+    margin-left: 730px; 
+    position: absolute;
+    margin-top: 45px;
+    box-shadow: 0.3px 0.8px 4px rgb(188, 188, 188);
+    border-color: rgb(255, 255, 255);
+}
+
+h3{
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+}
+
+#i1, #i2, #i3, #i4, #i5, #i6{
+    font-size: 15px;
+    padding-bottom: 8px;
+    width: 433px;
+    height: 22px;
+    margin-bottom: 22px;
+    margin-left: 12px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 0.3px 0.8px 4px rgb(188, 188, 188);
+    border-color: rgb(255, 255, 255);
+    padding-left: 38px;
+    font-weight: 600;
+
+}
+
+/* ---------- icônes dans les champs ---------- */
+.champ{
+    position: relative;
+    display: inline-block;
+}
+
+.ic{
+    position: absolute;
+    left: 27px;
+    top: 7px;
+    font-size: 15px;
+    color: rgb(142, 140, 140);
+    z-index: 2;
+}
+
+.ic-droite{
+    position: absolute;
+    right: 18px;
+    top: 7px;
+    font-size: 15px;
+    color: rgb(142, 140, 140);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.ic-droite:hover{
+    color: rgb(81, 142, 255);
+}
+
+#i1:focus, #i2:focus, #i3:focus, #i4:focus, #i5:focus, #i6:focus{
+    outline: none;
+    border-color: rgb(81, 142, 255);
+}
+
+a{
+    padding-left: 13px;
+    text-decoration: none;
+    color: gray;
+}
+
+  .ligne-checkbox {
+    display: flex;
+
+  }
+
+  #label{
+    margin-left: 5px;
+    padding-bottom: 27px;
+  }
+
+  #i7{
+
+    margin-left: 10px;
+    height: 18px;
+    width: 30px;
+    border: 0.1px solid black;
+
+  }
+
+  #i8{
+    background-color:rgb(81, 142, 255);
+    margin-left: 20px;
+    width: 459px;
+    height: 2px;
+    border-radius: 2%;
+    color: white;
+    box-shadow: 0.9px 1.5px 5px rgb(188, 188, 188);
+    font-size: 17px;
+    font-weight: bold;
+    padding-bottom: 35px;
+    border-bottom: none;
+    border-right: none;
+  }
+
+#l1{
+    padding-top: 40px;
+
+}
+
+#sp1{
+    color:rgb(81, 142, 255);
+}
+
+#sp2{
+    position: relative;
+    right: -41.5%;
+    color:rgb(81, 142, 255);
+}
+
+#l10 :active{
+    color: rgb(0, 72, 96);
+
+}

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylePaiements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Paiements</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher un paiement, une commande....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <a href="parametres.html"><img id="img1" src="télécharger.jpg" alt="image jeune homme"></a>
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <h1 class="h1">Gestion des paiements</h1>
+        <p id="p1">Suivez et gérez toutes les transactions de la plateforme</p>
+        <button class="btn-filtre"><i class="fa-solid fa-filter"></i> Filtres</button>
+
+        <!-- cartes statistiques -->
+        <div id="c5">
+            <fieldset id="f4">
+                <i class="fa-solid fa-wallet vert"></i>
+                <div class="txt">
+                    <small id="f4p2">Total des paiements</small>
+                    <strong id="f4p1">12 450 000 <span>FCFA</span></strong>
+                    <span id="f4p3"><i class="fa-solid fa-arrow-up"></i> 15%</span>
+                </div>
+            </fieldset>
+
+            <fieldset id="f5">
+                <i class="fa-solid fa-hourglass-half orange"></i>
+                <div class="txt">
+                    <small id="f5p2">En attente</small>
+                    <strong id="f5p1">420 000 <span>FCFA</span></strong>
+                </div>
+            </fieldset>
+
+            <fieldset id="f6">
+                <i class="fa-regular fa-circle-xmark rouge"></i>
+                <div class="txt">
+                    <small id="f6p2">Échecs</small>
+                    <strong id="f6p1">18 <span>transactions</span></strong>
+                </div>
+            </fieldset>
+
+            <fieldset id="f7">
+                <i class="fa-solid fa-percent bleu"></i>
+                <div class="txt">
+                    <small id="f7p2">Frais de commission</small>
+                    <strong id="f7p1">622 500 <span>FCFA</span></strong>
+                </div>
+            </fieldset>
+        </div>
+
+        <!-- Évolution des paiements -->
+        <fieldset id="p1b" class="bloc">
+            <h3>Évolution des paiements</h3>
+            <canvas id="courbes" width="440" height="175"></canvas>
+            <div class="leg">
+                <span><i class="pt" style="background:rgb(47,128,237)"></i>Total</span>
+                <span><i class="pt" style="background:rgb(46,164,79)"></i>Payés</span>
+                <span><i class="pt" style="background:orange"></i>En attente</span>
+                <span><i class="pt" style="background:rgb(229,57,53)"></i>Échecs</span>
+            </div>
+        </fieldset>
+
+        <!-- Répartition des paiements -->
+        <fieldset id="p2b" class="bloc">
+            <h3>Répartition des paiements</h3>
+            <canvas id="camembert" width="270" height="190"></canvas>
+        </fieldset>
+
+        <!-- Dernières activités -->
+        <fieldset id="p3b" class="bloc-b">
+            <h3 class="gros">Dernières activités</h3>
+
+            <div class="activ">
+                <i class="pt" style="background:rgb(46,164,79)"></i>
+                <div><span>Paiement reçu #PAY001</span><small>Il y a 2 min</small></div>
+            </div>
+            <div class="activ">
+                <i class="pt" style="background:orange"></i>
+                <div><span>Paiement en attente #PAY002</span><small>Il y a 15 min</small></div>
+            </div>
+            <div class="activ">
+                <i class="pt" style="background:rgb(229,57,53)"></i>
+                <div><span>Paiement échoué #PAY005</span><small>Il y a 1 h</small></div>
+            </div>
+            <div class="activ">
+                <i class="pt" style="background:rgb(47,128,237)"></i>
+                <div><span>Remboursement #PAY006</span><small>Il y a 3 h</small></div>
+            </div>
+        </fieldset>
+
+        <!-- Tableau des paiements -->
+        <fieldset id="p4b" class="bloc-b">
+
+            <div class="onglets">
+                <button class="onglet actif" data-filtre="tous">Tous (32)</button>
+                <button class="onglet" data-filtre="reussi">Réussis</button>
+                <button class="onglet" data-filtre="echoue">Échoués</button>
+                <button class="onglet" data-filtre="rembourse">Remboursés</button>
+            </div>
+
+            <table class="tableau">
+                <tr>
+                    <th>ID</th><th>Référence</th><th>Date</th><th>Mode de paiement</th><th>Montant</th><th>Statut</th>
+                </tr>
+                <tr data-statut="reussi">
+                    <td>PAY001</td><td>CMD301</td><td>21/10/2026</td><td>Orange Money</td><td>40 000 FCFA</td>
+                    <td><span class="badge b-vert">Réussi</span></td>
+                </tr>
+                <tr data-statut="attente">
+                    <td>PAY002</td><td>CMD302</td><td>21/10/2026</td><td>MTN MoMo</td><td>40 000 FCFA</td>
+                    <td><span class="badge b-orange">En attente</span></td>
+                </tr>
+                <tr data-statut="reussi">
+                    <td>PAY003</td><td>CMD303</td><td>21/10/2026</td><td>Orange Money</td><td>40 000 FCFA</td>
+                    <td><span class="badge b-vert">Réussi</span></td>
+                </tr>
+                <tr data-statut="reussi">
+                    <td>PAY004</td><td>CMD304</td><td>20/10/2026</td><td>Orange Money</td><td>40 000 FCFA</td>
+                    <td><span class="badge b-vert">Réussi</span></td>
+                </tr>
+                <tr data-statut="echoue">
+                    <td>PAY005</td><td>CMD305</td><td>20/10/2026</td><td>Carte bancaire</td><td>25 000 FCFA</td>
+                    <td><span class="badge b-rouge">Échoué</span></td>
+                </tr>
+                <tr data-statut="rembourse">
+                    <td>PAY006</td><td>CMD306</td><td>19/10/2026</td><td>MTN MoMo</td><td>15 000 FCFA</td>
+                    <td><span class="badge b-bleu">Remboursé</span></td>
+                </tr>
+            </table>
+        </fieldset>
+
+<script>
+/* ---------- Courbes avec zones colorées ---------- */
+function courbes(idCanvas, labels, series, max, pas) {
+  const c = document.getElementById(idCanvas), ctx = c.getContext("2d");
+  const W = c.width, H = c.height, gauche = 32, bas = 22, haut = 8;
+  const hu = H - bas - haut;
+  const ecart = (W - gauche - 22) / (labels.length - 1);
+
+  ctx.clearRect(0, 0, W, H);
+  ctx.font = "10px Arial";
+
+  // grille + axe Y
+  ctx.strokeStyle = "#cfcfcf";
+  ctx.fillStyle = "#333";
+  ctx.textAlign = "right";
+  for (let v = 0; v <= max; v += pas) {
+    const y = haut + hu - (v / max) * hu;
+    ctx.beginPath(); ctx.moveTo(gauche, y); ctx.lineTo(W - 5, y); ctx.stroke();
+    ctx.fillText(v, gauche - 4, y + 3);
+  }
+
+  // jours
+  ctx.textAlign = "center";
+  labels.forEach((nom, i) => ctx.fillText(nom, gauche + i * ecart, H - 7));
+
+  // chaque série : zone + ligne
+  series.forEach(s => {
+    ctx.beginPath();
+    s.vals.forEach((v, i) => {
+      const x = gauche + i * ecart, y = haut + hu - (v / max) * hu;
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.lineTo(gauche + (labels.length - 1) * ecart, haut + hu);
+    ctx.lineTo(gauche, haut + hu);
+    ctx.closePath();
+    ctx.fillStyle = s.fond;
+    ctx.fill();
+
+    ctx.beginPath();
+    s.vals.forEach((v, i) => {
+      const x = gauche + i * ecart, y = haut + hu - (v / max) * hu;
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.strokeStyle = s.ligne;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  });
+}
+
+/* ---------- Camembert (anneau + légende) ---------- */
+function camembert(idCanvas, donnees, couleurs, cx, lx, texteCentre) {
+  const c = document.getElementById(idCanvas), ctx = c.getContext("2d");
+  const W = c.width, H = c.height;
+  const noms = Object.keys(donnees), vals = Object.values(donnees);
+  const total = vals.reduce((a, b) => a + b, 0);
+  const cy = H / 2 - 5, r = 50;
+  const debutY = (H - noms.length * 28) / 2 + 4;
+
+  ctx.clearRect(0, 0, W, H);
+  let debut = -Math.PI / 2;
+  vals.forEach((v, i) => {
+    const angle = (v / total) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, debut, debut + angle);
+    ctx.strokeStyle = couleurs[i];
+    ctx.lineWidth = 26;
+    ctx.stroke();
+    debut += angle;
+
+    // légende
+    const y = debutY + i * 28;
+    ctx.fillStyle = couleurs[i];
+    ctx.beginPath();
+    ctx.arc(lx, y, 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "#000";
+    ctx.font = "bold 11px Arial";
+    ctx.textAlign = "left";
+    ctx.fillText(noms[i], lx + 12, y + 4);
+    ctx.fillStyle = "#999";
+    ctx.font = "10px Arial";
+    ctx.textAlign = "right";
+    ctx.fillText(Math.round(v / total * 100) + "%", W - 4, y + 4);
+  });
+
+  // montant au centre
+  ctx.fillStyle = "#000";
+  ctx.font = "bold 10px Arial";
+  ctx.textAlign = "center";
+  ctx.fillText(texteCentre[0], cx, cy);
+  ctx.font = "9px Arial";
+  ctx.fillText(texteCentre[1], cx, cy + 12);
+}
+
+/* ---------- Onglets : filtrer le tableau par statut ---------- */
+document.querySelectorAll(".onglet").forEach(onglet => {
+  onglet.addEventListener("click", () => {
+    document.querySelectorAll(".onglet").forEach(o => o.classList.remove("actif"));
+    onglet.classList.add("actif");
+
+    const filtre = onglet.dataset.filtre;
+    document.querySelectorAll(".tableau tr[data-statut]").forEach(ligne => {
+      ligne.style.display = (filtre === "tous" || ligne.dataset.statut === filtre) ? "" : "none";
+    });
+  });
+});
+
+/* ---------- Utilisation : remplace par tes données ---------- */
+const jours = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+courbes("courbes", jours, [
+  { vals: [90, 110, 100, 140, 120, 150, 145], ligne: "rgb(47, 128, 237)", fond: "rgba(47, 128, 237, 0.20)" },
+  { vals: [70, 90, 80, 110, 95, 120, 115],    ligne: "rgb(46, 164, 79)",  fond: "rgba(46, 164, 79, 0.25)" },
+  { vals: [15, 12, 15, 20, 18, 22, 20],       ligne: "orange",            fond: "rgba(255, 165, 0, 0.30)" },
+  { vals: [5, 8, 5, 10, 7, 8, 10],            ligne: "rgb(229, 57, 53)",  fond: "rgba(229, 57, 53, 0.35)" }
+], 200, 50);
+
+camembert("camembert", { "Mobile money": 45, "Orange money": 30, "Carte bancaire": 15, "Autres": 10 },
+          ["rgb(46, 164, 79)", "rgb(255, 165, 0)", "rgb(47, 128, 237)", "rgb(155, 89, 182)"],
+          62, 150, ["12 450 000", "FCFA"]);
+</script>
+
+    </fieldset>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleFeedbacks.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Faster - Feedbacks clients</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher un avis....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <img id="img1" src="télécharger.jpg" alt="image jeune homme">
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <div class="entete-page">
+            <div>
+                <h1 class="titre-page"><a href="clients.html" title="Retour aux clients"><i class="fa-solid fa-arrow-left"></i></a>Feedbacks clients</h1>
+                <p class="sous-titre">Le détail des avis derrière le graphique « Centre d'activité »</p>
+            </div>
+            <div class="actions-haut">
+                <button class="btn-blanc" id="btnExport"><i class="fa-solid fa-file-arrow-down"></i> Exporter (CSV)</button>
+            </div>
+        </div>
+
+        <!-- chiffres clés -->
+        <div class="kpis">
+            <div class="kpi"><span class="ic i-orange"><i class="fa-solid fa-star"></i></span><div><small>Note moyenne</small><strong id="kMoy">0</strong><span class="etoiles" id="kEtoiles"></span></div></div>
+            <div class="kpi"><span class="ic i-bleu"><i class="fa-regular fa-comments"></i></span><div><small>Avis reçus</small><strong id="kNb">0</strong></div></div>
+            <div class="kpi"><span class="ic i-vert"><i class="fa-regular fa-face-smile"></i></span><div><small>Clients satisfaits (4 à 5 ★)</small><strong id="kSat">0</strong></div></div>
+            <div class="kpi"><span class="ic i-rouge"><i class="fa-solid fa-reply"></i></span><div><small>Avis à traiter</small><strong id="kTraiter">0</strong></div></div>
+        </div>
+
+        <div class="rangee-fb">
+            <!-- répartition des notes : un clic filtre la liste -->
+            <section class="carte-a">
+                <h3>Répartition des notes</h3>
+                <div id="barres"></div>
+            </section>
+
+            <!-- thèmes les plus cités : un clic filtre la liste -->
+            <section class="carte-a">
+                <h3>Thèmes les plus cités</h3>
+                <div class="puces" id="themes"></div>
+            </section>
+        </div>
+
+        <!-- liste des avis -->
+        <section class="carte-a">
+            <h3>Tous les avis</h3>
+            <div class="filtres-fb">
+                <input class="champ-rech" id="rechFb" type="search" placeholder="Rechercher dans les avis (client, livreur, texte)...">
+                <select class="champ-rech" id="selNote">
+                    <option value="">Toutes les notes</option>
+                    <option value="5">5 étoiles</option><option value="4">4 étoiles</option><option value="3">3 étoiles</option>
+                    <option value="2">2 étoiles</option><option value="1">1 étoile</option>
+                </select>
+                <select class="champ-rech" id="selLiv"><option value="">Tous les livreurs</option></select>
+                <select class="champ-rech" id="selStatut">
+                    <option value="">Tous les statuts</option>
+                    <option value="traiter">À traiter</option>
+                    <option value="repondu">Répondu</option>
+                </select>
+            </div>
+            <div id="listeFb"></div>
+        </section>
+
+<script>
+/* ---------- données des avis ---------- */
+const AVIS = [
+  { id: 1,  client: "Lucy Nana",      livreur: "John Doe",      date: "2026-10-30", note: 5, texte: "Livraison très rapide, le livreur était poli et souriant. Merci !", themes: ["Rapidité", "Politesse"], reponse: "Merci Lucy, nous transmettons vos compliments à John !" },
+  { id: 2,  client: "Douglas Ateba",  livreur: "Paul Martin",   date: "2026-10-30", note: 4, texte: "Colis bien emballé, mais environ 10 minutes de retard.", themes: ["Emballage", "Ponctualité"], reponse: "" },
+  { id: 3,  client: "Andy Mbarga",    livreur: "Marie Claire",  date: "2026-10-29", note: 2, texte: "Le livreur ne trouvait pas mon adresse et m'a appelé trois fois.", themes: ["Localisation", "Ponctualité"], reponse: "" },
+  { id: 4,  client: "Mike Awono",     livreur: "John Doe",      date: "2026-10-29", note: 5, texte: "Parfait, rien à dire.", themes: ["Rapidité"], reponse: "Merci Mike !" },
+  { id: 5,  client: "Carine Mbella",  livreur: "Samuel Fouda",  date: "2026-10-28", note: 3, texte: "Produit correct, mais l'application a planté au moment du paiement.", themes: ["Application"], reponse: "" },
+  { id: 6,  client: "Éric Tchamba",   livreur: "Alice Ndong",   date: "2026-10-28", note: 1, texte: "Commande arrivée endommagée et personne ne répondait au téléphone.", themes: ["Emballage", "Service client"], reponse: "" },
+  { id: 7,  client: "Nadia Owona",    livreur: "Jean Paul",     date: "2026-10-27", note: 4, texte: "Bon service, le suivi en temps réel est très pratique.", themes: ["Application", "Rapidité"], reponse: "Content que le suivi vous plaise !" },
+  { id: 8,  client: "Patrick Nkou",   livreur: "Paul Martin",   date: "2026-10-27", note: 5, texte: "Livreur très professionnel, je recommande.", themes: ["Politesse"], reponse: "Merci pour votre confiance." },
+  { id: 9,  client: "Sandra Etoga",   livreur: "Éric Tchamba",  date: "2026-10-26", note: 3, texte: "Un peu long à cause des embouteillages à Ndokoti.", themes: ["Ponctualité"], reponse: "" },
+  { id: 10, client: "Rachel Ngo",     livreur: "Samuel Fouda",  date: "2026-10-25", note: 4, texte: "Très bien, juste les frais de livraison un peu élevés.", themes: ["Prix"], reponse: "Merci Rachel, nous étudions des tarifs réduits." }
+];
+
+let filtreNote = "", filtreTheme = "";
+
+function etoiles(n) {
+  let h = "";
+  for (let i = 1; i <= 5; i++) h += '<i class="fa-' + (i <= n ? "solid" : "regular") + ' fa-star' + (i <= n ? "" : " vide") + '"></i>';
+  return h;
+}
+
+function dateFr(iso) {
+  const p = iso.split("-");
+  return p[2] + "/" + p[1] + "/" + p[0];
+}
+
+/* ---------- chiffres clés, notes et thèmes ---------- */
+function afficherStats() {
+  const n = AVIS.length;
+  const moy = AVIS.reduce((s, a) => s + a.note, 0) / n;
+  document.getElementById("kMoy").textContent = moy.toFixed(1).replace(".", ",") + " / 5";
+  document.getElementById("kEtoiles").innerHTML = etoiles(Math.round(moy));
+  document.getElementById("kNb").textContent = n;
+  document.getElementById("kSat").textContent = Math.round(AVIS.filter(a => a.note >= 4).length / n * 100) + " %";
+  document.getElementById("kTraiter").textContent = AVIS.filter(a => !a.reponse).length;
+
+  /* barres : de 5 à 1 étoile */
+  let h = "";
+  for (let note = 5; note >= 1; note--) {
+    const c = AVIS.filter(a => a.note === note).length;
+    h += '<div class="barre-n" data-note="' + note + '"><span>' + note + ' ★</span>' +
+         '<div class="piste"><span style="width:' + (c / n * 100) + '%"></span></div><b>' + c + '</b></div>';
+  }
+  const barres = document.getElementById("barres");
+  barres.innerHTML = h;
+  barres.querySelectorAll(".barre-n").forEach(b => b.addEventListener("click", () => {
+    filtreNote = (filtreNote === b.dataset.note) ? "" : b.dataset.note;
+    document.getElementById("selNote").value = filtreNote;
+    afficherListe();
+  }));
+
+  /* thèmes : comptage */
+  const compte = {};
+  AVIS.forEach(a => a.themes.forEach(t => compte[t] = (compte[t] || 0) + 1));
+  const zone = document.getElementById("themes");
+  zone.innerHTML = "";
+  Object.entries(compte).sort((a, b) => b[1] - a[1]).forEach(([t, c]) => {
+    const p = document.createElement("button");
+    p.className = "puce" + (t === filtreTheme ? " actif" : "");
+    p.innerHTML = t + "<b>" + c + "</b>";
+    p.addEventListener("click", () => {
+      filtreTheme = (filtreTheme === t) ? "" : t;
+      afficherStats();
+      afficherListe();
+    });
+    zone.appendChild(p);
+  });
+}
+
+/* ---------- liste filtrée ---------- */
+function afficherListe() {
+  const texte = document.getElementById("rechFb").value.toLowerCase();
+  const note = document.getElementById("selNote").value;
+  const liv = document.getElementById("selLiv").value;
+  const st = document.getElementById("selStatut").value;
+
+  const liste = AVIS.filter(a =>
+    (!texte || (a.client + " " + a.livreur + " " + a.texte).toLowerCase().includes(texte)) &&
+    (!note || String(a.note) === note) &&
+    (!liv || a.livreur === liv) &&
+    (!st || (st === "traiter" ? !a.reponse : !!a.reponse)) &&
+    (!filtreTheme || a.themes.includes(filtreTheme))
+  );
+
+  const zone = document.getElementById("listeFb");
+  if (!liste.length) { zone.innerHTML = '<p class="vide-fb">Aucun avis ne correspond à ces filtres.</p>'; return; }
+
+  zone.innerHTML = liste.map(a =>
+    '<div class="fb" data-id="' + a.id + '">' +
+      '<img src="bene.jpg" alt="">' +
+      '<div class="fb-corps">' +
+        '<div class="fb-tete"><strong>' + a.client + '</strong><small>pour ' + a.livreur + ' · ' + dateFr(a.date) + '</small>' +
+          '<span class="etoiles droite">' + etoiles(a.note) + '</span></div>' +
+        '<p class="fb-texte">' + a.texte + '</p>' +
+        '<div class="fb-pied">' + a.themes.map(t => '<span class="tag">' + t + '</span>').join("") +
+          '<span class="badge ' + (a.reponse ? "b-vert" : "b-orange") + ' droite">' + (a.reponse ? "Répondu" : "À traiter") + '</span></div>' +
+        (a.reponse ? '<div class="reponse"><b>Votre réponse :</b> ' + a.reponse + '</div>'
+                   : '<button class="btn-mini ouvrir-rep" style="margin-top:10px"><i class="fa-solid fa-reply"></i> Répondre</button>' +
+                     '<div class="zone-rep" hidden><textarea placeholder="Votre réponse au client..."></textarea>' +
+                     '<button class="btn-bleu envoyer-rep"><i class="fa-solid fa-paper-plane"></i> Envoyer</button></div>') +
+      '</div></div>'
+  ).join("");
+}
+
+/* ---------- répondre à un avis ---------- */
+document.getElementById("listeFb").addEventListener("click", e => {
+  const carte = e.target.closest(".fb");
+  if (!carte) return;
+  if (e.target.closest(".ouvrir-rep")) {
+    carte.querySelector(".zone-rep").hidden = false;
+    e.target.closest(".ouvrir-rep").hidden = true;
+  }
+  if (e.target.closest(".envoyer-rep")) {
+    const t = carte.querySelector("textarea").value.trim();
+    if (!t) { alert("Écrivez d'abord une réponse."); return; }
+    AVIS.find(a => a.id === Number(carte.dataset.id)).reponse = t;
+    afficherStats();
+    afficherListe();
+  }
+});
+
+/* ---------- exporter les avis affichés ---------- */
+document.getElementById("btnExport").addEventListener("click", () => {
+  const lignes = [["Client", "Livreur", "Date", "Note", "Avis", "Themes", "Reponse"]];
+  document.querySelectorAll("#listeFb .fb").forEach(c => {
+    const a = AVIS.find(x => x.id === Number(c.dataset.id));
+    lignes.push([a.client, a.livreur, dateFr(a.date), a.note, '"' + a.texte.replace(/"/g, "'") + '"', a.themes.join(" / "), '"' + (a.reponse || "").replace(/"/g, "'") + '"']);
+  });
+  const lien = document.createElement("a");
+  lien.href = URL.createObjectURL(new Blob(["\ufeff" + lignes.map(l => l.join(";")).join("\n")], { type: "text/csv" }));
+  lien.download = "feedbacks.csv";
+  lien.click();
+});
+
+/* ---------- filtres ---------- */
+const livreurs = Array.from(new Set(AVIS.map(a => a.livreur))).sort();
+document.getElementById("selLiv").innerHTML += livreurs.map(l => "<option>" + l + "</option>").join("");
+["rechFb", "selNote", "selLiv", "selStatut"].forEach(id => {
+  document.getElementById(id).addEventListener("input", () => {
+    if (id === "selNote") filtreNote = document.getElementById("selNote").value;
+    afficherListe();
+  });
+});
+
+afficherStats();
+afficherListe();
+</script>
+
+    </fieldset>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleClients.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Clients</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher un client, une commande....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <a href="parametres.html"><img id="img1" src="télécharger.jpg" alt="image jeune homme"></a>
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <h1 class="h1">Gestion des Clients</h1>
+        <p id="p1">Suivez et gérez vos clients.</p>
+        <a href="ajouter client.html"><button class="btn-plein"><i class="fa-solid fa-plus"></i> Ajouter un client</button></a>
+        
+
+        <!-- cartes statistiques -->
+        <div id="c5">
+            <fieldset id="f4">
+                <p id="f4p2">Total clients</p>
+                <p id="f4p1">1245</p>
+                <p id="f4p3"><i class="fa-solid fa-arrow-up"></i> 6,4%</p>
+            </fieldset>
+
+            <fieldset id="f5">
+                <p id="f5p2">Clients actifs</p>
+                <p id="f5p1">986</p>
+                <p id="f5p3"><i class="fa-solid fa-arrow-up"></i> 5,2%</p>
+            </fieldset>
+
+            <fieldset id="f6">
+                <p id="f6p2">Nouveaux clients</p>
+                <p id="f6p1">124</p>
+                <p id="f6p3"><i class="fa-solid fa-arrow-up"></i> 10,8%</p>
+            </fieldset>
+
+            <fieldset id="f7">
+                <p id="f7p2">Clients inactifs</p>
+                <p id="f7p1">135</p>
+                <p id="f7p3"><i class="fa-solid fa-arrow-down"></i> 3,1%</p>
+            </fieldset>
+
+            <fieldset id="f8">
+                <p id="f8p2">CA généré</p>
+                <p id="f8p1">4 850 000 <span>FCFA</span></p>
+                <p id="f8p3"><i class="fa-solid fa-arrow-up"></i> 14,9%</p>
+            </fieldset>
+        </div>
+
+        <!-- Centre d'activité -->
+        <fieldset id="e1" class="bloc">
+            <h3>Centre d'activité</h3>
+            <canvas id="histo" width="330" height="170"></canvas>
+            <div class="leg">
+                <span><i class="pt" style="background:rgb(46,164,79)"></i>Actifs</span>
+                <span><i class="pt" style="background:rgb(214,41,62)"></i>Inactifs</span>
+            </div>
+        </fieldset>
+
+        <!-- Top client par CA -->
+        <fieldset id="e2" class="bloc-b">
+            <h3 class="gros">Top client par CA</h3>
+
+            <div class="liv">
+                <b>1</b><img src="liv2.webp" alt="">
+                <span class="nomL">Stanley Jonhson</span>
+                <span class="montant">485 000 FCFA</span>
+            </div>
+            <div class="liv">
+                <b>2</b><img src="liv3.webp" alt="">
+                <span class="nomL">Emmanuel Kant</span>
+                <span class="montant">300 000 FCFA</span>
+            </div>
+            <div class="liv">
+                <b>3</b><img src="liv11.webp" alt="">
+                <span class="nomL">Inaya Smith</span>
+                <span class="montant">250 000 FCFA</span>
+            </div>
+        </fieldset>
+
+        <!-- Clients par ville -->
+        <fieldset id="e3" class="bloc-b">
+            <h3 class="gros">Clients par ville</h3>
+
+            <div class="ville"><span>Douala</span><small>540</small></div>
+            <div class="barre"><span style="width: 80%;"></span></div>
+
+            <div class="ville"><span>Yaoundé</span><small>320</small></div>
+            <div class="barre"><span style="width: 55%;"></span></div>
+
+            <div class="ville"><span>Bafoussam</span><small>150</small></div>
+            <div class="barre"><span style="width: 30%;"></span></div>
+
+            <div class="ville"><span>Autres</span><small>235</small></div>
+            <div class="barre"><span style="width: 40%;"></span></div>
+        </fieldset>
+
+        <!-- Liste des clients -->
+        <fieldset id="e4" class="bloc-b">
+            <table class="tableau">
+                <tr>
+                    <th>Id</th><th>Nom</th><th>Email</th><th>Téléphone</th><th>Action</th>
+                </tr>
+                <tr>
+                    <td>1</td><td>John Doe</td><td>JohnDoe@gmail.com</td><td>+237655555555</td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-envelope act-bleu"></i></td>
+                </tr>
+                <tr>
+                    <td>2</td><td>Paul Martin</td><td>PaulMartin@gmail.com</td><td>+237655555556</td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-envelope act-bleu"></i></td>
+                </tr>
+                <tr>
+                    <td>3</td><td>Marie Claire</td><td>MarieClaire@gmail.com</td><td>+237655555557</td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-envelope act-bleu"></i></td>
+                </tr>
+                <tr>
+                    <td>4</td><td>Jean Paul</td><td>JeanPaul@gmail.com</td><td>+237655555558</td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-envelope act-bleu"></i></td>
+                </tr>
+                <tr>
+                    <td>5</td><td>Alice Ndong</td><td>AliceNdong@gmail.com</td><td>+237655555559</td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-envelope act-bleu"></i></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- Taux de fidélisation -->
+        <fieldset id="e5" class="bloc-b">
+            <h3 class="gros" style="font-size: 17px;">Taux de fidélisation</h3>
+            <p class="grand">68 %</p>
+            <p class="tendance"><i class="fa-solid fa-arrow-up"></i> 5,2%</p>
+            <a id="lui" href="liste clients.html"><button class="btn-plein bas">Voir tous les clients</button></a>
+            <a id="lu" href="feedbacks.html"> <button class="btn-plein"><i class="fa-solid fa-comment"></i>Feedbacks</button></a>
+        </fieldset>
+
+<script>
+/* ---------- Histogramme (2 barres par mois : actifs / inactifs) ---------- */
+function histogramme(idCanvas, labels, serie1, serie2, c1, c2, max, pas) {
+  const c = document.getElementById(idCanvas), ctx = c.getContext("2d");
+  const W = c.width, H = c.height, gauche = 30, bas = 22, haut = 8;
+  const hu = H - bas - haut;
+  const lg = (W - gauche - 5) / labels.length;
+
+  ctx.clearRect(0, 0, W, H);
+  ctx.font = "10px Arial";
+
+  // grille + axe Y
+  ctx.strokeStyle = "#cfcfcf";
+  ctx.fillStyle = "#333";
+  ctx.textAlign = "right";
+  for (let v = 0; v <= max; v += pas) {
+    const y = haut + hu - (v / max) * hu;
+    ctx.beginPath(); ctx.moveTo(gauche, y); ctx.lineTo(W - 5, y); ctx.stroke();
+    ctx.fillText(v, gauche - 4, y + 3);
+  }
+
+  labels.forEach((nom, i) => {
+    const x = gauche + i * lg + lg * 0.12;
+    const lb = lg * 0.3;
+
+    const h1 = (serie1[i] / max) * hu;
+    ctx.fillStyle = c1;
+    ctx.fillRect(x, haut + hu - h1, lb, h1);
+
+    const h2 = (serie2[i] / max) * hu;
+    ctx.fillStyle = c2;
+    ctx.fillRect(x + lb + 2, haut + hu - h2, lb, h2);
+
+    ctx.fillStyle = "#000";
+    ctx.textAlign = "center";
+    ctx.fillText(nom, x + lb, H - 7);
+  });
+}
+
+/* ---------- Utilisation : remplace par tes données ---------- */
+histogramme("histo", ["Jan", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil"],
+            [80, 100, 120, 90, 140, 130, 150],
+            [20, 15, 25, 30, 20, 18, 22],
+            "rgb(46, 164, 79)", "rgb(214, 41, 62)", 200, 50);
+</script>
+
+    </fieldset>
+
+</body>
+</html>

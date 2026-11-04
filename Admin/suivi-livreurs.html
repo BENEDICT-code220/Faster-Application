@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylelivreursuivi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Faster - Suivi en direct</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher un livreur....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <img id="img1" src="admin.jpg" alt="image jeune homme">
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <div class="entete-page">
+            <div>
+                <h1 class="titre-page">Suivi des livreurs en direct</h1>
+                <p class="sous-titre">Position en temps réel de tous les livreurs en service</p>
+            </div>
+            <div class="actions-haut">
+                <a href="obstacles.html" class="btn-blanc"><i class="fa-solid fa-triangle-exclamation"></i> Obstacles en route</a>
+                <a href="liste livreurs.html" class="btn-bleu"><i class="fa-solid fa-list"></i> Liste des livreurs</a>
+            </div>
+        </div>
+
+        <!-- chiffres du moment -->
+        <div class="kpis">
+            <div class="kpi"><span class="ic i-bleu"><i class="fa-solid fa-satellite-dish"></i></span><div><small>Livreurs en ligne</small><strong id="kEnLigne">0</strong></div></div>
+            <div class="kpi"><span class="ic i-bleu"><i class="fa-solid fa-truck-fast"></i></span><div><small>En livraison</small><strong id="kLivraison">0</strong></div></div>
+            <div class="kpi"><span class="ic i-vert"><i class="fa-solid fa-circle-check"></i></span><div><small>Disponibles</small><strong id="kDispo">0</strong></div></div>
+            <div class="kpi"><span class="ic i-orange"><i class="fa-solid fa-mug-hot"></i></span><div><small>En pause</small><strong id="kPause">0</strong></div></div>
+        </div>
+
+        <div class="corps-suivi">
+
+            <!-- liste des livreurs : un clic sélectionne un livreur -->
+            <aside class="carte-a">
+                <div class="liste-tete">
+                    <h3>Livreurs</h3>
+                    <button class="btn-mini" id="btnTous" hidden>Voir tous</button>
+                </div>
+                <input class="champ-rech" id="rechL" type="search" placeholder="Rechercher un livreur...">
+                <div id="listeL"></div>
+            </aside>
+
+            <!-- carte en direct -->
+            <section class="carte-a">
+                <div class="barre-carte">
+                    <h3 id="titreCarte">Tous les livreurs en service</h3>
+                    <label class="coche"><input type="checkbox" id="chkObst"> Afficher les obstacles</label>
+                    <span class="maj"><i class="fa-solid fa-circle"></i>En direct · mis à jour <b id="maj">à l'instant</b></span>
+                </div>
+
+                <div class="carte-vue" id="vue">
+                    <div class="carte-inner" id="inner">
+                        <img class="fond-carte" src="OIP.webp" alt="Carte du quartier">
+                        <svg id="trace" viewBox="0 0 100 100" preserveAspectRatio="none"><polyline id="ligne" points=""/></svg>
+                        <div id="obstacles"></div>
+                        <div id="marqueurs"></div>
+                    </div>
+
+                    <div class="legende">
+                        <div><i style="background: rgb(30, 100, 235);"></i> En livraison</div>
+                        <div><i style="background: rgb(46, 164, 79);"></i> Disponible</div>
+                        <div><i style="background: rgb(240, 150, 20);"></i> En pause</div>
+                    </div>
+
+                    <div class="astuce" id="astuce">Cliquez sur un livreur pour suivre sa position</div>
+
+                    <!-- fiche du livreur sélectionné -->
+                    <div class="fiche" id="fiche" hidden>
+                        <div class="fiche-tete">
+                            <img src="bene.jpg" alt="">
+                            <div><strong id="fNom">—</strong><span class="pastille" id="fEtat">—</span></div>
+                        </div>
+                        <p><span>Commande</span><b id="fCmd">—</b></p>
+                        <p><span>Client</span><b id="fClient">—</b></p>
+                        <p><span>Véhicule</span><b id="fVeh">—</b></p>
+                        <p><span>Vitesse</span><b id="fVit">—</b></p>
+                        <p><span>Position GPS</span><b id="fGps">—</b></p>
+                        <p><span>Arrivée estimée</span><b id="fEta">—</b></p>
+                        <div class="fiche-actions">
+                            <a href="#" class="btn-blanc" id="fTel" title="+237 6 55 55 67 02"><i class="fa-solid fa-phone"></i> Contact</a>
+                            <a href="detail livreur.html" class="btn-bleu"><i class="fa-solid fa-id-card"></i> Détails</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+<script>
+/* ---------- données des livreurs (positions en % de la carte) ---------- */
+const ROUTES_X = [10, 35, 50, 65, 90];     /* routes verticales */
+const ROUTES_Y = [17, 50, 83];             /* routes horizontales */
+const ETATS = { livraison: "En livraison", disponible: "Disponible", pause: "En pause", hors: "Hors ligne" };
+
+const LIVREURS = [
+  { id: 1, nom: "John Doe",      etat: "livraison",  cmd: "#CMD324", client: "Mike Awono",    zone: "Bonamoussadi", tel: "+237655555555", veh: "Moto · CE 1254 AB", axe: "y", x: 35, y: 28, dir: 1},
+  { id: 2, nom: "Paul Martin",   etat: "livraison",  cmd: "#CMD326", client: "Lucy Nana",     zone: "Akwa",         tel: "+237655555556", veh: "Moto · LT 4418 PQ", axe: "x", x: 22, y: 50, dir: 1 },
+  { id: 3, nom: "Marie Claire",  etat: "livraison",  cmd: "#CMD327", client: "Douglas Ateba", zone: "Makepe",       tel: "+237655555557", veh: "Moto · CE 9921 KL", axe: "y", x: 65, y: 70, dir: -1 },
+  { id: 4, nom: "Jean Paul",     etat: "disponible", cmd: "—",       client: "—",             zone: "Deido",        tel: "+237655555558", veh: "Moto · LT 2207 RT", axe: "x", x: 78, y: 17, dir: -1 },
+  { id: 5, nom: "Alice Ndong",   etat: "livraison",  cmd: "#CMD330", client: "Andy Mbarga",   zone: "Bonapriso",    tel: "+237655555559", veh: "Moto · CE 3310 MN", axe: "y", x: 10, y: 60, dir: 1 },
+  { id: 6, nom: "Samuel Fouda",  etat: "disponible", cmd: "—",       client: "—",             zone: "Logpom",       tel: "+237655555560", veh: "Moto · LT 7782 BC", axe: "x", x: 40, y: 83, dir: 1 },
+  { id: 7, nom: "Carine Mbella", etat: "pause",      cmd: "—",       client: "—",             zone: "Ndokoti",      tel: "+237655555561", veh: "Moto · CE 5543 DE", axe: "y", x: 90, y: 40, dir: 1 },
+  { id: 8, nom: "Éric Tchamba",  etat: "livraison",  cmd: "#CMD332", client: "Rachel Ngo",    zone: "Bonabéri",     tel: "+237655555562", veh: "Moto · LT 6601 FG", axe: "y", x: 50, y: 20, dir: 1 },
+  { id: 9, nom: "Nadia Owona",   etat: "disponible", cmd: "—",       client: "—",             zone: "Kotto",        tel: "+237655555563", veh: "Moto · CE 8814 HJ", axe: "x", x: 60, y: 50, dir: -1 },
+  { id: 10, nom: "Patrick Nkou", etat: "hors",       cmd: "—",       client: "—",             zone: "—",            tel: "+237655555564", veh: "Moto · LT 1190 KM", axe: "x", x: 0, y: 0, dir: 1 }
+];
+LIVREURS.forEach(l => { l.trace = []; });
+
+const OBSTACLES = [
+  { x: 50, y: 33, t: "Embouteillage — Boulevard central" },
+  { x: 22, y: 50, t: "Travaux — Avenue principale" },
+  { x: 65, y: 62, t: "Route inondée — Makepe" },
+  { x: 35, y: 83, t: "Accident — Rue des Manguiers" },
+  { x: 90, y: 22, t: "Contrôle routier — Deido" }
+];
+
+let selection = null;       /* id du livreur sélectionné (null = tous) */
+
+const ZOOM = 2.4;
+const vue = document.getElementById("vue");
+const inner = document.getElementById("inner");
+
+/* ---------- construction de la liste et des repères ---------- */
+function construireListe() {
+  const filtre = document.getElementById("rechL").value.toLowerCase();
+  const liste = document.getElementById("listeL");
+  liste.innerHTML = "";
+  LIVREURS.filter(l => l.nom.toLowerCase().includes(filtre)).forEach(l => {
+    const d = document.createElement("div");
+    d.className = "item-l" + (l.id === selection ? " sel" : "");
+    d.innerHTML = '<img class="av" src="bene.jpg" alt="">' +
+      '<div class="txt"><b>' + l.nom + '</b><small>' + (l.etat === "hors" ? "Hors ligne" : (l.cmd !== "—" ? l.cmd + " · " : "") + l.zone) + '</small></div>' +
+      '<span class="pastille e-' + l.etat + '">' + ETATS[l.etat] + '</span>';
+    d.addEventListener("click", () => choisir(l.id));
+    liste.appendChild(d);
+  });
+}
+
+function construireRepères() {
+  const zone = document.getElementById("marqueurs");
+  zone.innerHTML = "";
+  LIVREURS.filter(l => l.etat !== "hors").forEach(l => {
+    const m = document.createElement("div");
+    m.className = "marqueur e-" + l.etat;
+    m.id = "m" + l.id;
+    m.innerHTML = '<span class="pt"><i class="fa-solid fa-motorcycle"></i></span><span class="nom">' + l.nom.split(" ")[0] + '</span>';
+    m.style.left = l.x + "%";
+    m.style.top = l.y + "%";
+    m.addEventListener("click", e => { e.stopPropagation(); choisir(l.id); });
+    zone.appendChild(m);
+  });
+
+  const zo = document.getElementById("obstacles");
+  OBSTACLES.forEach(o => {
+    const e = document.createElement("div");
+    e.className = "obstacle";
+    e.hidden = true;
+    e.title = o.t;
+    e.style.left = o.x + "%";
+    e.style.top = o.y + "%";
+    e.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+    zo.appendChild(e);
+  });
+}
+
+/* ---------- sélection d'un livreur ---------- */
+function choisir(id) {
+  selection = id;
+  const l = LIVREURS.find(x => x.id === id);
+  document.getElementById("titreCarte").textContent = "Position de " + l.nom;
+  document.getElementById("btnTous").hidden = false;
+  document.getElementById("astuce").hidden = true;
+  document.getElementById("fiche").hidden = (l.etat === "hors");
+  document.getElementById("fTel").href = "tel:" + l.tel;
+  if (l.etat === "hors") alert(l.nom + " est hors ligne : aucune position disponible.");
+  majTout();
+}
+
+function toutVoir() {
+  selection = null;
+  document.getElementById("titreCarte").textContent = "Tous les livreurs en service";
+  document.getElementById("btnTous").hidden = true;
+  document.getElementById("astuce").hidden = false;
+  document.getElementById("fiche").hidden = true;
+  document.getElementById("ligne").setAttribute("points", "");
+  majTout();
+}
+
+/* ---------- caméra : zoom sur le livreur sélectionné ---------- */
+function cadrer() {
+  const l = LIVREURS.find(x => x.id === selection);
+  const vw = vue.clientWidth, vh = vue.clientHeight;
+  let z = 1, tx = 0, ty = 0;
+  if (l && l.etat !== "hors") {
+    z = ZOOM;
+    tx = Math.min(0, Math.max(vw - z * vw, vw / 2 - z * (l.x / 100) * vw));
+    ty = Math.min(0, Math.max(vh - z * vh, vh / 2 - z * (l.y / 100) * vh));
+  }
+  inner.style.setProperty("--z", z);
+  inner.style.transform = "translate(" + tx + "px, " + ty + "px) scale(" + z + ")";
+}
+
+/* ---------- affichage ---------- */
+function majTout() {
+  construireListe();
+
+  document.querySelectorAll(".marqueur").forEach(m => {
+    const id = Number(m.id.slice(1));
+    m.classList.toggle("sel", id === selection);
+    m.classList.toggle("att", selection !== null && id !== selection);
+  });
+
+  const en = LIVREURS.filter(l => l.etat !== "hors");
+  document.getElementById("kEnLigne").textContent = en.length;
+  document.getElementById("kLivraison").textContent = LIVREURS.filter(l => l.etat === "livraison").length;
+  document.getElementById("kDispo").textContent = LIVREURS.filter(l => l.etat === "disponible").length;
+  document.getElementById("kPause").textContent = LIVREURS.filter(l => l.etat === "pause").length;
+
+  const l = LIVREURS.find(x => x.id === selection);
+  if (l && l.etat !== "hors") {
+    document.getElementById("fNom").textContent = l.nom;
+    const e = document.getElementById("fEtat");
+    e.textContent = ETATS[l.etat];
+    e.className = "pastille e-" + l.etat;
+    document.getElementById("fCmd").textContent = l.cmd;
+    document.getElementById("fClient").textContent = l.client;
+    document.getElementById("fVeh").textContent = l.veh;
+    document.getElementById("fVit").textContent = l.etat === "pause" ? "0 km/h" : l.vit + " km/h";
+    document.getElementById("fGps").textContent = (4.0905 - l.y / 100 * 0.02).toFixed(5) + ", " + (9.7000 + l.x / 100 * 0.03).toFixed(5);
+    document.getElementById("fEta").textContent = l.etat === "livraison" ? l.eta + " min" : "—";
+    document.getElementById("ligne").setAttribute("points", l.trace.map(p => p[0] + "," + p[1]).join(" "));
+  }
+  cadrer();
+}
+
+/* ---------- simulation du déplacement (1 mise à jour par seconde) ---------- */
+function avancer() {
+  LIVREURS.forEach(l => {
+    if (l.etat === "hors") return;
+    const v = l.etat === "livraison" ? 0.6 : (l.etat === "disponible" ? 0.35 : 0);
+    l.vit = v === 0 ? 0 : Math.round(15 + Math.random() * 25);
+    if (l.eta === undefined) l.eta = 4 + Math.floor(Math.random() * 12);
+    if (Math.random() < 0.02 && l.eta > 1) l.eta--;
+
+    if (v > 0) {
+      l[l.axe] += l.dir * v;
+      if (l[l.axe] > 96 || l[l.axe] < 4) { l.dir = -l.dir; l[l.axe] = Math.max(4, Math.min(96, l[l.axe])); }
+
+      /* aux carrefours, le livreur peut tourner */
+      const autres = l.axe === "y" ? ROUTES_Y : ROUTES_X;
+      autres.forEach(r => {
+        if (Math.abs(l[l.axe] - r) < v && Math.random() < 0.25) {
+          l[l.axe] = r;
+          l.axe = l.axe === "y" ? "x" : "y";
+          l.dir = Math.random() < 0.5 ? 1 : -1;
+        }
+      });
+    }
+
+    l.trace.push([Number(l.x.toFixed(2)), Number(l.y.toFixed(2))]);
+    if (l.trace.length > 40) l.trace.shift();
+
+    const m = document.getElementById("m" + l.id);
+    if (m) { m.style.left = l.x + "%"; m.style.top = l.y + "%"; }
+  });
+  majTout();
+  document.getElementById("maj").textContent = "à l'instant";
+}
+
+/* ---------- évènements ---------- */
+document.getElementById("btnTous").addEventListener("click", toutVoir);
+document.getElementById("rechL").addEventListener("input", construireListe);
+document.getElementById("chkObst").addEventListener("change", e => {
+  document.querySelectorAll(".obstacle").forEach(o => o.hidden = !e.target.checked);
+});
+window.addEventListener("resize", cadrer);
+
+/* ---------- démarrage ---------- */
+LIVREURS.forEach(l => { l.vit = 20; l.eta = 4 + Math.floor(Math.random() * 12); });
+construireRepères();
+majTout();
+setInterval(avancer, 1000);
+</script>
+
+    </fieldset>
+
+</body>
+</html>

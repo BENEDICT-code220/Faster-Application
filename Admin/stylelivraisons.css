@@ -1,0 +1,441 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: rgb(237, 237, 237);
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+fieldset{
+    margin: 0;
+    padding: 0;
+    border: none;
+    min-width: 0;
+}
+
+
+
+/* ================= MENU GAUCHE ================= */
+#f1{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 220px;
+    padding-top: 10px;
+    background-color: rgba(0, 30, 59, 0.936);
+    color: white;
+    z-index: 20;
+}
+
+.h{
+    margin: 0 0 30px 10px;
+    font-size: 24px;
+}
+
+#f1 h3{
+    margin: 0 0 6px 0;
+    font-size: 15px;
+}
+
+#f1 h3 a{
+    display: block;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+#f1 h3 a i{
+    width: 30px;
+    font-size: 18px;
+}
+
+#l3 a{
+    background-color: rgb(30, 144, 255);
+}
+
+#f1 h3 a:hover{
+    color: rgb(81, 142, 255);
+}
+
+#l10{
+    position: absolute;
+    bottom: 5px;
+    left: -1px;
+    
+}
+
+#l10 a:active{
+    color: red;
+}
+
+
+/* ================= ZONE PRINCIPALE ================= */
+#f2{
+    position: relative;
+    width: 1100px;
+    height: 1010px;
+    margin-left: 220px;
+    background-color: rgb(237, 237, 237);
+}
+
+/* ---------- barre du haut ---------- */
+#f3{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1153px;
+    height: 80px;
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+#s{
+    position: absolute;
+    left: 32px;
+    top: 31px;
+    font-size: 15px;
+    color: rgb(40, 40, 40);
+    z-index: 2;
+}
+
+#i11{
+    position: absolute;
+    left: 20px;
+    top: 22px;
+    width: 300px;
+    height: 36px;
+    padding-left: 38px;
+    border: 1px solid rgb(236, 234, 234);
+    background-color: rgb(231, 231, 231);
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+#i11:focus{
+    outline: none;
+    border-color: #0d6efd;
+}
+
+#cloche, #mail{
+    position: absolute;
+    top: 26px;
+    font-size: 24px;
+    color: rgb(30, 144, 255);
+}
+
+#cloche{ right: 255px; }
+#mail{ right: 210px; }
+
+#point{
+    position: absolute;
+    top: 24px;
+    right: 204px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+#img1{
+    position: absolute;
+    top: 15px;
+    right: 135px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#imD2{
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    width: 110px;
+}
+
+#poste{
+    margin: 0;
+    font-size: 16px;
+    color: black;
+}
+
+#nom{
+    margin: 2px 0 0 0;
+    font-size: 12px;
+}
+
+/* ---------- titre + bouton ---------- */
+.h1{
+    position: absolute;
+    top: 100px;
+    left: 30px;
+    margin: 0;
+    font-size: 28px;
+}
+
+#p1{
+    position: absolute;
+    top: 145px;
+    left: 30px;
+    margin: 0;
+    font-size: 14px;
+    color: rgb(110, 110, 110);
+}
+
+.btn-plein{
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    background-color: rgb(30, 100, 235);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0.9px 1.5px 5px rgb(188, 188, 188);
+}
+
+.btn-plein:hover{
+    background-color: rgb(20, 70, 190);
+}
+
+.btn-plein.bas{
+    top: auto;
+    right: 18px;
+    bottom: 16px;
+}
+
+/* ---------- cartes statistiques ---------- */
+#c5{
+    position: absolute;
+    top: 185px;
+    left: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+#f4, #f5, #f6, #f7, #f8{
+    width: 196px;
+    height: 90px;
+    padding: 16px 8px;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 8px 5px 8px 1px rgb(229, 229, 229);
+}
+
+#f4:hover, #f5:hover, #f6:hover, #f7:hover, #f8:hover{
+    background-color: rgb(212, 212, 212);
+}
+
+.kh{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.kh i{
+    font-size: 28px;
+}
+
+#f4p1, #f5p1, #f6p1, #f7p1, #f8p1{
+    margin: 0;
+    font-size: 22px;
+    font-weight: bolder;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#f4p2, #f5p2, #f6p2, #f7p2, #f8p2{
+    margin: 10px 0 0 0;
+    font-size: 13px;
+}
+
+.bleu{ color: rgb(30, 144, 255); }
+.vert{ color: rgb(46, 164, 79); }
+.orange{ color: orange; }
+.rouge{ color: rgb(229, 57, 53); }
+
+/* ---------- blocs ---------- */
+.bloc-b{
+    position: absolute;
+    padding: 18px;
+    border-radius: 8px;
+    background-color: white;
+    border: 0.1px solid rgb(237, 237, 237);
+    box-shadow: 8px 5px 8px 1px rgb(193, 194, 194);
+}
+
+.gros{
+    margin: 0 0 14px 0;
+    font-size: 15px;
+}
+
+canvas{
+    display: block;
+}
+
+#g1{
+    top: 300px;
+    left: 30px;
+    width: 440px;
+    height: 260px;
+}
+
+#g2{
+    top: 300px;
+    left: 495px;
+    width: 270px;
+    height: 260px;
+}
+
+#g3{
+    top: 300px;
+    left: 790px;
+    width: 280px;
+    height: 260px;
+}
+
+#g4{
+    top: 590px;
+    left: 30px;
+    width: 1040px;
+    height: 370px;
+}
+
+/* ---------- carte ---------- */
+.zone-carte{
+    position: relative;
+}
+
+#carte{
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    background-color: rgb(222, 228, 234);
+}
+
+.info-liv{
+    position: absolute;
+    left: 16px;
+    top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    font-size: 11px;
+}
+
+.info-liv img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.info-liv div{
+    display: flex;
+    flex-direction: column;
+}
+
+.info-liv small{
+    color: rgb(30, 100, 235);
+    font-size: 10px;
+}
+
+/* ---------- délai moyen ---------- */
+.delai{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.delai i{
+    font-size: 30px;
+    color: rgb(110, 110, 110);
+}
+
+.delai b{
+    font-size: 30px;
+}
+
+.tendance{
+    margin: 6px 0 8px 0;
+    color: rgb(0, 190, 0);
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* ---------- tableau ---------- */
+.tableau{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+}
+
+.tableau th{
+    background-color: rgb(0, 30, 59);
+    color: white;
+    text-align: left;
+    padding: 9px 12px;
+    font-size: 12px;
+}
+
+.tableau td{
+    padding: 10px 12px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.tableau tr:hover td{
+    background-color: rgb(245, 247, 250);
+}
+
+.mini-img{
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+.act-bleu{
+    color: rgb(30, 100, 235);
+    cursor: pointer;
+}
+
+.act-rouge{
+    color: rgb(229, 57, 53);
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* ---------- badges de statut ---------- */
+.badge{
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+    padding: 3px 12px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.b-vert{   background-color: rgb(215, 245, 223); color: rgb(26, 143, 60); }
+.b-orange{ background-color: rgb(255, 236, 205); color: rgb(214, 130, 0); }
+.b-rouge{  background-color: rgb(255, 221, 221); color: rgb(214, 41, 62); }

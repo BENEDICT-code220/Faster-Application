@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleClientPanier.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Mon panier</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+    <fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3><a href="client acceuil.html"><i class="fa-solid fa-house"></i>Accueil</a></h3>
+        <h3><a href="client produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3><a href="client panier.html" class="actif"><i class="fa-solid fa-bag-shopping"></i>Mes commandes</a></h3>
+        <h3><a href="client profil.html"><i class="fa-regular fa-user"></i>Profil</a></h3>
+        <h3><a href="client livreurs.html"><i class="fa-solid fa-box-open"></i>Livraisons</a></h3>
+        <h3><a href="client suivi.html"><i class="fa-regular fa-eye"></i>Suivi</a></h3>
+        <h3><a href="client paiement.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3><a href="client historique.html"><i class="fa-solid fa-clock-rotate-left"></i>Historique</a></h3>
+        <!--<h3><a href="#"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>-->
+        <h3 class="bas-menu"><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <div class="droite">
+                <a href="#" class="icone-haut"><i class="fa-regular fa-bell"></i><span class="point"></span></a>
+            <a href="client panier.html" class="icone-haut"><i class="fa-solid fa-cart-shopping"></i><span class="nb" id="nbPanier" hidden>0</span></a>
+                <div class="user-haut">
+                    <a href="client profil.html"><img src="bene.jpg" alt="Photo"></a>
+                    <div><strong>Mike Awono</strong><small>Client</small></div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="zone-panier">
+            <h3 class="titre-p" style="font-size: 15px;">Mon panier</h3>
+
+            <div id="liste"></div>
+
+            <div class="totaux">
+                <div class="ligne-tot"><b>Sous Total:</b><b id="sousTotal">0 FCFA</b></div>
+                <div class="ligne-tot"><b>Frais de livraison:</b><b id="frais">0 FCFA</b></div>
+                <div class="ligne-tot grand"><b>Total:</b><b id="total">0 FCFA</b></div>
+            </div>
+
+            <button class="btn-bleu btn-commander" id="btnCommander">Passer la commande</button>
+        </div>
+
+    </fieldset>
+
+<script>
+/* ---------- panier (mémorisé dans le navigateur) ---------- */
+const CLE = "appdeliverPanier";
+
+function lirePanier() {
+  try { return JSON.parse(localStorage.getItem(CLE)) || []; } catch (e) { return []; }
+}
+
+function sauverPanier(p) {
+  try { localStorage.setItem(CLE, JSON.stringify(p)); } catch (e) {}
+  majBadge();
+}
+
+function majBadge() {
+  const n = lirePanier().reduce((a, x) => a + x.qte, 0);
+  const b = document.getElementById("nbPanier");
+  if (b) { b.textContent = n; b.hidden = (n === 0); }
+}
+
+function ajouterAuPanier(nom, prix, icone) {
+  const p = lirePanier();
+  const existant = p.find(x => x.nom === nom);
+  if (existant) existant.qte++; else p.push({ nom: nom, prix: prix, icone: icone, qte: 1 });
+  sauverPanier(p);
+}
+
+function fcfa(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+/* boutons « Ajouter » des cartes produits */
+document.querySelectorAll(".ajouter").forEach(b => {
+  b.addEventListener("click", () => {
+    ajouterAuPanier(b.dataset.nom, Number(b.dataset.prix), b.dataset.ic);
+    const avant = b.innerHTML;
+    b.innerHTML = '<i class="fa-solid fa-check"></i> Ajouté';
+    setTimeout(() => b.innerHTML = avant, 900);
+  });
+});
+
+majBadge();
+
+/* au tout premier affichage, on met 3 articles d'exemple */
+try {
+  if (localStorage.getItem(CLE) === null) {
+    sauverPanier([
+      { nom: "Burger King", prix: 3500, icone: "fa-burger", qte: 1 },
+      { nom: "T-shirt Otaku", prix: 11000, icone: "fa-shirt", qte: 1 },
+      { nom: "Nike Adapt BB", prix: 250000, icone: "fa-shoe-prints", qte: 1 }
+    ]);
+  }
+} catch (e) {}
+
+function afficher() {
+  const p = lirePanier();
+  const liste = document.getElementById("liste");
+  liste.innerHTML = "";
+
+  if (p.length === 0) {
+    liste.innerHTML = '<p class="vide">Votre panier est vide. <a href="client-produits.html" class="lien">Voir les produits</a></p>';
+  }
+
+  p.forEach((x, i) => {
+    const ligne = document.createElement("div");
+    ligne.className = "article";
+    ligne.innerHTML =
+      '<div class="miniature"><i class="fa-solid ' + x.icone + '"></i></div>' +
+      '<div class="infos-art"><b>' + x.nom + '</b><span>' + fcfa(x.prix) + ' FCFA</span></div>' +
+      '<div class="qte">' +
+        '<button data-i="' + i + '" data-d="1"><i class="fa-regular fa-circle-plus"></i></button>' +
+        '<b>' + x.qte + '</b>' +
+        '<button data-i="' + i + '" data-d="-1"><i class="fa-regular fa-circle-minus"></i></button>' +
+      '</div>' +
+      '<button class="supprimer" data-i="' + i + '" data-sup="1"><i class="fa-regular fa-trash-can"></i></button>';
+    liste.appendChild(ligne);
+  });
+
+  const sous = p.reduce((a, x) => a + x.prix * x.qte, 0);
+  const frais = p.length ? 2000 : 0;
+  document.getElementById("sousTotal").textContent = fcfa(sous) + " FCFA";
+  document.getElementById("frais").textContent = fcfa(frais) + " FCFA";
+  document.getElementById("total").textContent = fcfa(sous + frais) + " FCFA";
+}
+
+document.getElementById("liste").addEventListener("click", e => {
+  const bouton = e.target.closest("button");
+  if (!bouton) return;
+  const p = lirePanier();
+  const i = Number(bouton.dataset.i);
+  if (bouton.dataset.sup) {
+    p.splice(i, 1);
+  } else {
+    p[i].qte += Number(bouton.dataset.d);
+    if (p[i].qte < 1) p[i].qte = 1;
+  }
+  sauverPanier(p);
+  afficher();
+});
+
+document.getElementById("btnCommander").addEventListener("click", () => {
+  if (lirePanier().length === 0) { alert("Votre panier est vide."); return; }
+  window.location.href = "client-paiement.html";
+});
+
+afficher();
+</script>
+
+</body>
+</html>

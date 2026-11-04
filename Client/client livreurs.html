@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleClientLivreurs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Nos livreurs</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+    <fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3><a href="client acceuil.html"><i class="fa-solid fa-house"></i>Accueil</a></h3>
+        <h3><a href="client produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3><a href="client panier.html"><i class="fa-solid fa-bag-shopping"></i>Mes commandes</a></h3>
+        <h3><a href="client profil.html"><i class="fa-regular fa-user"></i>Profil</a></h3>
+        <h3><a href="client livreurs.html" class="actif"><i class="fa-solid fa-box-open"></i>Livraisons</a></h3>
+        <h3><a href="client suivi.html"><i class="fa-regular fa-eye"></i>Suivi</a></h3>
+        <h3><a href="client paiement.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3><a href="client historique.html"><i class="fa-solid fa-clock-rotate-left"></i>Historique</a></h3>
+        <!--<h3><a href="#"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>-->
+        <h3 class="bas-menu"><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <div class="recherche"><i class="fa-solid fa-magnifying-glass"></i><input id="i11" type="search" placeholder="Recherche un livreur"></div>
+            <div class="droite">
+                <a href="#" class="icone-haut"><i class="fa-regular fa-bell"></i><span class="point"></span></a>
+            <a href="client panier.html" class="icone-haut"><i class="fa-solid fa-cart-shopping"></i><span class="nb" id="nbPanier" hidden>0</span></a>
+                <div class="user-haut">
+                    <a href="client profil.html"><img src="bene.jpg" alt="Photo"></a>
+                    <div><strong>Mike Awono</strong><small>Client</small></div>
+                </div>
+            </div>
+        </fieldset>
+
+        <h3 class="titre-p" style="margin-bottom: 14px;">Nos livreurs</h3>
+        <p class="sous-titre">Découvrez nos livreurs disponibles et choisissez celui qui vous convient</p>
+
+        <div class="filtres-liv">
+            <button class="chip actif" data-tri="tous">Tous</button>
+            <button class="chip" data-tri="proche">à proximité</button>
+            <button class="chip" data-tri="note">Mieux notés</button>
+            <div class="tri">
+                Trier par :
+                <select id="selectTri">
+                    <option value="note">Meilleurs notés</option>
+                    <option value="proche">Plus proches</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="colonnes-liv">
+            <fieldset class="carte position">
+                <div class="position-ligne">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div><strong>Ma position</strong><small>Bonamoussadi, Douala</small></div>
+                    <i class="fa-solid fa-pen" style="cursor: pointer;"></i>
+                </div>
+                <img class="map-img" src="OIP.webp" alt="Ma position">
+            </fieldset>
+
+            <div id="listeLivreurs">
+                <div class="carte carte-liv" data-note="4.5" data-dist="4">
+                    <div class="gauche">
+                        <img src="liv9.webp" alt="Jabari Mbia">
+                        <div>
+                            <strong>Jabari Mbia</strong>
+                            <span class="avis"><i class="fa-solid fa-star"></i> 4.5 (124 Avis)</span><br>
+                            <span class="badge-dispo">Disponible</span><br>
+                            <span class="vehicule"><i class="fa-solid fa-motorcycle"></i> Véhicule : Moto (125 cc)</span>
+                        </div>
+                    </div>
+                    <div class="droite-liv">
+                        <button class="btn-bleu choisir" data-nom="Jabari Mbia">Choisir ce livreur</button>
+                        <button class="btn-contour"><i class="fa-regular fa-comment-dots"></i> Contacter</button>
+                        <span class="distance"><i class="fa-solid fa-location-dot"></i> à 4 km de vous</span>
+                    </div>
+                </div>
+                <div class="carte carte-liv" data-note="3.5" data-dist="2.5">
+                    <div class="gauche">
+                        <img src="liv5.webp" alt="Erik Dawson">
+                        <div>
+                            <strong>Erik Dawson</strong>
+                            <span class="avis"><i class="fa-solid fa-star"></i> 3.5 (90 Avis)</span><br>
+                            <span class="badge-dispo">Disponible</span><br>
+                            <span class="vehicule"><i class="fa-solid fa-motorcycle"></i> Véhicule : Moto (110 cc)</span>
+                        </div>
+                    </div>
+                    <div class="droite-liv">
+                        <button class="btn-bleu choisir" data-nom="Erik Dawson">Choisir ce livreur</button>
+                        <button class="btn-contour"><i class="fa-regular fa-comment-dots"></i> Contacter</button>
+                        <span class="distance"><i class="fa-solid fa-location-dot"></i> à 2,5 km de vous</span>
+                    </div>
+                </div>
+                <div class="carte carte-liv" data-note="4.5" data-dist="6">
+                    <div class="gauche">
+                        <img src="liv10.webp" alt="Eddie Kouami">
+                        <div>
+                            <strong>Eddie Kouami</strong>
+                            <span class="avis"><i class="fa-solid fa-star"></i> 4.5 (124 Avis)</span><br>
+                            <span class="badge-dispo">Disponible</span><br>
+                            <span class="vehicule"><i class="fa-solid fa-motorcycle"></i> Véhicule : Moto (125 cc)</span>
+                        </div>
+                    </div>
+                    <div class="droite-liv">
+                        <button class="btn-bleu choisir" data-nom="Eddie Kouami">Choisir ce livreur</button>
+                        <button class="btn-contour"><i class="fa-regular fa-comment-dots"></i> Contacter</button>
+                        <span class="distance"><i class="fa-solid fa-location-dot"></i> à 6 km de vous</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+
+<script>
+/* ---------- panier (mémorisé dans le navigateur) ---------- */
+const CLE = "appdeliverPanier";
+
+function lirePanier() {
+  try { return JSON.parse(localStorage.getItem(CLE)) || []; } catch (e) { return []; }
+}
+
+function sauverPanier(p) {
+  try { localStorage.setItem(CLE, JSON.stringify(p)); } catch (e) {}
+  majBadge();
+}
+
+function majBadge() {
+  const n = lirePanier().reduce((a, x) => a + x.qte, 0);
+  const b = document.getElementById("nbPanier");
+  if (b) { b.textContent = n; b.hidden = (n === 0); }
+}
+
+function ajouterAuPanier(nom, prix, icone) {
+  const p = lirePanier();
+  const existant = p.find(x => x.nom === nom);
+  if (existant) existant.qte++; else p.push({ nom: nom, prix: prix, icone: icone, qte: 1 });
+  sauverPanier(p);
+}
+
+function fcfa(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+/* boutons « Ajouter » des cartes produits */
+document.querySelectorAll(".ajouter").forEach(b => {
+  b.addEventListener("click", () => {
+    ajouterAuPanier(b.dataset.nom, Number(b.dataset.prix), b.dataset.ic);
+    const avant = b.innerHTML;
+    b.innerHTML = '<i class="fa-solid fa-check"></i> Ajouté';
+    setTimeout(() => b.innerHTML = avant, 900);
+  });
+});
+
+majBadge();
+
+/* ---------- tri des livreurs ---------- */
+function trier(critere) {
+  const liste = document.getElementById("listeLivreurs");
+  const cartes = Array.from(liste.children);
+  if (critere === "proche") cartes.sort((a, b) => a.dataset.dist - b.dataset.dist);
+  if (critere === "note") cartes.sort((a, b) => b.dataset.note - a.dataset.note);
+  cartes.forEach(c => liste.appendChild(c));
+}
+
+document.querySelectorAll(".chip").forEach(chip => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll(".chip").forEach(c => c.classList.remove("actif"));
+    chip.classList.add("actif");
+    trier(chip.dataset.tri);
+  });
+});
+
+document.getElementById("selectTri").addEventListener("change", e => trier(e.target.value));
+
+/* ---------- choisir un livreur ---------- */
+document.querySelectorAll(".choisir").forEach(b => {
+  b.addEventListener("click", () => {
+    b.innerHTML = '<i class="fa-solid fa-check"></i> Livreur choisi';
+    alert(b.dataset.nom + " sera votre livreur pour la prochaine commande.");
+  });
+});
+</script>
+
+</body>
+</html>

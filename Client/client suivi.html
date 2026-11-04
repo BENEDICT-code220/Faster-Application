@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleclientsuivi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Suivi de livraison</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+    <fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3><a href="client acceuil.html"><i class="fa-solid fa-house"></i>Accueil</a></h3>
+        <h3><a href="client produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3><a href="client panier.html"><i class="fa-solid fa-bag-shopping"></i>Mes commandes</a></h3>
+        <h3><a href="client profil.html"><i class="fa-regular fa-user"></i>Profil</a></h3>
+        <h3><a href="client livreurs.html"><i class="fa-solid fa-box-open"></i>Livraisons</a></h3>
+        <h3><a href="client suivi.html" class="actif"><i class="fa-regular fa-eye"></i>Suivi</a></h3>
+        <h3><a href="client paiement.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3><a href="client historique.html"><i class="fa-solid fa-clock-rotate-left"></i>Historique</a></h3>
+        <!--<h3><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>-->
+        <h3 class="bas-menu"><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <div class="recherche"><i class="fa-solid fa-magnifying-glass"></i><input id="i11" type="search" placeholder="Recherche un article ..."></div>
+            <div class="droite">
+                <a href="#" class="icone-haut"><i class="fa-regular fa-bell"></i><span class="point"></span></a>
+            <a href="client panier.html" class="icone-haut"><i class="fa-solid fa-cart-shopping"></i><span class="nb" id="nbPanier" hidden>0</span></a>
+                <div class="user-haut">
+                    <a href="client profil.html"><img src="bene.jpg" alt="Photo"></a>
+                    <div><strong>Mike Awono</strong><small>Client</small></div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="chrono">
+            <div class="etape"><span class="rond"></span><b>Commande confirmée</b><span class="heure">10:20</span></div>
+            <div class="etape"><span class="rond"></span><b>Préparation de la commande</b><span class="heure">10:25</span></div>
+            <div class="etape"><span class="rond"></span><b>En cours de livraison</b><span class="heure">10:32</span></div>
+        </div>
+
+        <div class="deux-colonnes">
+            <div>
+                <div class="zone-carte">
+                    <img class="map-img" src="OIP.webp" alt="Carte du suivi">
+                    <div class="bulle">Le livreur est à 2,3 km de votre position</div>
+                </div>
+
+                <div class="infos-livreur">
+                    <h4>Informations du livreur</h4>
+                    <div class="livreur-ligne">
+                        <img src="liv3.webp" alt="Livreur">
+                        <div>
+                            <strong>Amarachoukou isoken</strong>
+                            <span><i class="fa-solid fa-star etoile"></i> 4.5 (128 livraisons)</span><br>
+                            <span><i class="fa-solid fa-phone"></i> +237 655 55 55 50</span>
+                        </div>
+                        <button class="btn-chat" title="Envoyer un message"><i class="fa-regular fa-comment-dots"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="detail-cmd">
+                    <h4>Détails de la commande</h4>
+                    <div class="art">
+                        <div class="miniature" style="background: linear-gradient(135deg, #f4b860, #e07b39);"><i class="fa-solid fa-burger"></i></div>
+                        <div><strong>1x Burger King</strong>3 500 FCFA</div>
+                    </div>
+                    <div class="art">
+                        <div class="miniature" style="background: linear-gradient(135deg, #d46a6a, #8b2e2e);"><i class="fa-solid fa-shirt"></i></div>
+                        <div><strong>1x T-shirt Otaku</strong>5 000 FCFA</div>
+                    </div>
+                    <div class="tot"><span>Sous-total:</span><span>8 500 FCFA</span></div>
+                    <div class="tot"><span>Frais de livraison:</span><span>1 500 FCFA</span></div>
+                    <div class="tot gras"><span>Total:</span><span>10 000 FCFA</span></div>
+                </div>
+
+                <div class="adresse">
+                    <h4>Adresse de livraison</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> Rue des fleurs, Bonamoussadi, Douala, Cameroun</p>
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+
+<script>
+/* ---------- panier (mémorisé dans le navigateur) ---------- */
+const CLE = "appdeliverPanier";
+
+function lirePanier() {
+  try { return JSON.parse(localStorage.getItem(CLE)) || []; } catch (e) { return []; }
+}
+
+function sauverPanier(p) {
+  try { localStorage.setItem(CLE, JSON.stringify(p)); } catch (e) {}
+  majBadge();
+}
+
+function majBadge() {
+  const n = lirePanier().reduce((a, x) => a + x.qte, 0);
+  const b = document.getElementById("nbPanier");
+  if (b) { b.textContent = n; b.hidden = (n === 0); }
+}
+
+function ajouterAuPanier(nom, prix, icone) {
+  const p = lirePanier();
+  const existant = p.find(x => x.nom === nom);
+  if (existant) existant.qte++; else p.push({ nom: nom, prix: prix, icone: icone, qte: 1 });
+  sauverPanier(p);
+}
+
+function fcfa(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+/* boutons « Ajouter » des cartes produits */
+document.querySelectorAll(".ajouter").forEach(b => {
+  b.addEventListener("click", () => {
+    ajouterAuPanier(b.dataset.nom, Number(b.dataset.prix), b.dataset.ic);
+    const avant = b.innerHTML;
+    b.innerHTML = '<i class="fa-solid fa-check"></i> Ajouté';
+    setTimeout(() => b.innerHTML = avant, 900);
+  });
+});
+
+majBadge();
+
+</script>
+
+</body>
+</html>

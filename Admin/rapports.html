@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylerapports.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Rapport</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher un rapport, un livreur ou une commande....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <a href="parametres.html"><img id="img1" src="télécharger.jpg" alt="image jeune homme"></a>
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Edwin Nkemegni</h3>
+                <p id="nom">Administrateur</p>
+            </div>
+        </fieldset>
+
+        <!-- ===== 1. Choix du rapport ===== -->
+        <fieldset id="r1" class="section">
+            <div class="entete">
+                <div>
+                    <h3 class="titre-sec"><i class="fa-solid fa-file-lines"></i> Génération des rapports</h3>
+                    <p class="sous">Choisissez un rapport détaillé sur les performances de votre application</p>
+                </div>
+                <select><option>Cette semaine</option><option>Ce mois</option><option>Cette année</option></select>
+            </div>
+
+            <div class="rangee">
+                <div class="rap">
+                    <div class="rap-top"><span class="carre c-bleu"><i class="fa-regular fa-credit-card"></i></span><strong>Paiements</strong></div>
+                    <p>Analyse détaillée des paiements reçus, en attente et rejetés.</p>
+                    <button class="btn-mini">Générer</button>
+                </div>
+                <div class="rap">
+                    <div class="rap-top"><span class="carre c-vert"><i class="fa-solid fa-bag-shopping"></i></span><strong>Commandes</strong></div>
+                    <p>Suivi complet des commandes par statut et par période.</p>
+                    <button class="btn-mini">Générer</button>
+                </div>
+                <div class="rap">
+                    <div class="rap-top"><span class="carre c-bleu"><i class="fa-solid fa-box"></i></span><strong>Produits</strong></div>
+                    <p>Performance des produits : ventes, stock et marges.</p>
+                    <button class="btn-mini">Générer</button>
+                </div>
+                <div class="rap">
+                    <div class="rap-top"><span class="carre c-rouge"><i class="fa-solid fa-file-pdf"></i></span><strong>Rapport complet</strong></div>
+                    <p>Vue globale : commandes, paiements, produits et livreurs.</p>
+                    <button class="btn-mini">Générer</button>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- ===== 2. Critères ===== -->
+        <fieldset id="r2" class="section">
+            <h3 class="titre-sec"><i class="fa-solid fa-sliders"></i> Personnalisation du rapport</h3>
+            <p class="sous">Affinez vos critères pour un rapport personnalisé</p>
+
+            <div class="filtres">
+                <div class="groupe">
+                    <label>Période</label>
+                    <input type="date" value="2026-10-01">
+                </div>
+
+                <div class="groupe">
+                    <label>Statut des commandes</label>
+                    <div class="chips">
+                        <button class="actif">Toutes</button>
+                        <button>Livrées</button>
+                        <button>En cours</button>
+                        <button>Annulées</button>
+                    </div>
+                </div>
+
+                <div class="groupe">
+                    <label>Mode de paiement</label>
+                    <div class="chips">
+                        <button class="actif">Tous</button>
+                        <button>Cash</button>
+                        <button>Orange</button>
+                        <button>MTN</button>
+                    </div>
+                </div>
+
+                <div class="groupe">
+                    <label>Livreurs</label>
+                    <select><option>Tous les livreurs</option><option>John Doe</option><option>Paul Martin</option><option>Marie Claire</option></select>
+                </div>
+
+                <div class="groupe">
+                    <label>Format d'export</label>
+                    <select><option>PDF</option><option>Excel</option><option>CSV</option></select>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- ===== 3. Aperçu ===== -->
+        <fieldset id="r3" class="section">
+            <h3 class="titre-sec"><i class="fa-regular fa-eye"></i> Aperçu du rapport</h3>
+            <p class="sous">Voici un aperçu des données qui seront incluses dans votre rapport</p>
+
+            <div class="rangee">
+                <div class="mini-kpi">
+                    <span class="rond c-bleu"><i class="fa-solid fa-wallet"></i></span>
+                    <div>
+                        <small>Chiffre d'affaires total</small>
+                        <strong>4 850 775 <em>FCFA</em></strong>
+                        <span class="plus"><i class="fa-solid fa-arrow-up"></i> 90%</span>
+                    </div>
+                </div>
+
+                <div class="mini-kpi">
+                    <span class="rond c-vert"><i class="fa-solid fa-bag-shopping"></i></span>
+                    <div>
+                        <small>Nombre de commandes</small>
+                        <strong>500</strong>
+                        <span class="moins"><i class="fa-solid fa-arrow-down"></i> 40%</span>
+                    </div>
+                </div>
+
+                <div class="mini-kpi">
+                    <span class="rond c-vert"><i class="fa-solid fa-truck"></i></span>
+                    <div>
+                        <small>Taux de livraison réussie</small>
+                        <strong>91%</strong>
+                        <span class="plus"><i class="fa-solid fa-arrow-up"></i> 4%</span>
+                    </div>
+                </div>
+
+                <div class="mini-kpi">
+                    <span class="rond c-violet"><i class="fa-solid fa-user"></i></span>
+                    <div>
+                        <small>Livreurs actifs</small>
+                        <strong>28</strong>
+                        <span class="plus"><i class="fa-solid fa-arrow-up"></i> 1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bas-rapport">
+                <div class="graph">
+                    <h4>Commandes par mois</h4>
+                    <canvas id="histo" width="600" height="190"></canvas>
+                </div>
+
+                <div class="actions">
+                    <div class="note">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>Votre rapport est prêt. Vous pouvez le télécharger ou l'imprimer.</span>
+                    </div>
+
+                    <div class="boutons">
+                        <button class="btn-rouge" onclick="alert('Téléchargement du rapport...')"><i class="fa-solid fa-download"></i> Télécharger le Rapport</button>
+                        <button class="btn-contour" onclick="window.print()"><i class="fa-solid fa-print"></i> Imprimer</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+<script>
+/* ---------- Histogramme (commandes par mois) ---------- */
+function histogramme(idCanvas, donnees, max, pas) {
+  const c = document.getElementById(idCanvas), ctx = c.getContext("2d");
+  const W = c.width, H = c.height, gauche = 34, bas = 22, haut = 8;
+  const noms = Object.keys(donnees), vals = Object.values(donnees);
+  const hu = H - bas - haut;
+  const lg = (W - gauche - 5) / noms.length;
+
+  ctx.clearRect(0, 0, W, H);
+  ctx.font = "10px Arial";
+
+  // grille + axe Y
+  ctx.strokeStyle = "#dcdcdc";
+  ctx.fillStyle = "#333";
+  ctx.textAlign = "right";
+  for (let v = 0; v <= max; v += pas) {
+    const y = haut + hu - (v / max) * hu;
+    ctx.beginPath(); ctx.moveTo(gauche, y); ctx.lineTo(W - 5, y); ctx.stroke();
+    ctx.fillText(v, gauche - 5, y + 3);
+  }
+
+  noms.forEach((nom, i) => {
+    const h = (vals[i] / max) * hu;
+    const lb = lg * 0.4;
+    const x = gauche + i * lg + (lg - lb) / 2;
+    ctx.fillStyle = "rgb(124, 77, 255)";
+    ctx.fillRect(x, haut + hu - h, lb, h);
+    ctx.fillStyle = "#000";
+    ctx.textAlign = "center";
+    ctx.fillText(nom, x + lb / 2, H - 7);
+  });
+}
+
+/* ---------- Chips : un seul choix actif par groupe ---------- */
+document.querySelectorAll(".chips").forEach(groupe => {
+  groupe.addEventListener("click", e => {
+    if (e.target.tagName === "BUTTON") {
+      groupe.querySelectorAll("button").forEach(b => b.classList.remove("actif"));
+      e.target.classList.add("actif");
+    }
+  });
+});
+
+/* ---------- Utilisation : remplace par tes données ---------- */
+histogramme("histo", { Jan: 220, Fév: 180, Mar: 260, Avr: 230, Mai: 420, Juin: 330, Juil: 500 }, 500, 100);
+</script>
+
+    </fieldset>
+
+</body>
+</html>

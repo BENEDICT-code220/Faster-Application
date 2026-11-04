@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleProduits.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Produits</title>
+</head>
+<body class="pg-produits">
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher un produit, un client....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <a href="parametres.html"><img id="img1" src="télécharger.jpg" alt="image jeune homme"></a>
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <h1 class="h1">Gestion des Produits</h1>
+        <a href="ajouter produit.html"><button class="btn-plein"><i class="fa-solid fa-plus"></i> Ajouter un produit</button></a>
+
+        <!-- cartes statistiques -->
+        <div id="c5" style="top: 165px;">
+            <fieldset id="f4">
+                <div class="kh"><i class="fa-solid fa-tags vert"></i><p id="f4p1">150</p></div>
+                <p id="f4p2">Produits Actifs</p>
+                <p id="f4p3"><i class="fa-solid fa-arrow-up"></i> 12% <span class="spf">Cette semaine</span></p>
+            </fieldset>
+
+            <fieldset id="f5">
+                <div class="kh"><i class="fa-solid fa-box-open bleu"></i><p id="f5p1">5 892</p></div>
+                <p id="f5p2">Unités vendues</p>
+                <p id="f5p3"><i class="fa-solid fa-arrow-up"></i> 12% <span class="spf">Cette semaine</span></p>
+            </fieldset>
+
+            <fieldset id="f6">
+                <div class="kh"><i class="fa-solid fa-wallet vert"></i><p id="f6p1">12 450 000 <span>FCFA</span></p></div>
+                <p id="f6p2">CA Produits</p>
+                <p id="f6p3"><i class="fa-solid fa-arrow-up"></i> 12% <span class="spf">Cette semaine</span></p>
+            </fieldset>
+
+            <fieldset id="f7">
+                <div class="kh"><i class="fa-solid fa-chart-line bleu"></i><p id="f7p1">8 400 000 <span>FCFA</span></p></div>
+                <p id="f7p2">Marge Totale</p>
+                <p id="f7p3" class="pos"><i class="fa-solid fa-arrow-up"></i> 12% <span class="spf">Cette semaine</span></p>
+            </fieldset>
+
+            <fieldset id="f8">
+                <div class="kh"><i class="fa-solid fa-triangle-exclamation rouge"></i><p id="f8p1">15</p></div>
+                <p id="f8p2">Stock critique</p>
+                <p id="f8p3" class="neg"><i class="fa-solid fa-arrow-down"></i> 2 produits</p>
+            </fieldset>
+        </div>
+
+        <!-- Ventes par catégorie -->
+        <fieldset id="b1" class="bloc">
+            <h3 class="titre-vert">Ventes par catégorie</h3>
+            <canvas id="camembert" width="300" height="200"></canvas>
+        </fieldset>
+
+        <!-- Top produits -->
+        <fieldset id="b2" class="bloc">
+            <h3>Top produits</h3>
+
+            <div class="ligne-p">
+                <b class="rang">1</b>
+                <span class="vignette"><i class="fa-solid fa-bag-shopping"></i></span>
+                <span class="p-nom">Sac sacte</span>
+                <span class="p-info">120 ventes</span>
+            </div>
+            <div class="ligne-p">
+                <b class="rang">2</b>
+                <span class="vignette"><i class="fa-solid fa-headphones"></i></span>
+                <span class="p-nom">Casque Bluetooth</span>
+                <span class="p-info">98 ventes</span>
+            </div>
+            <div class="ligne-p">
+                <b class="rang">3</b>
+                <span class="vignette"><i class="fa-solid fa-spray-can-sparkles"></i></span>
+                <span class="p-nom">Parfum Rouge</span>
+                <span class="p-info">75 ventes</span>
+            </div>
+        </fieldset>
+
+        <!-- Produits en rupture -->
+        <fieldset id="b3" class="bloc">
+            <div class="entete">
+                <h3>Produits en rupture</h3>
+                <a href="#" class="lien-pt">Voir tout</a>
+            </div>
+
+            <div class="ligne-p">
+                <span class="vignette"><i class="fa-solid fa-shoe-prints"></i></span>
+                <span class="p-nom">Air force</span>
+                <span class="reappro">Réappro</span>
+            </div>
+            <div class="ligne-p">
+                <span class="vignette"><i class="fa-solid fa-futbol"></i></span>
+                <span class="p-nom">Ballon</span>
+                <span class="reappro">Réappro</span>
+            </div>
+            <div class="ligne-p">
+                <span class="vignette"><i class="fa-solid fa-mobile-screen"></i></span>
+                <span class="p-nom">iPhone 14</span>
+                <span class="reappro">Réappro</span>
+            </div>
+        </fieldset>
+
+        <!-- Tableau des produits -->
+        <fieldset id="b4" class="bloc-b">
+            <table class="tableau">
+                <tr>
+                    <th>#</th><th>Nom</th><th>Prix</th><th>Stock</th><th>Actions</th>
+                </tr>
+                <tr>
+                    <td><span class="vignette pt"><i class="fa-solid fa-bag-shopping"></i></span></td>
+                    <td>Sac sacte</td><td>10 000 FCFA</td><td>14</td>
+                    <td><i class="fa-solid fa-pen-to-square act-bleu"></i> <i class="fa-solid fa-trash act-rouge"></i></td>
+                </tr>
+                <tr>
+                    <td><span class="vignette pt"><i class="fa-solid fa-headphones"></i></span></td>
+                    <td>Casque Bluetooth</td><td>15 000 FCFA</td><td>14</td>
+                    <td><i class="fa-solid fa-pen-to-square act-bleu"></i> <i class="fa-solid fa-trash act-rouge"></i></td>
+                </tr>
+                <tr>
+                    <td><span class="vignette pt"><i class="fa-solid fa-mobile-screen"></i></span></td>
+                    <td>iPhone 14</td><td>450 000 FCFA</td><td class="faible">3</td>
+                    <td><i class="fa-solid fa-pen-to-square act-bleu"></i> <i class="fa-solid fa-trash act-rouge"></i></td>
+                </tr>
+                <tr>
+                    <td><span class="vignette pt"><i class="fa-solid fa-spray-can-sparkles"></i></span></td>
+                    <td>Parfum Fanangé</td><td>5 000 FCFA</td><td>14</td>
+                    <td><i class="fa-solid fa-pen-to-square act-bleu"></i> <i class="fa-solid fa-trash act-rouge"></i></td>
+                </tr>
+                <tr>
+                    <td><span class="vignette pt"><i class="fa-solid fa-shoe-prints"></i></span></td>
+                    <td>Air force</td><td>35 000 FCFA</td><td class="faible">0</td>
+                    <td><i class="fa-solid fa-pen-to-square act-bleu"></i> <i class="fa-solid fa-trash act-rouge"></i></td>
+                </tr>
+            </table>
+
+            <a href="liste produits.html"><button class="btn-plein bas">Voir tous les produits</button></a>
+        </fieldset>
+
+<script>
+/* ---------- Camembert (anneau + légende) ---------- */
+function camembert(idCanvas, donnees, couleurs, cx, lx) {
+  const c = document.getElementById(idCanvas), ctx = c.getContext("2d");
+  const W = c.width, H = c.height;
+  const noms = Object.keys(donnees), vals = Object.values(donnees);
+  const total = vals.reduce((a, b) => a + b, 0);
+  const cy = H / 2 - 5, r = 52;
+  const debutY = (H - noms.length * 26) / 2 + 8;
+
+  ctx.clearRect(0, 0, W, H);
+  let debut = -Math.PI / 2;
+  vals.forEach((v, i) => {
+    const angle = (v / total) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, debut, debut + angle);
+    ctx.strokeStyle = couleurs[i];
+    ctx.lineWidth = 34;
+    ctx.stroke();
+    debut += angle;
+
+    // légende
+    const y = debutY + i * 26;
+    ctx.fillStyle = couleurs[i];
+    ctx.beginPath();
+    ctx.arc(lx, y, 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "#000";
+    ctx.font = "bold 11px Arial";
+    ctx.textAlign = "left";
+    ctx.fillText(noms[i], lx + 12, y + 4);
+    ctx.fillStyle = "#999";
+    ctx.font = "10px Arial";
+    ctx.textAlign = "right";
+    ctx.fillText(Math.round(v / total * 100) + "%", W - 4, y + 4);
+  });
+
+  // total au centre
+  ctx.fillStyle = "#000";
+  ctx.font = "bold 18px Arial";
+  ctx.textAlign = "center";
+  ctx.fillText(total, cx, cy + 6);
+}
+
+/* ---------- Utilisation : remplace par tes données ---------- */
+const COULEURS = ["rgb(46, 164, 79)", "rgb(47, 128, 237)", "orange", "rgb(229, 57, 53)", "rgb(155, 89, 182)", "rgb(120, 120, 120)"];
+camembert("camembert", { "Mode": 70, "Sport": 40, "Beauté": 30, "Électronique": 60, "Maison": 35, "Autres": 20 }, COULEURS, 80, 170);
+</script>
+
+    </fieldset>
+
+</body>
+</html>

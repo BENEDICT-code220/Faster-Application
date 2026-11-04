@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleLivreurs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Livreurs</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher un livreur, une commande....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <a href="parametres.html"><img id="img1" src="télécharger.jpg" alt="image jeune homme"></a>
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <h1 class="h1">Gestion des livreurs</h1>
+        <p id="p1">Suivez et gérez votre équipe de livraison.</p>
+        <a href="ajouter livreur.html"><button class="btn-plein"><i class="fa-solid fa-plus"></i> Ajouter un livreur</button></a>
+
+        <!-- cartes statistiques -->
+        <div id="c5">
+            <fieldset id="f4">
+                <div class="kh"><i class="fa-solid fa-users bleu"></i><p id="f4p1">35</p></div>
+                <p id="f4p2">Total livreurs</p>
+            </fieldset>
+
+            <fieldset id="f5">
+                <div class="kh"><i class="fa-solid fa-truck vert"></i><p id="f5p1">18</p></div>
+                <p id="f5p2">Disponibles</p>
+            </fieldset>
+
+            <fieldset id="f6">
+                <div class="kh"><i class="fa-regular fa-clock orange"></i><p id="f6p1">12</p></div>
+                <p id="f6p2">En cours</p>
+            </fieldset>
+
+            <fieldset id="f7">
+                <div class="kh"><i class="fa-solid fa-circle-check vert"></i><p id="f7p1">1245</p></div>
+                <p id="f7p2">Effectuées</p>
+            </fieldset>
+
+            <fieldset id="f8">
+                <div class="kh"><i class="fa-solid fa-bullseye rouge"></i><p id="f8p1">95,8%</p></div>
+                <p id="f8p2">Taux de réussite</p>
+            </fieldset>
+        </div>
+
+        <!-- Performance des livreurs -->
+        <fieldset id="m1" class="bloc">
+            <div class="entete">
+                <h3>Performance des livreurs</h3>
+                <select><option>Cette semaine</option><option>Ce mois</option></select>
+            </div>
+            <canvas id="histo" width="610" height="170"></canvas>
+            <div class="leg">
+                <span><i class="pt" style="background:rgb(47,128,237)"></i>Livraisons</span>
+                <span><i class="pt" style="background:rgb(46,164,79)"></i>Taux de réussite</span>
+            </div>
+        </fieldset>
+
+        <!-- Top livreurs -->
+        <fieldset id="m2" class="bloc-b">
+            <h3 class="gros">Top livreurs</h3>
+            <table class="tableau petit">
+                <tr><th>#</th><th>Livreur</th><th>Livraisons</th><th>Taux de réussite</th></tr>
+                <tr><td>1</td><td><img src="liv.webp" class="mini" alt=""> John Doe</td><td>190</td><td>98%</td></tr>
+                <tr><td>2</td><td><img src="liv2.webp" class="mini" alt=""> Paul Martin</td><td>210</td><td>95%</td></tr>
+                <tr><td>3</td><td><img src="liv0.webp" class="mini" alt=""> Marie Claire</td><td>180</td><td>93%</td></tr>
+            </table>
+        </fieldset>
+
+        <!-- Liste des livreurs -->
+        <fieldset id="m3" class="bloc-b">
+            <h3 class="gros">Liste des livreurs</h3>
+            <table class="tableau">
+                <tr>
+                    <th>Photo</th><th>Nom</th><th>Téléphone</th><th>Livraisons</th><th>Statut</th><th>Action</th>
+                </tr>
+                <tr>
+                    <td><img src="liv.webp" class="mini" alt=""></td>
+                    <td>John Doe</td><td>+237655555555</td><td>190</td>
+                    <td><span class="badge b-vert">Disponible</span></td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-pen-to-square act-bleu"></i></td>
+                </tr>
+                <tr>
+                    <td><img src="liv2.webp" class="mini" alt=""></td>
+                    <td>Paul Martin</td><td>+237655555556</td><td>210</td>
+                    <td><span class="badge b-orange">En cours</span></td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-pen-to-square act-bleu"></i></td>
+                </tr>
+                <tr>
+                    <td><img src="liv0.webp" class="mini" alt=""></td>
+                    <td>Marie Claire</td><td>+237655555557</td><td>180</td>
+                    <td><span class="badge b-vert">Disponible</span></td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-pen-to-square act-bleu"></i></td>
+                </tr>
+                <tr>
+                    <td><img src="liv3.webp" class="mini" alt=""></td>
+                    <td>Jean Paul</td><td>+237655555558</td><td>150</td>
+                    <td><span class="badge b-rouge">Indisponible</span></td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-pen-to-square act-bleu"></i></td>
+                </tr>
+                <tr>
+                    <td><img src="liv11.webp" class="mini" alt=""></td>
+                    <td>Alice Ndong</td><td>+237655555559</td><td>120</td>
+                    <td><span class="badge b-orange">En cours</span></td>
+                    <td><i class="fa-solid fa-trash act-rouge"></i> <i class="fa-regular fa-pen-to-square act-bleu"></i></td>
+                </tr>
+            </table>
+
+            <a href="liste livreurs.html"><button class="btn-plein bas">Voir tous les livreurs</button></a>
+        </fieldset>
+
+        <!-- Répartition par zone -->
+        <fieldset id="m4" class="bloc-b">
+            <h3 class="gros" style="margin-bottom: 4px;">Répartition par zone</h3>
+            <canvas id="camembert" width="270" height="125"></canvas>
+        </fieldset>
+
+        <!-- Statut des livreurs -->
+        <fieldset id="m5" class="bloc-b">
+            <h3 class="gros" style="margin-bottom: 10px;">Statut des livreurs</h3>
+            <div class="statut"><i class="pt" style="background:rgb(46,164,79)"></i><span>Disponible</span><b>18</b></div>
+            <div class="statut"><i class="pt" style="background:rgb(47,128,237)"></i><span>En cours</span><b>12</b></div>
+            <div class="statut"><i class="pt" style="background:orange"></i><span>Indisponible</span><b>3</b></div>
+            <div class="statut"><i class="pt" style="background:rgb(229,57,53)"></i><span>Hors ligne</span><b>2</b></div>
+        </fieldset>
+
+<script>
+/* ---------- Histogramme (2 barres par jour) ---------- */
+function histogramme(idCanvas, labels, serie1, serie2, c1, c2, max, pas) {
+  const c = document.getElementById(idCanvas), ctx = c.getContext("2d");
+  const W = c.width, H = c.height, gauche = 30, bas = 22, haut = 8;
+  const hu = H - bas - haut;
+  const lg = (W - gauche - 5) / labels.length;
+
+  ctx.clearRect(0, 0, W, H);
+  ctx.font = "10px Arial";
+
+  // grille + axe Y
+  ctx.strokeStyle = "#cfcfcf";
+  ctx.fillStyle = "#333";
+  ctx.textAlign = "right";
+  for (let v = 0; v <= max; v += pas) {
+    const y = haut + hu - (v / max) * hu;
+    ctx.beginPath(); ctx.moveTo(gauche, y); ctx.lineTo(W - 5, y); ctx.stroke();
+    ctx.fillText(v, gauche - 4, y + 3);
+  }
+
+  labels.forEach((nom, i) => {
+    const x = gauche + i * lg + lg * 0.2;
+    const lb = lg * 0.25;
+
+    const h1 = (serie1[i] / max) * hu;
+    ctx.fillStyle = c1;
+    ctx.fillRect(x, haut + hu - h1, lb, h1);
+
+    const h2 = (serie2[i] / max) * hu;
+    ctx.fillStyle = c2;
+    ctx.fillRect(x + lb + 2, haut + hu - h2, lb, h2);
+
+    ctx.fillStyle = "#000";
+    ctx.textAlign = "center";
+    ctx.fillText(nom, x + lb, H - 7);
+  });
+}
+
+/* ---------- Camembert (anneau + légende) ---------- */
+function camembert(idCanvas, donnees, couleurs, cx, lx) {
+  const c = document.getElementById(idCanvas), ctx = c.getContext("2d");
+  const W = c.width, H = c.height;
+  const noms = Object.keys(donnees), vals = Object.values(donnees);
+  const total = vals.reduce((a, b) => a + b, 0);
+  const cy = H / 2, r = 32;
+  const debutY = (H - noms.length * 24) / 2 + 12;
+
+  ctx.clearRect(0, 0, W, H);
+  let debut = -Math.PI / 2;
+  vals.forEach((v, i) => {
+    const angle = (v / total) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, debut, debut + angle);
+    ctx.strokeStyle = couleurs[i];
+    ctx.lineWidth = 22;
+    ctx.stroke();
+    debut += angle;
+
+    // légende
+    const y = debutY + i * 24;
+    ctx.fillStyle = couleurs[i];
+    ctx.beginPath();
+    ctx.arc(lx, y, 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "#000";
+    ctx.font = "bold 11px Arial";
+    ctx.textAlign = "left";
+    ctx.fillText(noms[i], lx + 12, y + 4);
+    ctx.fillStyle = "#999";
+    ctx.font = "10px Arial";
+    ctx.textAlign = "right";
+    ctx.fillText(Math.round(v / total * 100) + "%", W - 4, y + 4);
+  });
+}
+
+/* ---------- Utilisation : remplace par tes données ---------- */
+histogramme("histo", ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"],
+            [40, 55, 45, 60, 50, 70, 65],
+            [85, 90, 88, 92, 95, 93, 96],
+            "rgb(47, 128, 237)", "rgb(46, 164, 79)", 100, 20);
+
+camembert("camembert", { "Littoral": 20, "Centre": 10, "Ouest": 5 },
+          ["rgb(46, 164, 79)", "rgb(255, 165, 0)", "rgb(229, 57, 53)"], 60, 130);
+</script>
+
+    </fieldset>
+
+</body>
+</html>

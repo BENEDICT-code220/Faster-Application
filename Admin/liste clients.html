@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleListeClients.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Liste des clients</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher un client.......">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <a href="parametres.html"><img id="img1" src="télécharger.jpg" alt="image jeune homme"></a>
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <div class="titre-liste">
+            <a href="clients.html" class="fleche" title="Retour"><i class="fa-solid fa-arrow-left"></i></a>
+            <h1>Liste des clients</h1>
+        </div>
+
+        <div class="filtre">
+            <button class="btn-filtrer" onclick="menuFiltre()">Filtrer <i class="fa-solid fa-filter"></i></button>
+            <div id="menuFiltre" class="menu-filtre" hidden>
+                <button class="actif" data-filtre="tous">Tous les clients</button>
+                <button data-filtre="connecte">Connectés</button>
+                <button data-filtre="deconnecte">Déconnectés</button>
+            </div>
+        </div>
+
+        <div id="c3">
+            <div class="tete">
+                <span>Id</span><span>Nom</span><span>Email</span><span>Chiffre d'affaires</span><span>Statut en ligne</span><span>Date d'inscription</span>
+            </div>
+            <div class="zone-scroll">
+                <div class="rang-c" data-statut="connecte" onclick="window.location.href='detail-client.html'">
+                    <span>1</span><span>Douglas</span><span>Dols@gmail.com</span><span>350 000</span>
+                    <span><span class="etat e-on">Connecté</span></span><span>01/10/2026</span>
+                </div>
+                <div class="rang-c" data-statut="deconnecte" onclick="window.location.href='detail-client.html'">
+                    <span>2</span><span>Mike</span><span>Mikl@gmail.com</span><span>200 000</span>
+                    <span><span class="etat e-off">Déconnecté</span></span><span>21/12/2022</span>
+                </div>
+                <div class="rang-c" data-statut="deconnecte" onclick="window.location.href='detail-client.html'">
+                    <span>3</span><span>Axel</span><span>Axl@gmail.com</span><span>230 000</span>
+                    <span><span class="etat e-off">Déconnecté</span></span><span>05/06/2021</span>
+                </div>
+                <div class="rang-c" data-statut="connecte" onclick="window.location.href='detail-client.html'">
+                    <span>4</span><span>Edimo</span><span>Edimo@gmail.com</span><span>450 000</span>
+                    <span><span class="etat e-on">Connecté</span></span><span>14/03/2024</span>
+                </div>
+                <div class="rang-c" data-statut="connecte" onclick="window.location.href='detail-client.html'">
+                    <span>5</span><span>Ateba</span><span>ATB@gmail.com</span><span>700 000</span>
+                    <span><span class="etat e-on">Connecté</span></span><span>06/08/2023</span>
+                </div>
+                <div class="rang-c" data-statut="connecte" onclick="window.location.href='detail-client.html'">
+                    <span>6</span><span>Tamo</span><span>Tamo@gmail.com</span><span>538 000</span>
+                    <span><span class="etat e-on">Connecté</span></span><span>05/02/2020</span>
+                </div>
+                <div class="rang-c" data-statut="connecte" onclick="window.location.href='detail-client.html'">
+                    <span>7</span><span>Kombo</span><span>Kmb@gmail.com</span><span>400 000</span>
+                    <span><span class="etat e-on">Connecté</span></span><span>16/10/2023</span>
+                </div>
+                <div class="rang-c" data-statut="connecte" onclick="window.location.href='detail-client.html'">
+                    <span>8</span><span>Bekolo</span><span>Bkl@gmail.com</span><span>350 000</span>
+                    <span><span class="etat e-on">Connecté</span></span><span>22/11/2017</span>
+                </div>
+                <div class="rang-c" data-statut="connecte" onclick="window.location.href='detail-client.html'">
+                    <span>9</span><span>Nama</span><span>Nma@gmail.com</span><span>175 000</span>
+                    <span><span class="etat e-on">Connecté</span></span><span>14/07/2015</span>
+                </div>
+                <div class="rang-c" data-statut="connecte" onclick="window.location.href='detail-client.html'">
+                    <span>10</span><span>Njie</span><span>Njie@gmail.com</span><span>390 000</span>
+                    <span><span class="etat e-on">Connecté</span></span><span>25/05/2014</span>
+                </div>
+            </div>
+        </div>
+
+<script>
+/* ---------- menu « Filtrer » ---------- */
+function menuFiltre() {
+  const menu = document.getElementById("menuFiltre");
+  menu.hidden = !menu.hidden;
+}
+
+document.addEventListener("click", e => {
+  if (!e.target.closest(".filtre")) {
+    document.getElementById("menuFiltre").hidden = true;
+  }
+});
+
+/* ---------- filtrer les lignes par statut en ligne ---------- */
+document.querySelectorAll("#menuFiltre button").forEach(bouton => {
+  bouton.addEventListener("click", () => {
+    document.querySelectorAll("#menuFiltre button").forEach(b => b.classList.remove("actif"));
+    bouton.classList.add("actif");
+
+    const filtre = bouton.dataset.filtre;
+    document.querySelectorAll(".rang-c").forEach(ligne => {
+      ligne.style.display = (filtre === "tous" || ligne.dataset.statut === filtre) ? "" : "none";
+    });
+    document.getElementById("menuFiltre").hidden = true;
+  });
+});
+</script>
+
+    </fieldset>
+
+</body>
+</html>

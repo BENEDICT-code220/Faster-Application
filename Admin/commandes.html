@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleCommandes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Commandes</title>
+</head>
+<body class="pg-commandes">
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher une commande, un client....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <a href="parametres.html"><img id="img1" src="télécharger.jpg" alt="image jeune homme"></a>
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <h1 class="h1">Gestion des commandes</h1>
+        <p id="p1">Suivez et gérez toutes les commandes de la plateforme</p>
+        <button class="btn-filtre"><i class="fa-solid fa-filter"></i> Filtres</button>
+
+        <!-- cartes statistiques -->
+        <div id="c5">
+            <fieldset id="f4">
+                <div class="kh"><i class="fa-solid fa-bag-shopping bleu"></i><p id="f4p1">1 248</p></div>
+                <p id="f4p2">Total commandes</p>
+                <p id="f4p3"><i class="fa-solid fa-arrow-up"></i> 13% <span class="spf">Cette semaine</span></p>
+            </fieldset>
+
+            <fieldset id="f5">
+                <div class="kh"><i class="fa-solid fa-box-open vert"></i><p id="f5p1">892</p></div>
+                <p id="f5p2">Livrées</p>
+                <p id="f5p3"><i class="fa-solid fa-arrow-up"></i> 12% <span class="spf">Cette semaine</span></p>
+            </fieldset>
+
+            <fieldset id="f6">
+                <div class="kh"><i class="fa-solid fa-truck orange"></i><p id="f6p1">186</p></div>
+                <p id="f6p2">En cours</p>
+                <p id="f6p3"><i class="fa-solid fa-arrow-up"></i> 4,8% <span class="spf">Cette semaine</span></p>
+            </fieldset>
+
+            <fieldset id="f7">
+                <div class="kh"><i class="fa-regular fa-circle-xmark rouge"></i><p id="f7p1">52</p></div>
+                <p id="f7p2">Annulées</p>
+                <p id="f7p3"><i class="fa-solid fa-arrow-down"></i> 2,1% <span class="spf">Cette semaine</span></p>
+            </fieldset>
+
+            <fieldset id="f8">
+                <div class="kh"><i class="fa-solid fa-chart-pie bleu"></i><p id="f8p1">95,8%</p></div>
+                <p id="f8p2">Taux de réussite</p>
+                <p id="f8p3"><i class="fa-solid fa-arrow-up"></i> 1,2% <span class="spf">Cette semaine</span></p>
+            </fieldset>
+        </div>
+
+        <!-- Évolution des commandes -->
+        <fieldset id="d1" class="bloc">
+            <div class="entete">
+                <h3>Évolution des commandes</h3>
+                <select><option>Cette semaine</option><option>Ce mois</option></select>
+            </div>
+            <canvas id="courbes" width="610" height="190"></canvas>
+            <div class="leg">
+                <span><i class="pt" style="background:rgb(46,164,79)"></i>Livrées</span>
+                <span><i class="pt" style="background:rgb(47,128,237)"></i>En cours</span>
+                <span><i class="pt" style="background:rgb(229,57,53)"></i>Annulées</span>
+            </div>
+        </fieldset>
+
+        <!-- Répartition des commandes -->
+        <fieldset id="d2" class="bloc">
+            <h3 class="titre-vert">Répartition des commandes</h3>
+            <canvas id="camembert" width="345" height="200"></canvas>
+        </fieldset>
+
+        <!-- Dernières commandes (tableau) -->
+        <fieldset id="d3" class="bloc-b">
+            <h3 class="gros" style="font-size: 16px; margin-bottom: 12px;">Dernières commandes</h3>
+
+            <table class="tableau">
+                <tr>
+                    <th>ID</th><th>Référence</th><th>Description</th><th>Date</th><th>Montant</th><th>Statut</th>
+                </tr>
+                <tr>
+                    <td>1</td><td>CMD1254</td><td>iPhone 14</td><td>21/10/2026</td><td>450 000</td>
+                    <td><span class="badge b-vert">Livrée</span></td>
+                </tr>
+                <tr>
+                    <td>2</td><td>CMD1255</td><td>Sac sacte</td><td>21/10/2026</td><td>10 000</td>
+                    <td><span class="badge b-vert">Livrée</span></td>
+                </tr>
+                <tr>
+                    <td>3</td><td>CMD1256</td><td>Casque Bluetooth</td><td>20/10/2026</td><td>15 000</td>
+                    <td><span class="badge b-orange">En cours</span></td>
+                </tr>
+                <tr>
+                    <td>4</td><td>CMD1257</td><td>Parfum Fanangé</td><td>20/10/2026</td><td>5 000</td>
+                    <td><span class="badge b-bleu">En attente</span></td>
+                </tr>
+                <tr>
+                    <td>5</td><td>CMD1258</td><td>Air force</td><td>19/10/2026</td><td>35 000</td>
+                    <td><span class="badge b-rouge">Annulée</span></td>
+                </tr>
+            </table>
+
+            <a href="liste commandes.html"><button class="btn-plein bas">Voir toutes les commandes</button></a>
+        </fieldset>
+
+        <!-- Derniers clients -->
+        <fieldset id="d4" class="bloc-b">
+            <h3 class="gros" style="font-size: 16px; margin-bottom: 18px;">Derniers clients</h3>
+
+            <div class="liv">
+                <img src="bene.jpg" alt="">
+                <span class="nomL">John Doe</span>
+                <div class="perf"><small>3 commandes</small></div>
+            </div>
+            <div class="liv">
+                <img src="bene.jpg" alt="">
+                <span class="nomL">Paul Martin</span>
+                <div class="perf"><small>2 commandes</small></div>
+            </div>
+            <div class="liv">
+                <img src="bene.jpg" alt="">
+                <span class="nomL">Marie Claire</span>
+                <div class="perf"><small>5 commandes</small></div>
+            </div>
+        </fieldset>
+
+<script>
+/* ---------- Courbes avec zones colorées ---------- */
+function courbes(idCanvas, labels, series) {
+  const c = document.getElementById(idCanvas), ctx = c.getContext("2d");
+  const W = c.width, H = c.height, gauche = 32, bas = 22, haut = 8, max = 250;
+  const hu = H - bas - haut;
+  const pas = (W - gauche - 10) / (labels.length - 1);
+
+  ctx.clearRect(0, 0, W, H);
+  ctx.font = "10px Arial";
+
+  // grille + axe Y
+  ctx.strokeStyle = "#cfcfcf";
+  ctx.fillStyle = "#333";
+  ctx.textAlign = "right";
+  for (let v = 0; v <= max; v += 50) {
+    const y = haut + hu - (v / max) * hu;
+    ctx.beginPath(); ctx.moveTo(gauche, y); ctx.lineTo(W - 5, y); ctx.stroke();
+    ctx.fillText(v, gauche - 4, y + 3);
+  }
+
+  // jours
+  ctx.textAlign = "center";
+  labels.forEach((nom, i) => ctx.fillText(nom, gauche + i * pas, H - 7));
+
+  // chaque série : zone + ligne
+  series.forEach(s => {
+    ctx.beginPath();
+    s.vals.forEach((v, i) => {
+      const x = gauche + i * pas, y = haut + hu - (v / max) * hu;
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.lineTo(gauche + (labels.length - 1) * pas, haut + hu);
+    ctx.lineTo(gauche, haut + hu);
+    ctx.closePath();
+    ctx.fillStyle = s.fond;
+    ctx.fill();
+
+    ctx.beginPath();
+    s.vals.forEach((v, i) => {
+      const x = gauche + i * pas, y = haut + hu - (v / max) * hu;
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.strokeStyle = s.ligne;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  });
+}
+
+/* ---------- Camembert (anneau + légende) ---------- */
+function camembert(idCanvas, donnees, couleurs, cx, lx) {
+  const c = document.getElementById(idCanvas), ctx = c.getContext("2d");
+  const W = c.width, H = c.height;
+  const noms = Object.keys(donnees), vals = Object.values(donnees);
+  const total = vals.reduce((a, b) => a + b, 0);
+  const cy = H / 2 - 5, r = 52;
+  const debutY = (H - noms.length * 30) / 2 + 10;
+
+  ctx.clearRect(0, 0, W, H);
+  let debut = -Math.PI / 2;
+  vals.forEach((v, i) => {
+    const angle = (v / total) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, debut, debut + angle);
+    ctx.strokeStyle = couleurs[i];
+    ctx.lineWidth = 34;
+    ctx.stroke();
+    debut += angle;
+
+    // légende
+    const y = debutY + i * 30;
+    ctx.fillStyle = couleurs[i];
+    ctx.beginPath();
+    ctx.arc(lx, y, 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "#000";
+    ctx.font = "bold 11px Arial";
+    ctx.textAlign = "left";
+    ctx.fillText(noms[i], lx + 12, y + 4);
+    ctx.fillStyle = "#999";
+    ctx.font = "10px Arial";
+    ctx.textAlign = "right";
+    ctx.fillText(Math.round(v / total * 100) + "%", W - 4, y + 4);
+  });
+
+  // total au centre
+  ctx.fillStyle = "#000";
+  ctx.font = "bold 16px Arial";
+  ctx.textAlign = "center";
+  ctx.fillText(total.toLocaleString("fr-FR"), cx, cy + 6);
+}
+
+/* ---------- Utilisation : remplace par tes données ---------- */
+const jours = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+courbes("courbes", jours, [
+  { vals: [120, 150, 130, 190, 160, 210, 240], ligne: "rgb(46, 164, 79)",  fond: "rgba(46, 164, 79, 0.30)" },
+  { vals: [60, 80, 70, 90, 100, 120, 110],     ligne: "rgb(47, 128, 237)", fond: "rgba(47, 128, 237, 0.30)" },
+  { vals: [20, 15, 25, 12, 18, 10, 14],        ligne: "rgb(229, 57, 53)",  fond: "rgba(229, 57, 53, 0.35)" }
+]);
+
+camembert("camembert", { "Livrées": 892, "En cours": 186, "En attente": 118, "Annulées": 52 },
+          ["rgb(46, 164, 79)", "rgb(47, 128, 237)", "orange", "rgb(229, 57, 53)"], 85, 190);
+</script>
+
+    </fieldset>
+
+</body>
+</html>

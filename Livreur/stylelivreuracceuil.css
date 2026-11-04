@@ -1,0 +1,518 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: white;
+    color: rgb(20, 20, 20);
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+fieldset{
+    margin: 0;
+    padding: 0;
+    border: none;
+    min-width: 0;
+}
+
+/* ================= MENU GAUCHE ================= */
+#f1{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 220px;
+    padding: 20px 12px;
+    background-color: rgba(0, 30, 59, 0.936);
+    color: white;
+    z-index: 20;
+}
+
+.h{
+    margin: 0 0 26px 10px;
+    font-size: 24px;
+}
+
+#f1 h3{
+    margin: 0 0 6px 0;
+    font-size: 14.5px;
+}
+
+#f1 h3 a{
+    display: block;
+    padding: 11px 14px;
+    border-radius: 8px;
+}
+
+#f1 h3 a i{
+    width: 30px;
+    font-size: 17px;
+}
+
+#f1 h3 a:hover{
+    color: rgb(81, 142, 255);
+}
+
+#f1 h3 a.actif{
+    background-color: rgb(30, 144, 255);
+    color: white;
+}
+
+.bas-menu{
+    position: absolute;
+    bottom: 20px;
+    left: 12px;
+    right: 12px;
+}
+
+.bas-menu a:active{
+    color: red;
+}
+
+/* ================= ZONE PRINCIPALE ================= */
+#f2{
+    position: relative;
+    width: 1100px;
+    min-height: 100vh;
+    margin-left: 220px;
+    padding: 92px 30px 40px 30px;
+    background-color: white;
+}
+
+/* ---------- barre du haut ---------- */
+#f3{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    background-color: white;
+    border-bottom: 1px solid rgb(236, 236, 236);
+    z-index: 10;
+}
+
+.recherche{
+    position: relative;
+    flex: 1;
+    max-width: 340px;
+}
+
+.recherche i{
+    position: absolute;
+    left: 12px;
+    top: 11px;
+    font-size: 14px;
+    color: rgb(40, 40, 40);
+}
+
+.recherche input{
+    width: 100%;
+    height: 36px;
+    padding-left: 36px;
+    border: 1px solid rgb(228, 228, 228);
+    border-radius: 6px;
+    background-color: rgb(239, 239, 239);
+    font-size: 12px;
+}
+
+.recherche input:focus{
+    outline: none;
+    border-color: rgb(30, 144, 255);
+}
+
+.droite{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.icone-haut{
+    position: relative;
+    font-size: 20px;
+    color: rgb(30, 144, 255);
+}
+
+.icone-haut .point{
+    position: absolute;
+    top: -3px;
+    right: -4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.icone-haut .nb{
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 8px;
+    background-color: red;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 16px;
+}
+
+.icone-haut .nb[hidden]{
+    display: none;
+}
+
+.user-haut{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-haut img{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-haut div{
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+}
+
+.user-haut strong{
+    font-size: 13px;
+    color: rgb(30, 144, 255);
+}
+
+.user-haut small{
+    font-size: 11px;
+    color: rgb(120, 120, 120);
+}
+
+/* ================= ÉLÉMENTS COMMUNS ================= */
+.titre-p{
+    margin: 0 0 14px 0;
+    font-size: 18px;
+}
+
+.btn-bleu{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(30, 144, 255);
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-bleu:hover{
+    background-color: rgb(20, 110, 220);
+}
+
+.btn-contour{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid rgb(30, 144, 255);
+    border-radius: 6px;
+    background-color: white;
+    color: rgb(30, 144, 255);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btn-contour:hover{
+    background-color: rgb(235, 245, 255);
+}
+
+.carte{
+    padding: 18px;
+    background-color: white;
+    border: 1px solid rgb(228, 228, 228);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.map-img{
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    background-color: rgb(222, 228, 234);
+}
+
+/* ---------- fenêtre modale ---------- */
+.voile{
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.voile[hidden]{
+    display: none;
+}
+
+
+/* ================= TABLEAU DE BORD LIVREUR ================= */
+.bonjour{
+    margin: 0 0 18px 0;
+    font-size: 22px;
+}
+
+.stats-liv{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 26px;
+}
+
+.stat-l{
+    position: relative;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.stat-l .rond-i{
+    width: 34px;
+    height: 34px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+}
+
+.stat-l small{
+    display: block;
+    font-size: 11px;
+    color: rgb(80, 80, 80);
+}
+
+.stat-l b{
+    display: block;
+    margin: 4px 0 2px 0;
+    font-size: 26px;
+}
+
+.stat-l em{
+    font-size: 10px;
+    font-style: normal;
+    color: rgb(90, 90, 90);
+}
+
+.s-bleu{   background-color: rgb(225, 238, 255); }
+.s-bleu .rond-i{ color: rgb(30, 100, 235); }
+.s-vert{   background-color: rgb(225, 245, 230); }
+.s-vert .rond-i{ color: rgb(40, 150, 70); }
+.s-orange{ background-color: rgb(255, 238, 215); }
+.s-orange .rond-i{ color: rgb(214, 130, 0); }
+.s-rouge{  background-color: rgb(255, 225, 228); }
+.s-rouge .rond-i{ color: rgb(214, 41, 62); }
+
+.bas-liv{
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.cmd-liv{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+    padding: 12px 14px;
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+}
+
+.cmd-liv:hover{
+    border-color: rgb(30, 144, 255);
+    background-color: rgb(245, 250, 255);
+}
+
+.cmd-liv .ico{
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.cmd-liv .ico.or{ background-color: rgb(255, 225, 190); color: rgb(190, 110, 0); }
+.cmd-liv .ico.vt{ background-color: rgb(205, 240, 210); color: rgb(30, 140, 60); }
+
+.cmd-liv .infos{
+    flex: 1;
+}
+
+.cmd-liv strong{
+    display: block;
+    font-size: 12.5px;
+}
+
+.cmd-liv small{
+    display: block;
+    font-size: 10.5px;
+    color: rgb(110, 110, 110);
+}
+
+.cmd-liv .fin{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.petit-badge{
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+}
+
+.b-or{ background-color: rgb(255, 225, 190); color: rgb(190, 110, 0); }
+.b-vt{ background-color: rgb(205, 240, 210); color: rgb(30, 140, 60); }
+
+.map-carte{
+    padding: 0;
+    overflow: hidden;
+}
+
+.map-carte .map-img{
+    height: 250px;
+}
+
+.map-bas{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    font-size: 11px;
+}
+
+.map-bas strong{
+    display: block;
+    font-size: 12px;
+}
+
+/* ---------- tiroir « détails de la commande » ---------- */
+.tiroir{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 40;
+    width: 340px;
+    height: 100vh;
+    padding: 22px 20px;
+    overflow-y: auto;
+    background-color: white;
+    border-left: 3px solid rgb(30, 144, 255);
+    box-shadow: -4px 0 14px rgba(0, 0, 0, 0.2);
+}
+
+.tiroir[hidden]{
+    display: none;
+}
+
+.tiroir-tete{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.tiroir-tete h3{
+    margin: 0;
+    font-size: 15px;
+}
+
+.fermer-t{
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.num-cmd{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.bloc-t{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 12px;
+    border: 1px solid rgb(215, 225, 240);
+    border-radius: 8px;
+}
+
+.bloc-t > i:first-child{
+    font-size: 22px;
+    color: rgb(30, 144, 255);
+}
+
+.bloc-t img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.bloc-t div{
+    flex: 1;
+    font-size: 12px;
+}
+
+.bloc-t small{
+    display: block;
+    color: rgb(110, 110, 110);
+    font-size: 10.5px;
+}
+
+.bloc-t strong{
+    display: block;
+    font-size: 13px;
+}
+
+.bloc-t .chev{
+    color: rgb(30, 144, 255);
+}

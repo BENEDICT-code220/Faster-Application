@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleClientPaiement.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Paiement</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+    <fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3><a href="client acceuil.html"><i class="fa-solid fa-house"></i>Accueil</a></h3>
+        <h3><a href="client produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3><a href="client panier.html"><i class="fa-solid fa-bag-shopping"></i>Mes commandes</a></h3>
+        <h3><a href="client profil.html"><i class="fa-regular fa-user"></i>Profil</a></h3>
+        <h3><a href="client livreurs.html"><i class="fa-solid fa-box-open"></i>Livraisons</a></h3>
+        <h3><a href="client suivi.html"><i class="fa-regular fa-eye"></i>Suivi</a></h3>
+        <h3><a href="client paiement.html" class="actif"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3><a href="client historique.html"><i class="fa-solid fa-clock-rotate-left"></i>Historique</a></h3>
+        <!--<h3><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>-->
+        <h3 class="bas-menu"><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <div class="recherche"><i class="fa-solid fa-magnifying-glass"></i><input id="i11" type="search" placeholder="Recherche un livreur"></div>
+            <div class="droite">
+                <a href="#" class="icone-haut"><i class="fa-regular fa-bell"></i><span class="point"></span></a>
+            <a href="client panier.html" class="icone-haut"><i class="fa-solid fa-cart-shopping"></i><span class="nb" id="nbPanier" hidden>0</span></a>
+                <div class="user-haut">
+                    <a href="client profil.html"><img src="bene.jpg" alt="Photo"></a>
+                    <div><strong>Mike Awono</strong><small>Client</small></div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="pay-grille">
+            <div>
+                <h3 class="titre-p" style="font-size: 15px;">Paiement de la commande</h3>
+                <p class="sous">Commande #ED340</p>
+
+                <div class="montant">
+                    <small>Montant à payer</small>
+                    <strong id="montant">266 500 FCFA</strong>
+                </div>
+
+                <h4 class="pay-titre">Choisir un moyen de paiement</h4>
+
+                <label class="option-pay">
+                    <input type="radio" name="moyen" checked>
+                    <span>Mobile money</span>
+                    <span class="logos"><span class="logo l-mtn">MTN</span><span class="logo l-om">OM</span></span>
+                </label>
+
+                <label class="option-pay">
+                    <input type="radio" name="moyen">
+                    <span>Carte bancaire</span>
+                    <span class="logos"><span class="logo l-mc"></span><span class="logo l-visa">VISA</span></span>
+                </label>
+
+                <button class="btn-bleu btn-payer" id="btnPayer"><i class="fa-solid fa-circle-check"></i> Payer maintenant</button>
+                <div class="securise"><i class="fa-solid fa-lock"></i> Paiement 100% sécurisé</div>
+            </div>
+
+            <div>
+                <div class="moyens-tete">
+                    <h3>Mes moyens de paiement</h3>
+                    <button class="btn-plus" title="Ajouter un moyen de paiement"><i class="fa-solid fa-plus"></i></button>
+                </div>
+
+                <div class="moyen">
+                    <span class="logo l-mtn">MTN</span>
+                    <div><strong>MOMO</strong>+237 671471701</div>
+                </div>
+
+                <div class="moyen">
+                    <span class="logo l-visa">VISA</span>
+                    <div><strong>Visa *****1234</strong>Expire le 12/27</div>
+                    <i class="fa-solid fa-angles-right"></i>
+                </div>
+
+                <div class="hist-pay">
+                    <div class="ligne-pay"><b>#PAY1</b><span>6000 FCFA</span><span class="reussi">réussi</span><span>24/09/26</span></div>
+                    <div class="ligne-pay"><b>#PAY2</b><span>22000 FCFA</span><span class="reussi">réussi</span><span>24/09/26</span></div>
+                    <div class="ligne-pay"><b>#PAY3</b><span>5000 FCFA</span><span class="reussi">réussi</span><span>24/09/26</span></div>
+                    <div class="ligne-pay"><b>#PAY4</b><span>7000 FCFA</span><span class="reussi">réussi</span><span>24/09/26</span></div>
+                    <div class="ligne-pay"><b>#PAY5</b><span>10000 FCFA</span><span class="reussi">réussi</span><span>24/09/26</span></div>
+                    <div class="ligne-pay"><b>#PAY6</b><span>9000 FCFA</span><span class="echec">échec</span><span>24/09/26</span></div>
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+
+    <!-- ========== FENÊTRE : CODE DE RETRAIT ========== -->
+    <div class="voile" id="voile" hidden>
+        <div class="modal">
+            <h4>CODE DE RETRAIT</h4>
+            <div class="code-box" id="codeRetrait">D-L-5-X-9-Z-7</div>
+            <p>Présentez ce code pour récupérer votre commande</p>
+            <button class="btn-bleu" id="btnTelecharger">Télécharger le code</button>
+            <button class="fermer" id="btnFermer">Fermer</button>
+        </div>
+    </div>
+
+<script>
+/* ---------- panier (mémorisé dans le navigateur) ---------- */
+const CLE = "appdeliverPanier";
+
+function lirePanier() {
+  try { return JSON.parse(localStorage.getItem(CLE)) || []; } catch (e) { return []; }
+}
+
+function sauverPanier(p) {
+  try { localStorage.setItem(CLE, JSON.stringify(p)); } catch (e) {}
+  majBadge();
+}
+
+function majBadge() {
+  const n = lirePanier().reduce((a, x) => a + x.qte, 0);
+  const b = document.getElementById("nbPanier");
+  if (b) { b.textContent = n; b.hidden = (n === 0); }
+}
+
+function ajouterAuPanier(nom, prix, icone) {
+  const p = lirePanier();
+  const existant = p.find(x => x.nom === nom);
+  if (existant) existant.qte++; else p.push({ nom: nom, prix: prix, icone: icone, qte: 1 });
+  sauverPanier(p);
+}
+
+function fcfa(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+/* boutons « Ajouter » des cartes produits */
+document.querySelectorAll(".ajouter").forEach(b => {
+  b.addEventListener("click", () => {
+    ajouterAuPanier(b.dataset.nom, Number(b.dataset.prix), b.dataset.ic);
+    const avant = b.innerHTML;
+    b.innerHTML = '<i class="fa-solid fa-check"></i> Ajouté';
+    setTimeout(() => b.innerHTML = avant, 900);
+  });
+});
+
+majBadge();
+
+/* ---------- montant : on reprend le total du panier ---------- */
+const articles = lirePanier();
+if (articles.length) {
+  const total = articles.reduce((a, x) => a + x.prix * x.qte, 0) + 2000;
+  document.getElementById("montant").textContent = fcfa(total) + " FCFA";
+}
+
+/* ---------- paiement : génération du code de retrait ---------- */
+function genererCode() {
+  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  const lettres = [];
+  for (let i = 0; i < 7; i++) lettres.push(alphabet[Math.floor(Math.random() * alphabet.length)]);
+  return lettres.join("-");
+}
+
+document.getElementById("btnPayer").addEventListener("click", () => {
+  document.getElementById("codeRetrait").textContent = genererCode();
+  document.getElementById("voile").hidden = false;
+});
+
+document.getElementById("btnTelecharger").addEventListener("click", () => {
+  const texte = "Code de retrait : " + document.getElementById("codeRetrait").textContent;
+  const lien = document.createElement("a");
+  lien.href = URL.createObjectURL(new Blob([texte], { type: "text/plain" }));
+  lien.download = "code-retrait.txt";
+  lien.click();
+});
+
+function fermer() { document.getElementById("voile").hidden = true; }
+document.getElementById("btnFermer").addEventListener("click", fermer);
+document.getElementById("voile").addEventListener("click", e => { if (e.target.id === "voile") fermer(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") fermer(); });
+</script>
+
+</body>
+</html>

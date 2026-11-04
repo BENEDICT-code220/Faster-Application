@@ -1,0 +1,737 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: rgb(237, 237, 237);
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+fieldset{
+    margin: 0;
+    padding: 0;
+    border: none;
+    min-width: 0;
+}
+
+
+
+/* ================= MENU GAUCHE ================= */
+#f1{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 220px;
+    padding-top: 10px;
+    background-color: rgba(0, 30, 59, 0.936);
+    color: white;
+    z-index: 20;
+}
+
+.h{
+    margin: 0 0 30px 10px;
+    font-size: 24px;
+}
+
+#f1 h3{
+    margin: 0 0 6px 0;
+    font-size: 15px;
+}
+
+#f1 h3 a{
+    display: block;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+#f1 h3 a i{
+    width: 30px;
+    font-size: 18px;
+}
+
+#l1 a{
+    background-color: rgb(30, 144, 255);
+}
+
+#f1 h3 a:hover{
+    color: rgb(81, 142, 255);
+}
+
+#l10{
+    position: absolute;
+    bottom: 5px;
+    left: -1px;
+    
+}
+
+#l10 a:active{
+    color: red;
+}
+
+
+/* ================= ZONE PRINCIPALE ================= */
+#f2{
+    position: relative;
+    width: 1100px;
+    height: 800px;
+    margin-left: 220px;
+    background-color: rgb(240, 243, 248);
+}
+
+/* ---------- barre du haut ---------- */
+#f3{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 76px;
+    background-color: rgb(250, 246, 246);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+#s{
+    position: absolute;
+    left: 32px;
+    top: 28px;
+    font-size: 15px;
+    color: rgb(40, 40, 40);
+    z-index: 2;
+}
+
+#i11{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 300px;
+    height: 36px;
+    padding-left: 38px;
+    border: 1px solid rgb(236, 234, 234);
+    background-color: rgb(238, 238, 238);
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+#i11:focus{
+    outline: none;
+    border-color: #0d6efd;
+}
+
+#cloche, #mail{
+    position: absolute;
+    top: 24px;
+    font-size: 24px;
+    color: rgb(30, 144, 255);
+}
+
+#cloche{ right: 255px; }
+#mail{ right: 210px; }
+
+#point{
+    position: absolute;
+    top: 22px;
+    right: 204px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+#img1{
+    position: absolute;
+    top: 13px;
+    right: 135px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#imD2{
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    width: 110px;
+}
+
+#poste{
+    margin: 0;
+    font-size: 16px;
+    color: black;
+}
+
+#nom{
+    margin: 2px 0 0 0;
+    font-size: 12px;
+    color: black;
+}
+
+
+/* ================= MISE EN PAGE FLUIDE (pages d'analyse) ================= */
+#f2{
+    width: auto;
+    height: auto;
+    min-height: 100vh;
+    padding: 96px 30px 40px 30px;
+}
+
+.entete-page{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.titre-page{
+    margin: 0 0 4px 0;
+    font-size: 24px;
+}
+
+.titre-page a{
+    margin-right: 10px;
+    color: black;
+    font-size: 20px;
+}
+
+.sous-titre{
+    margin: 0;
+    font-size: 13px;
+    color: rgb(100, 110, 130);
+}
+
+.actions-haut{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-bleu, .btn-blanc, .btn-mini{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-bleu{
+    border: none;
+    background-color: rgb(30, 100, 235);
+    color: white;
+    box-shadow: 0.9px 1.5px 5px rgb(180, 195, 220);
+}
+
+.btn-bleu:hover{
+    background-color: rgb(20, 70, 190);
+}
+
+.btn-blanc{
+    border: 1px solid rgb(205, 205, 205);
+    background-color: white;
+    color: rgb(50, 50, 50);
+}
+
+.btn-blanc:hover{
+    background-color: rgb(235, 240, 250);
+}
+
+.btn-mini{
+    padding: 4px 12px;
+    border: 1px solid rgb(30, 100, 235);
+    background-color: white;
+    color: rgb(30, 100, 235);
+    font-size: 11px;
+}
+
+.btn-mini:hover{
+    background-color: rgb(30, 100, 235);
+    color: white;
+}
+
+/* ---------- cartes de chiffres ---------- */
+.kpis{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.kpi{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 4px 4px 10px rgb(215, 220, 230);
+}
+
+.kpi .ic{
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.i-bleu{   background-color: rgb(220, 235, 255); color: rgb(30, 100, 235); }
+.i-vert{   background-color: rgb(215, 245, 223); color: rgb(40, 150, 70); }
+.i-orange{ background-color: rgb(255, 238, 210); color: rgb(205, 125, 0); }
+.i-rouge{  background-color: rgb(255, 221, 225); color: rgb(214, 41, 62); }
+.i-violet{ background-color: rgb(236, 224, 255); color: rgb(130, 80, 210); }
+
+.kpi small{
+    display: block;
+    font-size: 12px;
+    color: rgb(100, 100, 100);
+}
+
+.kpi strong{
+    font-size: 20px;
+}
+
+.kpi strong span{
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.kpi em{
+    display: block;
+    font-size: 11px;
+    font-style: normal;
+    color: rgb(40, 150, 70);
+    font-weight: bold;
+}
+
+.kpi em.mauvais{
+    color: rgb(214, 41, 62);
+}
+
+/* ---------- cartes ---------- */
+.carte-a{
+    padding: 16px 18px;
+    border: 1px solid rgb(228, 232, 240);
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 4px 4px 10px rgb(215, 220, 230);
+    min-width: 0;
+}
+
+.carte-a h3{
+    margin: 0 0 12px 0;
+    font-size: 15px;
+}
+
+.champ-rech{
+    width: 100%;
+    height: 34px;
+    padding: 0 12px;
+    border: 1px solid rgb(210, 214, 222);
+    border-radius: 6px;
+    background-color: rgb(246, 247, 250);
+    font-size: 12.5px;
+    font-family: inherit;
+}
+
+.champ-rech:focus{
+    outline: none;
+    border-color: rgb(30, 100, 235);
+    background-color: white;
+}
+
+select.champ-rech{
+    cursor: pointer;
+}
+
+/* ---------- pastilles et badges ---------- */
+.pastille, .badge{
+    display: inline-block;
+    padding: 3px 11px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.e-livraison, .b-bleu{   background-color: rgb(220, 235, 255); color: rgb(30, 100, 235); }
+.e-disponible, .b-vert{  background-color: rgb(215, 245, 223); color: rgb(30, 140, 60); }
+.e-pause, .b-orange{     background-color: rgb(255, 238, 210); color: rgb(205, 125, 0); }
+.e-hors, .b-gris{        background-color: rgb(232, 232, 232); color: rgb(110, 110, 110); }
+.b-rouge{                background-color: rgb(255, 221, 225); color: rgb(214, 41, 62); }
+
+/* ---------- tableaux ---------- */
+.defile{
+    overflow-x: auto;
+}
+
+.tableau{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+}
+
+.tableau th{
+    padding: 9px 12px;
+    background-color: rgb(0, 30, 59);
+    color: white;
+    text-align: left;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.tableau td{
+    padding: 9px 12px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.tableau tr:hover td{
+    background-color: rgb(245, 247, 250);
+}
+
+/* ---------- fenêtre (formulaire) ---------- */
+.voile{
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.voile[hidden]{
+    display: none;
+}
+
+.fenetre{
+    width: min(560px, 100%);
+    max-height: 92vh;
+    padding: 22px 24px;
+    overflow-y: auto;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.fenetre h3{
+    margin: 0 0 14px 0;
+    font-size: 17px;
+}
+
+.champs-grille{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+}
+
+.champs-grille .large{
+    grid-column: 1 / -1;
+}
+
+.champs-grille label{
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.champs-grille textarea.champ-rech{
+    height: 80px;
+    padding: 10px 12px;
+    resize: none;
+}
+
+.pied-fenetre{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px){
+    /* le menu ne montre plus que les icônes */
+    #f1{
+        width: 70px;
+        padding: 16px 8px;
+    }
+
+    #f1 .h{
+        margin: 0 0 16px 0;
+        font-size: 0;
+        text-align: center;
+    }
+
+    #f1 .h i{
+        font-size: 24px;
+    }
+
+    #f1 h3 a{
+        padding: 11px 6px;
+        font-size: 0;
+        text-align: center;
+    }
+
+    #f1 h3 a i{
+        width: auto;
+        font-size: 18px;
+    }
+
+    #l10{
+        left: 8px;
+        right: 8px;
+    }
+
+    #f2{
+        margin-left: 70px;
+        padding: 92px 18px 40px 18px;
+    }
+
+    .kpis{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px){
+    .kpis{
+        grid-template-columns: 1fr;
+    }
+
+    .champs-grille{
+        grid-template-columns: 1fr;
+    }
+
+    #i11{
+        width: 150px;
+    }
+
+    #cloche, #mail, #point, #imD2{
+        display: none;
+    }
+
+    #img1{
+        right: 14px;
+    }
+}
+
+/* ================= FEEDBACKS ================= */
+.rangee-fb{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.etoiles i{
+    color: rgb(245, 179, 1);
+}
+
+.etoiles .vide{
+    color: rgb(200, 200, 200);
+}
+
+/* ---------- répartition des notes ---------- */
+.barre-n{
+    display: grid;
+    grid-template-columns: 52px 1fr 36px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 9px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.barre-n:hover b{
+    color: rgb(30, 100, 235);
+}
+
+.piste{
+    height: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: rgb(232, 235, 241);
+}
+
+.piste span{
+    display: block;
+    height: 100%;
+    border-radius: 5px;
+    background-color: rgb(245, 179, 1);
+}
+
+/* ---------- thèmes cités ---------- */
+.puces{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.puce{
+    padding: 6px 12px;
+    border: 1px solid rgb(210, 214, 222);
+    border-radius: 16px;
+    background-color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.puce b{
+    margin-left: 4px;
+    color: rgb(30, 100, 235);
+}
+
+.puce:hover{
+    background-color: rgb(240, 245, 255);
+}
+
+.puce.actif{
+    border-color: rgb(30, 100, 235);
+    background-color: rgb(30, 100, 235);
+    color: white;
+}
+
+.puce.actif b{
+    color: white;
+}
+
+/* ---------- filtres ---------- */
+.filtres-fb{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+/* ---------- avis ---------- */
+.fb{
+    display: flex;
+    gap: 14px;
+    margin-bottom: 12px;
+    padding: 14px 16px;
+    border: 1px solid rgb(228, 232, 240);
+    border-radius: 10px;
+}
+
+.fb img{
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.fb-corps{
+    flex: 1;
+    min-width: 0;
+}
+
+.fb-tete{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.fb-tete strong{
+    font-size: 13.5px;
+}
+
+.fb-tete small{
+    color: rgb(110, 110, 110);
+    font-size: 11.5px;
+}
+
+.fb-tete .droite{
+    margin-left: auto;
+}
+
+.fb-texte{
+    margin: 6px 0 8px 0;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.fb-pied{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.tag{
+    padding: 2px 10px;
+    border-radius: 10px;
+    background-color: rgb(238, 241, 247);
+    color: rgb(70, 80, 100);
+    font-size: 11px;
+}
+
+.reponse{
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 3px solid rgb(30, 100, 235);
+    border-radius: 0 6px 6px 0;
+    background-color: rgb(240, 245, 255);
+    font-size: 12px;
+}
+
+.zone-rep{
+    margin-top: 10px;
+}
+
+.zone-rep[hidden]{
+    display: none;
+}
+
+.zone-rep textarea{
+    width: 100%;
+    height: 70px;
+    margin-bottom: 8px;
+    padding: 8px 10px;
+    border: 1px solid rgb(210, 214, 222);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 12.5px;
+    resize: none;
+}
+
+.vide-fb{
+    padding: 26px 0;
+    text-align: center;
+    color: rgb(120, 120, 120);
+}
+
+@media (max-width: 900px){
+    .rangee-fb{
+        grid-template-columns: 1fr;
+    }
+
+    .filtres-fb{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px){
+    .filtres-fb{
+        grid-template-columns: 1fr;
+    }
+
+    .fb{
+        flex-direction: column;
+    }
+}

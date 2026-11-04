@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleObstacles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Faster - Obstacles en route</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher un obstacle....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <img id="img1" src="télécharger.jpg" alt="image jeune homme">
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <div class="entete-page">
+            <div>
+                <h1 class="titre-page">Obstacles en route</h1>
+                <p class="sous-titre">Comprendre ce qui ralentit les livreurs et décider des solutions</p>
+            </div>
+            <div class="actions-haut">
+                <a href="suivi-livreurs.html" class="btn-blanc"><i class="fa-solid fa-location-crosshairs"></i> Suivi en direct</a>
+                <a href="#idees" class="btn-bleu"><i class="fa-solid fa-lightbulb"></i> Proposer une solution</a>
+            </div>
+        </div>
+
+        <!-- chiffres clés -->
+        <div class="kpis">
+            <div class="kpi"><span class="ic i-rouge"><i class="fa-solid fa-triangle-exclamation"></i></span><div><small>Obstacles signalés (30 jours)</small><strong id="kTotal">0</strong></div></div>
+            <div class="kpi"><span class="ic i-orange"><i class="fa-regular fa-clock"></i></span><div><small>Retard moyen causé</small><strong>12 <span>min</span></strong></div></div>
+            <div class="kpi"><span class="ic i-bleu"><i class="fa-solid fa-truck"></i></span><div><small>Livraisons impactées</small><strong>18 <span>%</span></strong></div></div>
+            <div class="kpi"><span class="ic i-violet"><i class="fa-solid fa-location-dot"></i></span><div><small>Zone la plus touchée</small><strong id="kZone">—</strong></div></div>
+        </div>
+
+        <div class="rangee-ob">
+            <!-- carte des obstacles -->
+            <section class="carte-a">
+                <h3>Où sont les obstacles ?</h3>
+                <div class="filtres-types" id="filtresTypes"></div>
+                <div class="carte-ob" id="carteOb">
+                    <img src="map-maisons.jpg" alt="Carte des obstacles">
+                </div>
+                <div class="info-ob" id="infoOb">Cliquez sur un repère pour voir le détail du signalement.</div>
+            </section>
+
+            <!-- répartition par type -->
+            <section class="carte-a">
+                <h3>Répartition par type</h3>
+                <div class="donut-ob"><canvas id="donut" width="190" height="190"></canvas></div>
+                <div class="leg-ob" id="legOb"></div>
+            </section>
+        </div>
+
+        <div class="rangee-ob2">
+            <!-- zones à risque -->
+            <section class="carte-a">
+                <h3>Zones à risque</h3>
+                <div id="zones"></div>
+            </section>
+
+            <!-- signalements récents -->
+            <section class="carte-a">
+                <h3>Signalements récents des livreurs</h3>
+                <div class="defile">
+                    <table class="tableau">
+                        <thead><tr><th>Heure</th><th>Livreur</th><th>Type</th><th>Lieu</th><th>Gravité</th><th>Retard</th></tr></thead>
+                        <tbody id="recents"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <!-- tableau de réflexion : on glisse les cartes d'une colonne à l'autre -->
+        <section class="carte-a" id="idees">
+            <h3>Plan d'action : réfléchir aux solutions</h3>
+
+            <div class="ajout-idee">
+                <div>
+                    <label for="idType">Obstacle</label>
+                    <select class="champ-rech" id="idType"></select>
+                </div>
+                <div>
+                    <label for="idZone">Zone</label>
+                    <input class="champ-rech" id="idZone" type="text" placeholder="Ex : Ndokoti">
+                </div>
+                <div>
+                    <label for="idSol">Idée de solution</label>
+                    <input class="champ-rech" id="idSol" type="text" placeholder="Ex : livrer avant 7h dans cette zone">
+                </div>
+                <button class="btn-bleu" id="btnIdee"><i class="fa-solid fa-plus"></i> Ajouter</button>
+            </div>
+
+            <div class="tableau-idees">
+                <div class="colonne" data-col="etudier"><h4>À étudier <span></span></h4></div>
+                <div class="colonne" data-col="encours"><h4>En cours <span></span></h4></div>
+                <div class="colonne" data-col="fait"><h4>Mis en place <span></span></h4></div>
+            </div>
+        </section>
+
+<script>
+/* ---------- types d'obstacles ---------- */
+const TYPES = {
+  embouteillage: { nom: "Embouteillage",     couleur: "#e53935", icone: "fa-car-side" },
+  travaux:       { nom: "Travaux",           couleur: "#f09614", icone: "fa-person-digging" },
+  inondation:    { nom: "Inondation",        couleur: "#1e64eb", icone: "fa-cloud-showers-heavy" },
+  barree:        { nom: "Route barrée",      couleur: "#424242", icone: "fa-road-barrier" },
+  accident:      { nom: "Accident",          couleur: "#8e44ad", icone: "fa-car-burst" },
+  controle:      { nom: "Contrôle routier",  couleur: "#607d8b", icone: "fa-user-shield" }
+};
+
+/* nombre de signalements par type (30 derniers jours) */
+const COMPTES = { embouteillage: 18, travaux: 9, inondation: 7, barree: 6, accident: 4, controle: 3 };
+const ZONES = [["Ndokoti", 14], ["Akwa", 9], ["Bonabéri (pont)", 8], ["Makepe", 6], ["Deido", 5], ["Bonamoussadi", 5]];
+
+/* repères sur la carte (positions en % de l'image) */
+const REPERES = [
+  { t: "embouteillage", x: 50, y: 33, lieu: "Boulevard central, côté Akwa",   par: "John Doe",     h: "07 h 48", retard: 18, grav: "Élevée" },
+  { t: "embouteillage", x: 35, y: 50, lieu: "Carrefour de l'Avenue principale", par: "Paul Martin",  h: "12 h 10", retard: 14, grav: "Moyenne" },
+  { t: "travaux",       x: 22, y: 50, lieu: "Avenue principale, voie réduite", par: "Marie Claire", h: "09 h 05", retard: 10, grav: "Moyenne" },
+  { t: "travaux",       x: 80, y: 66, lieu: "Rue des Palmiers",                par: "Jean Paul",    h: "10 h 30", retard: 8,  grav: "Faible" },
+  { t: "inondation",    x: 65, y: 62, lieu: "Makepe, route basse",             par: "Alice Ndong",  h: "06 h 55", retard: 25, grav: "Élevée" },
+  { t: "inondation",    x: 10, y: 74, lieu: "Quartier bas de Bonabéri",        par: "Éric Tchamba", h: "07 h 20", retard: 20, grav: "Élevée" },
+  { t: "barree",        x: 90, y: 38, lieu: "Rue du Marché (marché du jour)",  par: "Samuel Fouda", h: "11 h 15", retard: 12, grav: "Moyenne" },
+  { t: "accident",      x: 35, y: 83, lieu: "Rue des Manguiers",               par: "Nadia Owona",  h: "15 h 40", retard: 22, grav: "Élevée" },
+  { t: "controle",      x: 90, y: 20, lieu: "Entrée de Deido",                 par: "Patrick Nkou", h: "08 h 10", retard: 6,  grav: "Faible" },
+  { t: "embouteillage", x: 65, y: 17, lieu: "Pont de Bonabéri",                par: "Carine Mbella", h: "17 h 25", retard: 28, grav: "Élevée" }
+];
+
+const GRAV = { "Faible": "b-vert", "Moyenne": "b-orange", "Élevée": "b-rouge" };
+
+/* ---------- chiffres, carte et filtres ---------- */
+const total = Object.values(COMPTES).reduce((a, b) => a + b, 0);
+document.getElementById("kTotal").textContent = total;
+document.getElementById("kZone").textContent = ZONES[0][0];
+
+const visibles = new Set(Object.keys(TYPES));
+
+function afficherRepères() {
+  const carte = document.getElementById("carteOb");
+  carte.querySelectorAll(".ob").forEach(o => o.remove());
+  REPERES.forEach((r, i) => {
+    const o = document.createElement("div");
+    o.className = "ob";
+    o.style.left = r.x + "%";
+    o.style.top = r.y + "%";
+    o.style.backgroundColor = TYPES[r.t].couleur;
+    o.hidden = !visibles.has(r.t);
+    o.title = TYPES[r.t].nom + " — " + r.lieu;
+    o.innerHTML = '<i class="fa-solid ' + TYPES[r.t].icone + '"></i>';
+    o.addEventListener("click", () => {
+      carte.querySelectorAll(".ob").forEach(x => x.classList.remove("sel"));
+      o.classList.add("sel");
+      document.getElementById("infoOb").innerHTML =
+        "<b>" + TYPES[r.t].nom + "</b> · " + r.lieu + "<br>Signalé par " + r.par + " à " + r.h +
+        " · retard de " + r.retard + " min · gravité " + r.grav.toLowerCase();
+    });
+    carte.appendChild(o);
+  });
+}
+
+const zoneTypes = document.getElementById("filtresTypes");
+Object.entries(TYPES).forEach(([cle, t]) => {
+  const b = document.createElement("button");
+  b.className = "type-chip";
+  b.innerHTML = '<i class="fa-solid ' + t.icone + '" style="color:' + t.couleur + '"></i>' + t.nom;
+  b.addEventListener("click", () => {
+    if (visibles.has(cle)) visibles.delete(cle); else visibles.add(cle);
+    b.classList.toggle("off", !visibles.has(cle));
+    afficherRepères();
+  });
+  zoneTypes.appendChild(b);
+});
+afficherRepères();
+
+/* ---------- répartition (anneau) ---------- */
+(function () {
+  const c = document.getElementById("donut"), ctx = c.getContext("2d");
+  let debut = -Math.PI / 2;
+  Object.entries(COMPTES).forEach(([cle, v]) => {
+    const angle = v / total * Math.PI * 2;
+    ctx.beginPath();
+    ctx.arc(95, 95, 66, debut, debut + angle);
+    ctx.strokeStyle = TYPES[cle].couleur;
+    ctx.lineWidth = 34;
+    ctx.stroke();
+    debut += angle;
+  });
+  ctx.fillStyle = "#111";
+  ctx.font = "bold 24px Arial";
+  ctx.textAlign = "center";
+  ctx.fillText(total, 95, 97);
+  ctx.font = "11px Arial";
+  ctx.fillStyle = "#777";
+  ctx.fillText("obstacles", 95, 114);
+
+  document.getElementById("legOb").innerHTML = Object.entries(COMPTES).map(([cle, v]) =>
+    '<div><i style="background:' + TYPES[cle].couleur + '"></i><span>' + TYPES[cle].nom + '</span><b>' + v + '</b> <small>(' + Math.round(v / total * 100) + ' %)</small></div>').join("");
+})();
+
+/* ---------- zones à risque et signalements récents ---------- */
+document.getElementById("zones").innerHTML = ZONES.map(z =>
+  '<div class="zone-r"><span>' + z[0] + '</span><div class="piste"><span style="width:' + (z[1] / ZONES[0][1] * 100) + '%"></span></div><b>' + z[1] + '</b></div>').join("");
+
+document.getElementById("recents").innerHTML = REPERES.slice(0, 6).map(r =>
+  '<tr><td>' + r.h + '</td><td>' + r.par + '</td><td>' + TYPES[r.t].nom + '</td><td>' + r.lieu + '</td>' +
+  '<td><span class="badge ' + GRAV[r.grav] + '">' + r.grav + '</span></td><td>' + r.retard + ' min</td></tr>').join("");
+
+/* ---------- tableau d'idées (glisser-déposer) ---------- */
+const CLE_IDEES = "faster-idees-obstacles";
+let idees = [];
+try { idees = JSON.parse(localStorage.getItem(CLE_IDEES)) || []; } catch (e) {}
+if (!idees.length) {
+  idees = [
+    { id: 1, col: "etudier", t: "embouteillage", zone: "Ndokoti",      sol: "Planifier les livraisons avant 7 h ou après 19 h dans cette zone" },
+    { id: 2, col: "etudier", t: "embouteillage", zone: "Pont de Bonabéri", sol: "Itinéraire alternatif et un livreur dédié à la zone" },
+    { id: 3, col: "encours", t: "inondation",    zone: "Makepe",       sol: "Imperméables pour les livreurs et alerte météo avant les départs" },
+    { id: 4, col: "fait",    t: "travaux",       zone: "Avenue principale", sol: "Itinéraire évité automatiquement dans l'application" }
+  ];
+}
+
+function sauver() {
+  try { localStorage.setItem(CLE_IDEES, JSON.stringify(idees)); } catch (e) {}
+}
+
+function afficherIdees() {
+  document.querySelectorAll(".colonne").forEach(col => {
+    col.querySelectorAll(".idee").forEach(x => x.remove());
+    const liste = idees.filter(i => i.col === col.dataset.col);
+    col.querySelector("h4 span").textContent = liste.length;
+    liste.forEach(i => {
+      const d = document.createElement("div");
+      d.className = "idee";
+      d.draggable = true;
+      d.dataset.id = i.id;
+      d.style.borderLeftColor = TYPES[i.t].couleur;
+      d.innerHTML = '<button class="suppr" title="Supprimer"><i class="fa-solid fa-xmark"></i></button>' +
+        '<b>' + TYPES[i.t].nom + ' — ' + i.zone + '</b><small>Idée de solution</small>' + i.sol;
+      d.addEventListener("dragstart", e => { e.dataTransfer.setData("text/plain", i.id); d.classList.add("dragging"); });
+      d.addEventListener("dragend", () => d.classList.remove("dragging"));
+      d.querySelector(".suppr").addEventListener("click", () => {
+        idees = idees.filter(x => x.id !== i.id);
+        sauver(); afficherIdees();
+      });
+      col.appendChild(d);
+    });
+  });
+}
+
+document.querySelectorAll(".colonne").forEach(col => {
+  col.addEventListener("dragover", e => { e.preventDefault(); col.classList.add("survol"); });
+  col.addEventListener("dragleave", () => col.classList.remove("survol"));
+  col.addEventListener("drop", e => {
+    e.preventDefault();
+    col.classList.remove("survol");
+    const i = idees.find(x => x.id === Number(e.dataTransfer.getData("text/plain")));
+    if (i) { i.col = col.dataset.col; sauver(); afficherIdees(); }
+  });
+});
+
+document.getElementById("idType").innerHTML = Object.entries(TYPES).map(([k, t]) => '<option value="' + k + '">' + t.nom + '</option>').join("");
+
+document.getElementById("btnIdee").addEventListener("click", () => {
+  const zone = document.getElementById("idZone").value.trim();
+  const sol = document.getElementById("idSol").value.trim();
+  if (!zone || !sol) { alert("Indiquez la zone et l'idée de solution."); return; }
+  idees.push({ id: Date.now(), col: "etudier", t: document.getElementById("idType").value, zone: zone, sol: sol });
+  document.getElementById("idZone").value = "";
+  document.getElementById("idSol").value = "";
+  sauver(); afficherIdees();
+});
+
+afficherIdees();
+</script>
+
+    </fieldset>
+
+</body>
+</html>

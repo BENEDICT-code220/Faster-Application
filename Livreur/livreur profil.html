@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleLivreurProfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>AppDeliver - Profil livreur</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+    <fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3><a href="livreur acceuil.html"><i class="fa-solid fa-house"></i>Accueil</a></h3>
+        <h3><a href="livreur livraisons.html"><i class="fa-solid fa-truck"></i>Mes livraisons</a></h3>
+        <h3><a href="livreur carte.html"><i class="fa-solid fa-map-location-dot"></i>Carte</a></h3>
+        <h3><a href="livreur profil.html" class="actif"><i class="fa-regular fa-user"></i>Profil</a></h3>
+        <!--<h3><a href="#"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>-->
+        <h3><a href="#"><i class="fa-regular fa-circle-question"></i>Aide</a></h3>
+        <h3 class="bas-menu"><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <div class="recherche"><i class="fa-solid fa-magnifying-glass"></i><input id="i11" type="search" placeholder="Recherche ..."></div>
+            <div class="droite">
+                <a href="#" class="icone-haut"><i class="fa-regular fa-bell"></i><span class="point"></span></a>
+                <div class="user-haut">
+                    <a href="livreur profil.html"><img src="bene.jpg" alt="Photo"></a>
+                    <div><strong>Amarachoukou isoken</strong><small>Livreur</small></div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="profil-grille">
+            <div>
+                <h3 class="titre-p">Informations personnelles</h3>
+
+                <div class="avatar-ligne">
+                    <img id="photoP" src="bene.jpg" alt="Photo de profil">
+                    <div>
+                        <strong>Amarachoukou isoken</strong>
+                        <button type="button" class="btn-contour" onclick="document.getElementById('fichierP').click()">changer la photo</button>
+                        <input type="file" id="fichierP" accept="image/*" hidden>
+                    </div>
+                </div>
+
+                <div class="formulaire">
+                    <div>
+                        <label for="nomL">Nom complet</label>
+                        <input class="inp" id="nomL" type="text" value="Jean Dupont">
+                    </div>
+                    <div>
+                        <label for="emailL">Email</label>
+                        <input class="inp" id="emailL" type="email" value="jeandupont@gmail.com">
+                    </div>
+                    <div>
+                        <label for="telL">Téléphone</label>
+                        <input class="inp" id="telL" type="tel" value="+237 672 34 36 78">
+                    </div>
+                    <div>
+                        <label for="vehL">Véhicule</label>
+                        <select class="inp" id="vehL"><option value="">Sélectionner</option><option selected>Moto</option><option>Vélo</option><option>Voiture</option><option>Tricycle</option></select>
+                    </div>
+                    <div>
+                        <label for="genreL">Genre</label>
+                        <select class="inp" id="genreL"><option value="">Sélectionner</option><option selected>Homme</option><option>Femme</option></select>
+                    </div>
+                    <div>
+                        <label for="plaqueL">Numéro plaque</label>
+                        <input class="inp" id="plaqueL" type="text" value="CE 1254 AB">
+                    </div>
+                </div>
+
+                <button class="btn-bleu pleine" onclick="alert('Modifications enregistrées !')">Enregistrer les modifications</button>
+                <a href="#" class="btn-contour pleine"><i class="fa-solid fa-circle-info"></i> Politiques et confidentialité</a>
+            </div>
+
+            <fieldset class="preferences">
+                <h3>Mes préférences</h3>
+
+                <label class="pref-titre" for="langue">Langue</label>
+                <select id="langue">
+                    <option>Français</option>
+                    <option>English</option>
+                    <option>Arabe</option>
+                    <option>Portuguais</option>
+                    <option>Turque</option>
+                    <option>Autres...</option>
+                </select>
+
+                <label class="pref-titre">Thème</label>
+                <label class="theme-opt"><span>Système</span><input type="radio" name="theme" value="systeme"></label>
+                <label class="theme-opt"><span>Clair</span><input type="radio" name="theme" value="clair" checked></label>
+                <label class="theme-opt"><span>Sombre</span><input type="radio" name="theme" value="sombre"></label>
+            </fieldset>
+        </div>
+
+    </fieldset>
+
+<script>
+/* ---------- changer la photo ---------- */
+document.getElementById("fichierP").addEventListener("change", function () {
+  const f = this.files[0];
+  if (!f) return;
+  const lecteur = new FileReader();
+  lecteur.onload = e => document.getElementById("photoP").src = e.target.result;
+  lecteur.readAsDataURL(f);
+});
+
+/* ---------- thème : système / clair / sombre ---------- */
+function appliquerTheme(choix) {
+  let sombre = (choix === "sombre");
+  if (choix === "systeme") sombre = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  document.body.classList.toggle("sombre", sombre);
+  try { localStorage.setItem("appdeliverTheme", choix); } catch (e) {}
+}
+
+document.querySelectorAll("input[name='theme']").forEach(r => {
+  r.addEventListener("change", () => appliquerTheme(r.value));
+});
+
+try {
+  const memo = localStorage.getItem("appdeliverTheme");
+  if (memo) {
+    document.querySelector("input[name='theme'][value='" + memo + "']").checked = true;
+    appliquerTheme(memo);
+  }
+} catch (e) {}
+
+</script>
+
+</body>
+</html>

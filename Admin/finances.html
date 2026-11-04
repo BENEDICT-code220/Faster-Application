@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleFinances.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Faster - Finances</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+<fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3 id="l1"><a href="admin dashboard.html"><i class="fa-solid fa-house"></i>Tableau de bord</a></h3>
+        <h3 id="l2"><a href="commandes.html"><i class="fa-solid fa-bag-shopping"></i>Commandes</a></h3>
+        <h3 id="l3"><a href="livraisons.html"><i class="fa-solid fa-truck"></i>Livraisons</a></h3>
+        <h3 id="l11"><a href="suivi-livreurs.html"><i class="fa-solid fa-location-crosshairs"></i>Suivi en direct</a></h3>
+        <h3 id="l4"><a href="clients.html"><i class="fa-regular fa-user"></i>Clients</a></h3>
+        <h3 id="l5"><a href="livreurs.html"><i class="fa-solid fa-box-open"></i>Livreurs</a></h3>
+        <h3 id="l6"><a href="produits.html"><i class="fa-solid fa-box"></i>Produits</a></h3>
+        <h3 id="l7"><a href="paiements.html"><i class="fa-regular fa-credit-card"></i>Paiements</a></h3>
+        <h3 id="l12"><a href="obstacles.html"><i class="fa-solid fa-triangle-exclamation"></i>Obstacles</a></h3>
+        <h3 id="l13"><a href="finances.html"><i class="fa-solid fa-coins"></i>Finances</a></h3>
+        <h3 id="l14"><a href="partenariats.html"><i class="fa-solid fa-handshake"></i>Partenariats</a></h3>
+        <h3 id="l8"><a href="rapports.html"><i class="fa-solid fa-chart-column"></i>Rapport</a></h3>
+        <h3 id="l9"><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3 id="l10"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <i id="s" class="fa-solid fa-search"></i>
+            <input id="i11" type="search" placeholder="Rechercher une opération....">
+
+            <i id="cloche" class="fa-regular fa-bell"></i>
+            <i id="mail" class="fa-regular fa-envelope"></i>
+            <span id="point"></span>
+
+            <div id="imD1">
+                <img id="img1" src="télécharger.jpg" alt="image jeune homme">
+            </div>
+
+            <div id="imD2">
+                <h3 id="poste">Admin</h3>
+                <p id="nom">Edwin Nkemegni</p>
+            </div>
+        </fieldset>
+
+        <div class="entete-page">
+            <div>
+                <h1 class="titre-page">Gestion des finances</h1>
+                <p class="sous-titre">Recettes et dépenses de l'entreprise · octobre 2026</p>
+            </div>
+            <div class="actions-haut">
+                <button class="btn-blanc" id="btnExport"><i class="fa-solid fa-file-arrow-down"></i> Exporter (CSV)</button>
+                <button class="btn-bleu" id="btnAjout"><i class="fa-solid fa-plus"></i> Ajouter une opération</button>
+            </div>
+        </div>
+
+        <!-- chiffres clés (calculés depuis les opérations) -->
+        <div class="kpis">
+            <div class="kpi"><span class="ic i-vert"><i class="fa-solid fa-arrow-trend-up"></i></span><div><small>Recettes</small><strong id="kRec">0</strong></div></div>
+            <div class="kpi"><span class="ic i-rouge"><i class="fa-solid fa-arrow-trend-down"></i></span><div><small>Dépenses</small><strong id="kDep">0</strong></div></div>
+            <div class="kpi"><span class="ic i-bleu" id="icNet"><i class="fa-solid fa-scale-balanced"></i></span><div><small>Bénéfice net</small><strong id="kNet">0</strong></div></div>
+            <div class="kpi"><span class="ic i-violet"><i class="fa-solid fa-percent"></i></span><div><small>Marge nette</small><strong id="kMarge">0</strong></div></div>
+        </div>
+
+        <div class="rangee-fi">
+            <section class="carte-a">
+                <h3>Recettes et dépenses sur 6 mois</h3>
+                <canvas id="graphe" width="640" height="280"></canvas>
+                <div class="leg-fi">
+                    <span><i style="background: rgb(46, 164, 79);"></i>Recettes</span>
+                    <span><i style="background: rgb(229, 57, 53);"></i>Dépenses</span>
+                </div>
+            </section>
+
+            <section class="carte-a">
+                <h3>Répartition des dépenses</h3>
+                <canvas id="donut" width="190" height="190"></canvas>
+                <div class="leg-dep" id="legDep"></div>
+            </section>
+        </div>
+
+        <!-- liste des opérations -->
+        <section class="carte-a">
+            <h3>Opérations</h3>
+            <div class="filtres-fi">
+                <input class="champ-rech" id="rechOp" type="search" placeholder="Rechercher une opération...">
+                <select class="champ-rech" id="selType">
+                    <option value="">Recettes et dépenses</option>
+                    <option value="recette">Recettes</option>
+                    <option value="depense">Dépenses</option>
+                </select>
+                <select class="champ-rech" id="selCat"><option value="">Toutes les catégories</option></select>
+                <input class="champ-rech" id="du" type="date" title="Du">
+                <input class="champ-rech" id="au" type="date" title="Au">
+            </div>
+            <div class="defile">
+                <table class="tableau">
+                    <thead><tr><th>Date</th><th>Libellé</th><th>Catégorie</th><th>Type</th><th>Mode</th><th>Montant</th><th></th></tr></thead>
+                    <tbody id="corpsOp"></tbody>
+                </table>
+            </div>
+            <div class="pied-tab">
+                <span>Recettes affichées : <b class="montant-r" id="tRec">0</b></span>
+                <span>Dépenses affichées : <b class="montant-d" id="tDep">0</b></span>
+                <span>Solde : <b id="tSolde">0</b></span>
+            </div>
+        </section>
+
+        <!-- fenêtre : ajouter une opération -->
+        <div class="voile" id="voile" hidden>
+            <form class="fenetre" id="formOp">
+                <h3>Ajouter une opération</h3>
+                <div class="champs-grille">
+                    <div class="large">
+                        <label>Type d'opération</label>
+                        <div class="type-choix">
+                            <label><input type="radio" name="type" value="recette" checked><i class="fa-solid fa-arrow-trend-up" style="color: rgb(40, 150, 70);"></i> Recette</label>
+                            <label><input type="radio" name="type" value="depense"><i class="fa-solid fa-arrow-trend-down" style="color: rgb(214, 41, 62);"></i> Dépense</label>
+                        </div>
+                    </div>
+                    <div><label for="fCat">Catégorie</label><select class="champ-rech" id="fCat" required></select></div>
+                    <div><label for="fMode">Mode de paiement</label>
+                        <select class="champ-rech" id="fMode"><option>Orange Money</option><option>MTN MoMo</option><option>Espèces</option><option>Virement</option></select></div>
+                    <div class="large"><label for="fLib">Libellé</label><input class="champ-rech" id="fLib" type="text" placeholder="Ex : Frais de livraison — semaine 5" required></div>
+                    <div><label for="fMont">Montant (FCFA)</label><input class="champ-rech" id="fMont" type="number" min="1" required></div>
+                    <div><label for="fDate">Date</label><input class="champ-rech" id="fDate" type="date" required></div>
+                </div>
+                <div class="pied-fenetre">
+                    <button type="button" class="btn-blanc" id="btnAnnuler">Annuler</button>
+                    <button type="submit" class="btn-bleu"><i class="fa-regular fa-floppy-disk"></i> Enregistrer</button>
+                </div>
+            </form>
+        </div>
+
+<script>
+/* ---------- catégories ---------- */
+const CATEGORIES = {
+  recette: ["Frais de livraison", "Commissions", "Abonnements", "Publicité"],
+  depense: ["Carburant", "Salaires", "Maintenance", "Assurances", "Marketing", "Loyer & charges", "Outils & internet"]
+};
+const COULEURS = { "Carburant": "#e53935", "Salaires": "#1e64eb", "Maintenance": "#f09614", "Assurances": "#8e44ad",
+                   "Marketing": "#2ea44f", "Loyer & charges": "#607d8b", "Outils & internet": "#00acc1" };
+
+/* historique des 5 mois précédents (en millions de FCFA) : [recettes, dépenses] */
+const HISTORIQUE = [["Mai", 7.8, 6.1], ["Juin", 8.6, 6.4], ["Juil", 9.3, 6.9], ["Août", 9.9, 7.1], ["Sept", 10.2, 7.0]];
+
+/* ---------- opérations d'octobre 2026 ---------- */
+let operations = [
+  { id: 1,  date: "2026-10-02", type: "recette", cat: "Frais de livraison", lib: "Frais de livraison — semaine 1",       mode: "Orange Money", mont: 1850000 },
+  { id: 2,  date: "2026-10-03", type: "depense", cat: "Carburant",          lib: "Stations partenaires — semaine 1",     mode: "Virement",     mont: 780000 },
+  { id: 3,  date: "2026-10-05", type: "recette", cat: "Commissions",        lib: "Commissions des commerçants partenaires", mode: "Virement",  mont: 920000 },
+  { id: 4,  date: "2026-10-05", type: "depense", cat: "Salaires",           lib: "Salaires des livreurs (acompte)",      mode: "MTN MoMo",     mont: 1600000 },
+  { id: 5,  date: "2026-10-08", type: "depense", cat: "Maintenance",        lib: "Entretien des motos (12 véhicules)",   mode: "Espèces",      mont: 340000 },
+  { id: 6,  date: "2026-10-09", type: "recette", cat: "Frais de livraison", lib: "Frais de livraison — semaine 2",       mode: "Orange Money", mont: 2140000 },
+  { id: 7,  date: "2026-10-10", type: "depense", cat: "Carburant",          lib: "Stations partenaires — semaine 2",     mode: "Virement",     mont: 820000 },
+  { id: 8,  date: "2026-10-12", type: "recette", cat: "Abonnements",        lib: "Abonnements clients Premium",          mode: "MTN MoMo",     mont: 380000 },
+  { id: 9,  date: "2026-10-14", type: "depense", cat: "Marketing",          lib: "Campagne sur les réseaux sociaux",     mode: "Orange Money", mont: 250000 },
+  { id: 10, date: "2026-10-16", type: "recette", cat: "Frais de livraison", lib: "Frais de livraison — semaine 3",       mode: "Orange Money", mont: 2310000 },
+  { id: 11, date: "2026-10-17", type: "depense", cat: "Carburant",          lib: "Stations partenaires — semaine 3",     mode: "Virement",     mont: 860000 },
+  { id: 12, date: "2026-10-20", type: "recette", cat: "Publicité",          lib: "Mises en avant de produits",           mode: "Virement",     mont: 450000 },
+  { id: 13, date: "2026-10-20", type: "depense", cat: "Loyer & charges",    lib: "Loyer du bureau et électricité",       mode: "Espèces",      mont: 420000 },
+  { id: 14, date: "2026-10-23", type: "recette", cat: "Frais de livraison", lib: "Frais de livraison — semaine 4",       mode: "Orange Money", mont: 2480000 },
+  { id: 15, date: "2026-10-24", type: "depense", cat: "Salaires",           lib: "Salaires des livreurs (solde)",        mode: "MTN MoMo",     mont: 1700000 },
+  { id: 16, date: "2026-10-25", type: "depense", cat: "Assurances",         lib: "Assurance des motos",                  mode: "Virement",     mont: 300000 },
+  { id: 17, date: "2026-10-26", type: "depense", cat: "Outils & internet",  lib: "Serveurs, SMS et abonnements",         mode: "Orange Money", mont: 180000 }
+];
+
+/* ---------- petits outils ---------- */
+function fcfa(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
+function dateFr(iso) { const p = iso.split("-"); return p[2] + "/" + p[1] + "/" + p[0]; }
+const somme = (liste, type) => liste.filter(o => o.type === type).reduce((a, o) => a + o.mont, 0);
+
+/* ---------- chiffres clés ---------- */
+function afficherKpis() {
+  const rec = somme(operations, "recette"), dep = somme(operations, "depense"), net = rec - dep;
+  document.getElementById("kRec").innerHTML = fcfa(rec) + " <span>FCFA</span>";
+  document.getElementById("kDep").innerHTML = fcfa(dep) + " <span>FCFA</span>";
+  document.getElementById("kNet").innerHTML = (net < 0 ? "−" : "") + fcfa(Math.abs(net)) + " <span>FCFA</span>";
+  document.getElementById("kMarge").textContent = (rec ? (net / rec * 100).toFixed(1).replace(".", ",") : "0") + " %";
+  const ic = document.getElementById("icNet");
+  ic.className = "ic " + (net >= 0 ? "i-bleu" : "i-rouge");
+}
+
+/* ---------- graphique : recettes et dépenses sur 6 mois ---------- */
+function dessinerGraphe() {
+  const c = document.getElementById("graphe"), ctx = c.getContext("2d");
+  const W = c.width, H = c.height, gauche = 42, bas = 30, haut = 14;
+  const donnees = HISTORIQUE.concat([["Oct", somme(operations, "recette") / 1e6, somme(operations, "depense") / 1e6]]).slice(-6);
+  const max = Math.ceil(Math.max(...donnees.map(d => Math.max(d[1], d[2]))) / 2) * 2;
+  const hu = H - bas - haut;
+  const lg = (W - gauche - 10) / donnees.length;
+
+  ctx.clearRect(0, 0, W, H);
+  ctx.font = "11px Arial";
+  ctx.strokeStyle = "#dcdcdc"; ctx.fillStyle = "#333"; ctx.textAlign = "right";
+  for (let v = 0; v <= max; v += max / 4) {
+    const y = haut + hu - (v / max) * hu;
+    ctx.beginPath(); ctx.moveTo(gauche, y); ctx.lineTo(W - 6, y); ctx.stroke();
+    ctx.fillText(v.toFixed(0) + " M", gauche - 6, y + 4);
+  }
+  donnees.forEach((d, i) => {
+    const x = gauche + i * lg + lg * 0.15, lb = lg * 0.3;
+    [[d[1], "#2ea44f", 0], [d[2], "#e53935", lb + 4]].forEach(([v, col, dx]) => {
+      const h = (v / max) * hu;
+      ctx.fillStyle = col;
+      ctx.fillRect(x + dx, haut + hu - h, lb, h);
+      ctx.fillStyle = "#222"; ctx.textAlign = "center"; ctx.font = "10px Arial";
+      ctx.fillText(v.toFixed(1).replace(".", ","), x + dx + lb / 2, haut + hu - h - 5);
+    });
+    ctx.font = "11px Arial"; ctx.fillStyle = "#000"; ctx.textAlign = "center";
+    ctx.fillText(d[0], x + lb + 2, H - 10);
+  });
+}
+
+/* ---------- anneau : répartition des dépenses ---------- */
+function dessinerDonut() {
+  const c = document.getElementById("donut"), ctx = c.getContext("2d");
+  const dep = operations.filter(o => o.type === "depense");
+  const total = dep.reduce((a, o) => a + o.mont, 0);
+  const parCat = {};
+  dep.forEach(o => parCat[o.cat] = (parCat[o.cat] || 0) + o.mont);
+
+  ctx.clearRect(0, 0, 190, 190);
+  let debut = -Math.PI / 2;
+  Object.entries(parCat).forEach(([cat, v]) => {
+    const angle = v / total * Math.PI * 2;
+    ctx.beginPath();
+    ctx.arc(95, 95, 66, debut, debut + angle);
+    ctx.strokeStyle = COULEURS[cat] || "#999";
+    ctx.lineWidth = 34;
+    ctx.stroke();
+    debut += angle;
+  });
+  ctx.fillStyle = "#111"; ctx.font = "bold 15px Arial"; ctx.textAlign = "center";
+  ctx.fillText((total / 1e6).toFixed(2).replace(".", ",") + " M", 95, 96);
+  ctx.font = "11px Arial"; ctx.fillStyle = "#777";
+  ctx.fillText("dépensés", 95, 113);
+
+  document.getElementById("legDep").innerHTML = Object.entries(parCat).sort((a, b) => b[1] - a[1]).map(([cat, v]) =>
+    '<div><i style="background:' + (COULEURS[cat] || "#999") + '"></i><span>' + cat + '</span><b>' + Math.round(v / total * 100) + ' %</b></div>').join("");
+}
+
+/* ---------- liste filtrée ---------- */
+function operationsFiltrees() {
+  const texte = document.getElementById("rechOp").value.toLowerCase();
+  const type = document.getElementById("selType").value;
+  const cat = document.getElementById("selCat").value;
+  const du = document.getElementById("du").value, au = document.getElementById("au").value;
+  return operations.filter(o =>
+    (!texte || (o.lib + " " + o.cat + " " + o.mode).toLowerCase().includes(texte)) &&
+    (!type || o.type === type) && (!cat || o.cat === cat) &&
+    (!du || o.date >= du) && (!au || o.date <= au)
+  ).sort((a, b) => b.date.localeCompare(a.date) || b.id - a.id);
+}
+
+function afficherListe() {
+  const liste = operationsFiltrees();
+  document.getElementById("corpsOp").innerHTML = liste.map(o =>
+    "<tr><td>" + dateFr(o.date) + "</td><td>" + o.lib + "</td><td>" + o.cat + "</td>" +
+    "<td><span class='badge " + (o.type === "recette" ? "b-vert" : "b-rouge") + "'>" + (o.type === "recette" ? "Recette" : "Dépense") + "</span></td>" +
+    "<td>" + o.mode + "</td>" +
+    "<td class='" + (o.type === "recette" ? "montant-r" : "montant-d") + "'>" + (o.type === "recette" ? "+ " : "− ") + fcfa(o.mont) + " FCFA</td>" +
+    "<td><button class='btn-suppr' data-id='" + o.id + "' title='Supprimer'><i class='fa-regular fa-trash-can'></i></button></td></tr>").join("")
+    || "<tr><td colspan='7' style='text-align:center;padding:20px;color:#777'>Aucune opération ne correspond à ces filtres.</td></tr>";
+
+  const r = somme(liste, "recette"), d = somme(liste, "depense");
+  document.getElementById("tRec").textContent = fcfa(r) + " FCFA";
+  document.getElementById("tDep").textContent = fcfa(d) + " FCFA";
+  const s = document.getElementById("tSolde");
+  s.textContent = (r - d < 0 ? "− " : "") + fcfa(Math.abs(r - d)) + " FCFA";
+  s.className = r - d >= 0 ? "montant-r" : "montant-d";
+}
+
+function tout() { afficherKpis(); dessinerGraphe(); dessinerDonut(); afficherListe(); }
+
+/* ---------- filtres ---------- */
+const selCat = document.getElementById("selCat");
+CATEGORIES.recette.concat(CATEGORIES.depense).forEach(c => selCat.innerHTML += "<option>" + c + "</option>");
+["rechOp", "selType", "selCat", "du", "au"].forEach(id => document.getElementById(id).addEventListener("input", afficherListe));
+
+/* ---------- supprimer une opération ---------- */
+document.getElementById("corpsOp").addEventListener("click", e => {
+  const b = e.target.closest(".btn-suppr");
+  if (!b || !confirm("Supprimer cette opération ?")) return;
+  operations = operations.filter(o => o.id !== Number(b.dataset.id));
+  tout();
+});
+
+/* ---------- fenêtre : ajouter une opération ---------- */
+const voile = document.getElementById("voile");
+function remplirCategories() {
+  const type = document.querySelector("input[name='type']:checked").value;
+  document.getElementById("fCat").innerHTML = CATEGORIES[type].map(c => "<option>" + c + "</option>").join("");
+}
+document.querySelectorAll("input[name='type']").forEach(r => r.addEventListener("change", remplirCategories));
+document.getElementById("btnAjout").addEventListener("click", () => {
+  remplirCategories();
+  document.getElementById("fDate").value = "2026-11-02";
+  voile.hidden = false;
+});
+document.getElementById("btnAnnuler").addEventListener("click", () => voile.hidden = true);
+voile.addEventListener("click", e => { if (e.target === voile) voile.hidden = true; });
+
+document.getElementById("formOp").addEventListener("submit", e => {
+  e.preventDefault();
+  operations.push({
+    id: Date.now(), date: document.getElementById("fDate").value, type: document.querySelector("input[name='type']:checked").value,
+    cat: document.getElementById("fCat").value, lib: document.getElementById("fLib").value.trim(),
+    mode: document.getElementById("fMode").value, mont: Number(document.getElementById("fMont").value)
+  });
+  e.target.reset();
+  voile.hidden = true;
+  tout();
+});
+
+/* ---------- export CSV des opérations affichées ---------- */
+document.getElementById("btnExport").addEventListener("click", () => {
+  const lignes = [["Date", "Libelle", "Categorie", "Type", "Mode", "Montant"]].concat(
+    operationsFiltrees().map(o => [dateFr(o.date), '"' + o.lib + '"', o.cat, o.type, o.mode, (o.type === "depense" ? "-" : "") + o.mont]));
+  const lien = document.createElement("a");
+  lien.href = URL.createObjectURL(new Blob(["\ufeff" + lignes.map(l => l.join(";")).join("\n")], { type: "text/csv" }));
+  lien.download = "operations-octobre-2026.csv";
+  lien.click();
+});
+
+tout();
+</script>
+
+    </fieldset>
+
+</body>
+</html>
