@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleLivreurObstacle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Faster - Signaler un obstacle</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+    <fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3><a href="livreur-accueil.html"><i class="fa-solid fa-house"></i>Accueil</a></h3>
+        <h3><a href="livreur-livraisons.html"><i class="fa-solid fa-truck"></i>Mes livraisons</a></h3>
+        <h3><a href="livreur-carte.html"><i class="fa-solid fa-map-location-dot"></i>Carte</a></h3>
+        <h3><a href="livreur-obstacle.html" class="actif"><i class="fa-solid fa-triangle-exclamation"></i>Signaler un obstacle</a></h3>
+        <h3><a href="livreur-consommation.html"><i class="fa-solid fa-gas-pump"></i>Ma consommation</a></h3>
+        <h3><a href="livreur-profil.html"><i class="fa-regular fa-user"></i>Profil</a></h3>
+        <h3><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3><a href="#"><i class="fa-regular fa-circle-question"></i>Aide</a></h3>
+        <h3 class="bas-menu"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <div class="recherche"><i class="fa-solid fa-magnifying-glass"></i><input id="i11" type="search" placeholder="Rechercher...."></div>
+            <div class="droite">
+                <a href="#" class="icone-haut"><i class="fa-regular fa-bell"></i><span class="point"></span></a>
+                <div class="user-haut">
+                    <img src="bene.jpg" alt="Photo">
+                    <div><strong>Jean Dupont</strong><small>Livreur</small></div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="entete-page">
+            <div>
+                <h1 class="titre-page">Signaler un obstacle</h1>
+                <p class="sous-titre">Prévenez l'équipe et les autres livreurs d'un problème rencontré sur la route</p>
+            </div>
+            <div class="actions-haut">
+                <a href="livreur-carte.html" class="btn-blanc"><i class="fa-solid fa-map-location-dot"></i> Retour à la carte</a>
+            </div>
+        </div>
+
+        <div class="grille-ob">
+
+            <!-- formulaire de signalement -->
+            <form class="carte-a" id="formOb" novalidate>
+
+                <div class="bloc-f">
+                    <h3 class="etape"><b>1</b> Quel obstacle avez-vous rencontré ?</h3>
+                    <div class="types" id="types"></div>
+                </div>
+
+                <div class="bloc-f">
+                    <h3 class="etape"><b>2</b> Quelle est la gravité ?</h3>
+                    <div class="gravite">
+                        <label class="g1"><input type="radio" name="grav" value="Faible"> Faible<br><small>léger ralentissement</small></label>
+                        <label class="g2"><input type="radio" name="grav" value="Moyenne" checked> Moyenne<br><small>retard important</small></label>
+                        <label class="g3"><input type="radio" name="grav" value="Élevée"> Élevée<br><small>passage impossible</small></label>
+                    </div>
+                </div>
+
+                <div class="bloc-f">
+                    <h3 class="etape"><b>3</b> Où se trouve-t-il ?</h3>
+                    <div class="carte-choix" id="carteChoix">
+                        <img src="map-maisons.jpg" alt="Carte du quartier">
+                        <div class="consigne">Touchez la carte pour placer l'obstacle</div>
+                        <i class="fa-solid fa-location-dot pin-choix" id="pinChoix" hidden></i>
+                    </div>
+                    <div class="ligne-lieu">
+                        <input class="champ-rech" id="lieu" type="text" placeholder="Lieu (ex : Boulevard central, côté Akwa)">
+                        <button type="button" class="btn-blanc" id="btnPos"><i class="fa-solid fa-location-crosshairs"></i> Ma position</button>
+                    </div>
+                </div>
+
+                <div class="bloc-f">
+                    <h3 class="etape"><b>4</b> Quelques détails</h3>
+                    <div class="deux">
+                        <div><label for="retard">Retard estimé (minutes)</label><input class="champ-rech" id="retard" type="number" min="0" max="240" value="10"></div>
+                        <div><label for="photo">Photo (facultatif)</label><input class="champ-rech" id="photo" type="file" accept="image/*"></div>
+                    </div>
+                    <img class="apercu-photo" id="apercu" alt="Aperçu de la photo">
+                    <div style="margin-top: 14px;">
+                        <label class="lab" for="desc">Description (facultatif)</label>
+                        <textarea class="champ-rech" id="desc" placeholder="Ex : camion en panne, une seule voie ouverte..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-bleu envoyer"><i class="fa-solid fa-paper-plane"></i> Envoyer le signalement</button>
+            </form>
+
+            <aside>
+                <section class="carte-a" style="margin-bottom: 18px;">
+                    <h3>Mes derniers signalements</h3>
+                    <div id="mesSig"></div>
+                </section>
+
+                <section class="carte-a conseils">
+                    <h3>Conseils</h3>
+                    <ul>
+                        <li>Arrêtez-vous en sécurité avant de remplir le formulaire.</li>
+                        <li>Indiquez l'endroit le plus précis possible.</li>
+                        <li>Un signalement aide les autres livreurs à éviter la zone.</li>
+                        <li>En cas d'accident grave, appelez d'abord les secours.</li>
+                    </ul>
+                </section>
+            </aside>
+        </div>
+
+    </fieldset>
+
+<script>
+/* ---------- types d'obstacles ---------- */
+const TYPES = {
+  embouteillage: { nom: "Embouteillage",    couleur: "#e53935", icone: "fa-car-side" },
+  travaux:       { nom: "Travaux",          couleur: "#f09614", icone: "fa-person-digging" },
+  inondation:    { nom: "Inondation",       couleur: "#1e64eb", icone: "fa-cloud-showers-heavy" },
+  barree:        { nom: "Route barrée",     couleur: "#424242", icone: "fa-road-barrier" },
+  accident:      { nom: "Accident",         couleur: "#8e44ad", icone: "fa-car-burst" },
+  controle:      { nom: "Contrôle routier", couleur: "#607d8b", icone: "fa-user-shield" }
+};
+
+/* rues de la carte (position en % de l'image), pour proposer un nom de lieu */
+const ROUTES_X = [[10, "Rue de l'Ouest"], [35, "Rue du Marché"], [50, "Boulevard central"], [65, "Rue des Palmiers"], [90, "Rue de l'Est"]];
+const ROUTES_Y = [[17, "Rue des Fleurs"], [50, "Avenue principale"], [83, "Rue des Manguiers"]];
+
+const CLE = "faster-signalements";           /* lu aussi par la page admin « Obstacles » */
+const MOI = { x: 40, y: 62 };                /* position actuelle du livreur */
+const NOM = "Jean Dupont";
+
+let position = null;
+
+/* ---------- cartes de choix du type ---------- */
+document.getElementById("types").innerHTML = Object.entries(TYPES).map(([cle, t]) =>
+  '<label><input type="radio" name="type" value="' + cle + '"><i class="fa-solid ' + t.icone + '" style="color:' + t.couleur + '"></i>' + t.nom + "</label>").join("");
+
+/* ---------- choisir l'endroit sur la carte ---------- */
+function nomDeRue(x, y) {
+  let meilleur = { d: 999, nom: "" };
+  ROUTES_X.forEach(r => { if (Math.abs(x - r[0]) < meilleur.d) meilleur = { d: Math.abs(x - r[0]), nom: r[1] }; });
+  ROUTES_Y.forEach(r => { if (Math.abs(y - r[0]) < meilleur.d) meilleur = { d: Math.abs(y - r[0]), nom: r[1] }; });
+  return meilleur.nom;
+}
+
+function placer(x, y) {
+  position = { x: Number(x.toFixed(1)), y: Number(y.toFixed(1)) };
+  const pin = document.getElementById("pinChoix");
+  pin.style.left = position.x + "%";
+  pin.style.top = position.y + "%";
+  pin.hidden = false;
+  document.getElementById("lieu").value = "Près de " + nomDeRue(x, y);
+}
+
+document.getElementById("carteChoix").addEventListener("click", e => {
+  const r = e.currentTarget.getBoundingClientRect();
+  placer((e.clientX - r.left) / r.width * 100, (e.clientY - r.top) / r.height * 100);
+});
+
+document.getElementById("btnPos").addEventListener("click", () => placer(MOI.x, MOI.y));
+
+/* ---------- aperçu de la photo ---------- */
+document.getElementById("photo").addEventListener("change", function () {
+  const f = this.files[0];
+  const img = document.getElementById("apercu");
+  if (!f) { img.classList.remove("visible"); return; }
+  const lecteur = new FileReader();
+  lecteur.onload = e => { img.src = e.target.result; img.classList.add("visible"); };
+  lecteur.readAsDataURL(f);
+});
+
+/* ---------- mes signalements ---------- */
+const EXEMPLES = [
+  { t: "inondation",    lieu: "Makepe, route basse", h: "06 h 55", grav: "Élevée",  etat: "Pris en compte" },
+  { t: "embouteillage", lieu: "Pont de Bonabéri",    h: "17 h 25", grav: "Élevée",  etat: "Pris en compte" }
+];
+
+function lire() {
+  try { return JSON.parse(localStorage.getItem(CLE)) || []; } catch (e) { return []; }
+}
+
+function afficherMesSignalements() {
+  const mes = lire().filter(s => s.par === NOM).concat(EXEMPLES);
+  document.getElementById("mesSig").innerHTML = mes.slice(0, 6).map(s =>
+    '<div class="mes-sig"><span class="ico" style="background:' + TYPES[s.t].couleur + '"><i class="fa-solid ' + TYPES[s.t].icone + '"></i></span>' +
+    '<div><b>' + TYPES[s.t].nom + '</b><small>' + s.lieu + ' · ' + s.h + '</small></div>' +
+    '<span class="badge ' + (s.etat ? "b-vert" : "b-bleu") + '">' + (s.etat || "Transmis") + '</span></div>').join("");
+}
+
+/* ---------- envoi du signalement ---------- */
+document.getElementById("formOb").addEventListener("submit", e => {
+  e.preventDefault();
+  const type = document.querySelector("input[name='type']:checked");
+  if (!type) { alert("Choisissez d'abord le type d'obstacle."); return; }
+  if (!position) { alert("Touchez la carte (ou « Ma position ») pour indiquer où se trouve l'obstacle."); return; }
+
+  const maintenant = new Date();
+  const heure = String(maintenant.getHours()).padStart(2, "0") + " h " + String(maintenant.getMinutes()).padStart(2, "0");
+
+  const liste = lire();
+  liste.unshift({
+    t: type.value, x: position.x, y: position.y,
+    lieu: document.getElementById("lieu").value.trim() || "Position indiquée sur la carte",
+    par: NOM, h: heure, retard: Number(document.getElementById("retard").value) || 0,
+    grav: document.querySelector("input[name='grav']:checked").value,
+    desc: document.getElementById("desc").value.trim()
+  });
+  try { localStorage.setItem(CLE, JSON.stringify(liste)); } catch (err) {}
+
+  e.target.reset();
+  position = null;
+  document.getElementById("pinChoix").hidden = true;
+  document.getElementById("apercu").classList.remove("visible");
+  afficherMesSignalements();
+  alert("Merci ! Votre signalement a été transmis à l'équipe et apparaît sur la carte des obstacles.");
+});
+
+afficherMesSignalements();
+</script>
+
+</body>
+</html>

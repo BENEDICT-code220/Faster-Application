@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleLivreurConsommation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Faster - Ma consommation</title>
+</head>
+<body>
+
+    <!-- ========== MENU GAUCHE ========== -->
+    <fieldset id="f1">
+        <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
+        <h3><a href="livreur accueil.html"><i class="fa-solid fa-house"></i>Accueil</a></h3>
+        <h3><a href="livreur livraisons.html"><i class="fa-solid fa-truck"></i>Mes livraisons</a></h3>
+        <h3><a href="livreur carte.html"><i class="fa-solid fa-map-location-dot"></i>Carte</a></h3>
+        <h3><a href="livreur obstacle.html"><i class="fa-solid fa-triangle-exclamation"></i>Signaler un obstacle</a></h3>
+        <h3><a href="livreur consommation.html" class="actif"><i class="fa-solid fa-gas-pump"></i>Ma consommation</a></h3>
+        <h3><a href="livreur profil.html"><i class="fa-regular fa-user"></i>Profil</a></h3>
+        <h3><a href="parametres.html"><i class="fa-solid fa-gear"></i>Paramètres</a></h3>
+        <h3><a href="#"><i class="fa-regular fa-circle-question"></i>Aide</a></h3>
+        <h3 class="bas-menu"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a></h3>
+    </fieldset>
+
+    <!-- ========== ZONE PRINCIPALE ========== -->
+    <fieldset id="f2">
+
+        <!-- barre du haut -->
+        <fieldset id="f3">
+            <div class="recherche"><i class="fa-solid fa-magnifying-glass"></i><input id="i11" type="search" placeholder="Rechercher un ravitaillement...."></div>
+            <div class="droite">
+                <a href="#" class="icone-haut"><i class="fa-regular fa-bell"></i><span class="point"></span></a>
+                <div class="user-haut">
+                    <img src="bene.jpg" alt="Photo">
+                    <div><strong>Jean Dupont</strong><small>Livreur</small></div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="entete-page">
+            <div>
+                <h1 class="titre-page">Ma consommation</h1>
+                <p class="sous-titre">Mes ravitaillements chez les entreprises partenaires · 30 derniers jours</p>
+            </div>
+            <div class="actions-haut">
+                <a href="livreur-obstacle.html" class="btn-blanc"><i class="fa-solid fa-triangle-exclamation"></i> Signaler un obstacle</a>
+                <button class="btn-bleu" id="btnBon"><i class="fa-solid fa-ticket"></i> Demander un bon</button>
+            </div>
+        </div>
+
+        <!-- chiffres clés (calculés depuis mes ravitaillements) -->
+        <div class="kpis">
+            <div class="kpi"><span class="ic i-bleu"><i class="fa-solid fa-gas-pump"></i></span><div><small>Carburant consommé</small><strong id="kCarb">0</strong></div></div>
+            <div class="kpi"><span class="ic i-orange"><i class="fa-solid fa-money-bill-wave"></i></span><div><small>Dépenses nettes</small><strong id="kDep">0</strong></div></div>
+            <div class="kpi"><span class="ic i-vert"><i class="fa-solid fa-piggy-bank"></i></span><div><small>Économies grâce aux remises</small><strong id="kEco">0</strong></div></div>
+            <div class="kpi"><span class="ic i-violet"><i class="fa-solid fa-gauge-high"></i></span><div><small>Consommation moyenne</small><strong id="kMoy">0</strong></div></div>
+        </div>
+
+        <div class="grille-conso">
+
+            <div class="col-gauche">
+                <!-- dotation de carburant du mois -->
+                <section class="carte-a">
+                    <h3>Ma dotation de carburant</h3>
+                    <div class="dotation"><strong id="dotUtil">0 L</strong><span id="dotTotal">sur 60 L autorisés</span></div>
+                    <div class="piste-c"><span id="dotBarre" style="width:0%"></span></div>
+                    <div class="sous-dotation"><span id="dotReste">—</span><span id="dotDist">—</span></div>
+                </section>
+
+                <!-- consommation par semaine -->
+                <section class="carte-a">
+                    <h3>Consommation par semaine</h3>
+                    <canvas id="graphe" width="620" height="250"></canvas>
+                    <div class="leg-co">
+                        <span><i style="background: rgb(30, 100, 235);"></i>Carburant (L)</span>
+                        <span><i style="background: rgb(240, 150, 20);"></i>Boissons et vivres (L &amp; Kg)</span>
+                    </div>
+                </section>
+
+                <!-- mes ravitaillements -->
+                <section class="carte-a">
+                    <h3>Mes derniers ravitaillements</h3>
+                    <div class="defile">
+                        <table class="tableau">
+                            <thead><tr><th>Date</th><th>Entreprise</th><th>Quantité (L &amp; Kg)</th><th>Montant net</th><th>N° du bon</th><th>État</th></tr></thead>
+                            <tbody id="corpsRav"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- fiche de l'entreprise partenaire -->
+            <aside class="carte-a fiche-st">
+                <h3><span id="stNom">—</span><span class="badge" id="stBadge">—</span></h3>
+                <select class="champ-rech choix-ent" id="choixEnt"></select>
+
+                <p><span>Quartier</span><b id="stQuartier">—</b></p>
+                <p><span>Contact</span><b id="stContact">—</b></p>
+                <p><span>Produits</span><b id="stProduits">—</b></p>
+                <p><span>Remise négociée</span><b id="stRemise">—</b></p>
+                <p><span>Distance de moi</span><b id="stDist">—</b></p>
+                <p><span>Mes ravitaillements</span><b id="stNb">—</b></p>
+                <p><span>Mes économies</span><b class="eco" id="stEco">—</b></p>
+
+                <div class="contrat"><b>Contrat</b> : <span id="stContrat">—</span></div>
+                <div class="piste-c"><span id="stBarre" style="width:0%"></span></div>
+                <small id="stReste" style="color:#666;font-size:11px">—</small>
+
+                <div class="actions-st">
+                    <button class="btn-bleu" id="btnBonFiche"><i class="fa-solid fa-ticket"></i> Demander un bon</button>
+                    <a href="livreur carte.html" class="btn-blanc"><i class="fa-solid fa-route"></i> Itinéraire</a>
+                    <a href="#" class="btn-blanc" id="stTel"><i class="fa-solid fa-phone"></i> Appeler</a>
+                </div>
+
+                <div class="carte-st" id="carteSt"><img src="admin/oip.jpg" alt="Entreprises partenaires près de moi"></div>
+                <div class="legende-carte"><i class="fa-solid fa-circle" style="color: rgb(30, 100, 235);"></i> Ma position · cliquez sur une icône pour choisir une entreprise</div>
+            </aside>
+        </div>
+
+        <!-- fenêtre : demander un bon -->
+        <div class="voile" id="voile" hidden>
+            <form class="fenetre" id="formBon">
+                <h3>Demander un bon de ravitaillement</h3>
+                <div class="champs-grille">
+                    <div class="large"><label for="bEnt">Entreprise partenaire</label><select class="champ-rech" id="bEnt"></select></div>
+                    <div><label for="bQte">Quantité souhaitée (<span id="bUnite">L</span>)</label><input class="champ-rech" id="bQte" type="number" min="0.5" step="0.5" value="5" required></div>
+                    <div><label>Montant estimé</label><div class="champ-rech" id="bMontant" style="display:flex;align-items:center;font-weight:bold;">—</div></div>
+                </div>
+                <div class="pied-fenetre">
+                    <button type="button" class="btn-blanc" id="btnAnnuler">Annuler</button>
+                    <button type="submit" class="btn-bleu"><i class="fa-solid fa-ticket"></i> Obtenir le bon</button>
+                </div>
+            </form>
+        </div>
+
+    </fieldset>
+
+<script>
+/* ---------- paramètres ---------- */
+const AUJOURDHUI = "2026-11-03";
+const PRIX_LITRE = 850;                 /* prix avant remise (FCFA / litre) */
+const PRIX_KG = 600;                    /* prix avant remise (FCFA / kilogramme) */
+const DOTATION = 60;                    /* litres de carburant autorisés par mois */
+const DISTANCE = 612;                   /* km parcourus sur les 30 derniers jours */
+const MOI = { x: 40, y: 62 };           /* ma position sur la carte (en %) */
+
+const FUELS = ["Super", "Gasoil"];
+const UNITES = { "Super": "L", "Gasoil": "L", "Boissons": "L", "Produits vivriers": "Kg", "Appareils électriques": "Kg" };
+const ICONES = { "Super": "fa-gas-pump", "Gasoil": "fa-gas-pump", "Boissons": "fa-bottle-water", "Produits vivriers": "fa-basket-shopping", "Appareils électriques": "fa-plug" };
+
+/* entreprises partenaires proches de moi */
+const ENTREPRISES = [
+  { id: 1, nom: "Santa Lucia",               quartier: "Akwa",         produits: ["Produits vivriers"], remise: 8, debut: "2026-03-01", fin: "2027-02-28", contact: "M. Eyenga",  tel: "+237677000001", dist: 2.4, x: 50, y: 33, statut: "actif" },
+  { id: 2, nom: "Station Bonamoussadi Fuel", quartier: "Bonamoussadi", produits: ["Super"],             remise: 5, debut: "2026-02-01", fin: "2027-01-31", contact: "Mme Tchoua", tel: "+237677000002", dist: 0.8, x: 22, y: 50, statut: "actif" },
+  { id: 3, nom: "Station Ndokoti Oil",       quartier: "Ndokoti",      produits: ["Super", "Gasoil"],   remise: 3, debut: "2026-04-15", fin: "2027-04-14", contact: "M. Bell",    tel: "+237677000003", dist: 3.1, x: 65, y: 62, statut: "actif" },
+  { id: 4, nom: "Station Makepe Pétrole",    quartier: "Makepe",       produits: ["Super"],             remise: 6, debut: "2026-01-10", fin: "2026-12-31", contact: "M. Njoya",   tel: "+237677000004", dist: 4.2, x: 80, y: 66, statut: "actif" },
+  { id: 5, nom: "Super U",                   quartier: "Bonamoussadi", produits: ["Boissons"],          remise: 4, debut: "2026-05-01", fin: "2027-04-30", contact: "Mme Fotso",  tel: "+237677000005", dist: 1.6, x: 10, y: 74, statut: "actif" },
+  { id: 6, nom: "Station Logpom Énergie",    quartier: "Logpom",       produits: ["Super"],             remise: 5, debut: "2026-06-01", fin: "2027-05-31", contact: "M. Kamga",   tel: "+237677000006", dist: 5.0, x: 35, y: 83, statut: "actif" }
+];
+
+/* mes ravitaillements : etat « retire » = déjà servi, « emis » = bon en attente */
+let ravs = [
+  { date: "2026-11-02", ent: 2, litres: 6.0, bon: "BON-2611-0150", etat: "retire" },
+  { date: "2026-11-01", ent: 1, kg: 3.0,     bon: "BON-2611-0147", etat: "retire" },
+  { date: "2026-10-30", ent: 3, litres: 5.5, bon: "BON-2610-0141", etat: "retire" },
+  { date: "2026-10-28", ent: 5, litres: 2.0, bon: "BON-2610-0136", etat: "retire" },
+  { date: "2026-10-27", ent: 2, litres: 6.0, bon: "BON-2610-0133", etat: "retire" },
+  { date: "2026-10-24", ent: 6, litres: 5.5, bon: "BON-2610-0127", etat: "retire" },
+  { date: "2026-10-21", ent: 2, litres: 6.0, bon: "BON-2610-0120", etat: "retire" },
+  { date: "2026-10-18", ent: 4, litres: 6.5, bon: "BON-2610-0114", etat: "retire" },
+  { date: "2026-10-15", ent: 3, litres: 6.0, bon: "BON-2610-0108", etat: "retire" }
+];
+
+/* les bons demandés sont conservés dans le navigateur */
+try { ravs = (JSON.parse(localStorage.getItem("faster-mes-bons")) || []).concat(ravs); } catch (e) {}
+
+let selection = 2;
+
+/* ---------- petits outils ---------- */
+function fcfa(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
+function dateFr(iso) { const p = iso.split("-"); return p[2] + "/" + p[1] + "/" + p[0]; }
+function virgule(n) { return n.toFixed(1).replace(".", ","); }
+function ent(id) { return ENTREPRISES.find(e => e.id === id); }
+function estCarburant(e) { return e.produits.some(p => FUELS.includes(p)); }
+function uniteDe(e) { return UNITES[e.produits[0]] || "L"; }
+function jours(iso) { return Math.round((new Date(AUJOURDHUI) - new Date(iso)) / 86400000); }
+
+function brut(r) { return (r.litres || 0) * PRIX_LITRE + (r.kg || 0) * PRIX_KG; }
+function net(r) { return brut(r) * (1 - ent(r.ent).remise / 100); }
+function texteQte(r) {
+  const p = [];
+  if (r.litres) p.push(virgule(r.litres) + " L");
+  if (r.kg) p.push(virgule(r.kg) + " Kg");
+  return p.join(" & ");
+}
+
+const servis = () => ravs.filter(r => r.etat === "retire");
+
+/* ---------- chiffres clés et dotation ---------- */
+function afficherKpis() {
+  const s = servis();
+  const carb = s.filter(r => estCarburant(ent(r.ent))).reduce((a, r) => a + (r.litres || 0), 0);
+  const dep = s.reduce((a, r) => a + net(r), 0);
+  const eco = s.reduce((a, r) => a + brut(r) - net(r), 0);
+
+  document.getElementById("kCarb").innerHTML = virgule(carb) + " <span>L</span>";
+  document.getElementById("kDep").innerHTML = fcfa(dep) + " <span>FCFA</span>";
+  document.getElementById("kEco").innerHTML = fcfa(eco) + " <span>FCFA</span>";
+  document.getElementById("kMoy").innerHTML = virgule(carb / DISTANCE * 100) + " <span>L / 100 km</span>";
+
+  const pct = Math.min(100, carb / DOTATION * 100);
+  document.getElementById("dotUtil").textContent = virgule(carb) + " L";
+  document.getElementById("dotTotal").textContent = "sur " + DOTATION + " L autorisés ce mois";
+  const barre = document.getElementById("dotBarre");
+  barre.style.width = pct + "%";
+  barre.className = pct >= 90 ? "alerte" : "";
+  document.getElementById("dotReste").textContent = "Il me reste " + virgule(Math.max(0, DOTATION - carb)) + " L (" + Math.round(100 - pct) + " %)";
+  document.getElementById("dotDist").textContent = "Distance parcourue : " + fcfa(DISTANCE) + " km";
+}
+
+/* ---------- graphique : consommation par semaine ---------- */
+function dessinerGraphe() {
+  const c = document.getElementById("graphe"), ctx = c.getContext("2d");
+  const W = c.width, H = c.height, gauche = 38, bas = 28, haut = 14;
+  const semaines = ["Il y a 4 sem.", "Il y a 3 sem.", "Il y a 2 sem.", "Cette semaine"];
+  const carb = [0, 0, 0, 0], autres = [0, 0, 0, 0];
+
+  servis().forEach(r => {
+    const i = 3 - Math.min(3, Math.floor(jours(r.date) / 7));
+    if (estCarburant(ent(r.ent))) carb[i] += (r.litres || 0);
+    else autres[i] += (r.litres || 0) + (r.kg || 0);
+  });
+
+  const max = Math.max(10, Math.ceil(Math.max(...carb, ...autres) / 5) * 5);
+  const hu = H - bas - haut, lg = (W - gauche - 10) / 4;
+
+  ctx.clearRect(0, 0, W, H);
+  ctx.font = "11px Arial";
+  ctx.strokeStyle = "#dcdcdc"; ctx.fillStyle = "#333"; ctx.textAlign = "right";
+  for (let v = 0; v <= max; v += max / 4) {
+    const y = haut + hu - (v / max) * hu;
+    ctx.beginPath(); ctx.moveTo(gauche, y); ctx.lineTo(W - 6, y); ctx.stroke();
+    ctx.fillText(v.toFixed(0), gauche - 6, y + 4);
+  }
+  semaines.forEach((nom, i) => {
+    const x = gauche + i * lg + lg * 0.18, lb = lg * 0.28;
+    [[carb[i], "#1e64eb", 0], [autres[i], "#f09614", lb + 4]].forEach(([v, col, dx]) => {
+      const h = (v / max) * hu;
+      ctx.fillStyle = col;
+      ctx.fillRect(x + dx, haut + hu - h, lb, h);
+      if (v > 0) { ctx.fillStyle = "#222"; ctx.textAlign = "center"; ctx.font = "10px Arial"; ctx.fillText(virgule(v), x + dx + lb / 2, haut + hu - h - 5); }
+    });
+    ctx.font = "11px Arial"; ctx.fillStyle = "#000"; ctx.textAlign = "center";
+    ctx.fillText(nom, x + lb + 2, H - 9);
+  });
+}
+
+/* ---------- tableau de mes ravitaillements ---------- */
+function afficherRavitaillements() {
+  const liste = ravs.slice().sort((a, b) => b.date.localeCompare(a.date) || b.bon.localeCompare(a.bon));
+  document.getElementById("corpsRav").innerHTML = liste.map(r =>
+    "<tr><td>" + dateFr(r.date) + "</td><td>" + ent(r.ent).nom + "</td><td>" + texteQte(r) + "</td>" +
+    "<td>" + fcfa(net(r)) + " FCFA</td><td>" + r.bon + "</td>" +
+    "<td><span class='badge " + (r.etat === "retire" ? "b-vert" : "b-orange") + "'>" + (r.etat === "retire" ? "Retiré" : "Bon émis") + "</span></td></tr>").join("");
+}
+
+/* ---------- fiche de l'entreprise (même présentation que la capture) ---------- */
+function afficherFiche() {
+  const e = ent(selection);
+  const mes = servis().filter(r => r.ent === e.id);
+  const expire = e.fin < AUJOURDHUI;
+
+  document.getElementById("stNom").textContent = e.nom;
+  const b = document.getElementById("stBadge");
+  b.textContent = expire ? "Expiré" : "Actif";
+  b.className = "badge " + (expire ? "b-rouge" : "b-vert");
+
+  document.getElementById("stQuartier").textContent = e.quartier;
+  document.getElementById("stContact").textContent = e.contact + " · " + e.tel.replace(/(\+237)(\d{3})(\d{3})(\d{3})/, "$1 $2 $3 $4");
+  document.getElementById("stProduits").textContent = e.produits.join(", ");
+  document.getElementById("stRemise").textContent = e.remise + " %";
+  document.getElementById("stDist").textContent = virgule(e.dist) + " km";
+  document.getElementById("stNb").textContent = mes.length + (mes.length ? " (" + mes.map(texteQte).join(" · ") + ")" : "");
+  document.getElementById("stEco").textContent = fcfa(mes.reduce((a, r) => a + brut(r) - net(r), 0)) + " FCFA";
+  document.getElementById("stContrat").textContent = dateFr(e.debut) + " → " + dateFr(e.fin);
+  document.getElementById("stTel").href = "tel:" + e.tel;
+  document.getElementById("choixEnt").value = e.id;
+
+  const d0 = new Date(e.debut), d1 = new Date(e.fin), d = new Date(AUJOURDHUI);
+  document.getElementById("stBarre").style.width = Math.max(0, Math.min(100, (d - d0) / (d1 - d0) * 100)) + "%";
+  const reste = Math.round((d1 - d) / 86400000);
+  document.getElementById("stReste").textContent = reste >= 0 ? reste + " jours restants" : "Contrat expiré";
+}
+
+/* ---------- carte ---------- */
+function afficherCarte() {
+  const carte = document.getElementById("carteSt");
+  carte.querySelectorAll(".pin, .moi").forEach(p => p.remove());
+
+  const moi = document.createElement("div");
+  moi.className = "moi";
+  moi.style.left = MOI.x + "%";
+  moi.style.top = MOI.y + "%";
+  moi.title = "Ma position";
+  carte.appendChild(moi);
+
+  ENTREPRISES.forEach(e => {
+    const p = document.createElement("div");
+    p.className = "pin" + (e.id === selection ? " sel" : "");
+    p.style.left = e.x + "%";
+    p.style.top = e.y + "%";
+    p.title = e.nom + " · " + virgule(e.dist) + " km";
+    p.innerHTML = '<i class="fa-solid ' + (ICONES[e.produits[0]] || "fa-building") + '"></i>';
+    p.addEventListener("click", () => { selection = e.id; tout(); });
+    carte.appendChild(p);
+  });
+}
+
+function tout() { afficherKpis(); dessinerGraphe(); afficherRavitaillements(); afficherFiche(); afficherCarte(); }
+
+/* ---------- liste déroulante des entreprises ---------- */
+const liste = ENTREPRISES.slice().sort((a, b) => a.dist - b.dist);
+["choixEnt", "bEnt"].forEach(id => {
+  document.getElementById(id).innerHTML = liste.map(e => '<option value="' + e.id + '">' + e.nom + " — " + virgule(e.dist) + " km</option>").join("");
+});
+document.getElementById("choixEnt").addEventListener("change", e => { selection = Number(e.target.value); tout(); });
+
+/* ---------- fenêtre : demander un bon ---------- */
+const voile = document.getElementById("voile");
+
+function majBon() {
+  const e = ent(Number(document.getElementById("bEnt").value));
+  const u = uniteDe(e);
+  const q = Number(document.getElementById("bQte").value) || 0;
+  document.getElementById("bUnite").textContent = u;
+  document.getElementById("bMontant").textContent = fcfa(q * (u === "Kg" ? PRIX_KG : PRIX_LITRE) * (1 - e.remise / 100)) + " FCFA";
+}
+
+function ouvrirBon() {
+  document.getElementById("bEnt").value = selection;
+  majBon();
+  voile.hidden = false;
+}
+
+document.getElementById("btnBon").addEventListener("click", ouvrirBon);
+document.getElementById("btnBonFiche").addEventListener("click", ouvrirBon);
+document.getElementById("bEnt").addEventListener("change", majBon);
+document.getElementById("bQte").addEventListener("input", majBon);
+document.getElementById("btnAnnuler").addEventListener("click", () => voile.hidden = true);
+voile.addEventListener("click", e => { if (e.target === voile) voile.hidden = true; });
+
+document.getElementById("formBon").addEventListener("submit", ev => {
+  ev.preventDefault();
+  const e = ent(Number(document.getElementById("bEnt").value));
+  const q = Number(document.getElementById("bQte").value);
+  const numero = ravs.map(r => Number(r.bon.slice(-4))).reduce((a, b) => Math.max(a, b), 0) + 1;
+  const nouveau = { date: AUJOURDHUI, ent: e.id, bon: "BON-2611-" + String(numero).padStart(4, "0"), etat: "emis" };
+  if (uniteDe(e) === "Kg") nouveau.kg = q; else nouveau.litres = q;
+
+  ravs.unshift(nouveau);
+  try { localStorage.setItem("faster-mes-bons", JSON.stringify(ravs.filter(r => r.etat === "emis"))); } catch (err) {}
+  voile.hidden = true;
+  tout();
+  alert("Bon " + nouveau.bon + " émis. Présentez-le chez " + e.nom + " pour retirer " + texteQte(nouveau) + ".");
+});
+
+tout();
+</script>
+
+</body>
+</html>
