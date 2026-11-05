@@ -12,7 +12,7 @@
     <!-- ========== MENU GAUCHE ========== -->
     <fieldset id="f1">
         <h1 class="h"><i class="fa-solid fa-motorcycle"></i> Faster</h1>
-        <h3><a href="livreur-accueil.html"><i class="fa-solid fa-house"></i>Accueil</a></h3>
+        <h3><a href="livreur-acceuil.html"><i class="fa-solid fa-house"></i>Accueil</a></h3>
         <h3><a href="livreur-livraisons.html"><i class="fa-solid fa-truck"></i>Mes livraisons</a></h3>
         <h3><a href="livreur-carte.html"><i class="fa-solid fa-map-location-dot"></i>Carte</a></h3>
         <h3><a href="livreur-obstacle.html" class="actif"><i class="fa-solid fa-triangle-exclamation"></i>Signaler un obstacle</a></h3>
@@ -44,7 +44,7 @@
                 <p class="sous-titre">Prévenez l'équipe et les autres livreurs d'un problème rencontré sur la route</p>
             </div>
             <div class="actions-haut">
-                <a href="livreur-carte.html" class="btn-blanc"><i class="fa-solid fa-map-location-dot"></i> Retour à la carte</a>
+                <a href="livreur carte.html" class="btn-blanc"><i class="fa-solid fa-map-location-dot"></i> Retour à la carte</a>
             </div>
         </div>
 
@@ -70,7 +70,7 @@
                 <div class="bloc-f">
                     <h3 class="etape"><b>3</b> Où se trouve-t-il ?</h3>
                     <div class="carte-choix" id="carteChoix">
-                        <img src="map-maisons.jpg" alt="Carte du quartier">
+                        <img src="OIP.webp" alt="Carte du quartier">
                         <div class="consigne">Touchez la carte pour placer l'obstacle</div>
                         <i class="fa-solid fa-location-dot pin-choix" id="pinChoix" hidden></i>
                     </div>
@@ -124,7 +124,7 @@ const TYPES = {
   inondation:    { nom: "Inondation",       couleur: "#1e64eb", icone: "fa-cloud-showers-heavy" },
   barree:        { nom: "Route barrée",     couleur: "#424242", icone: "fa-road-barrier" },
   accident:      { nom: "Accident",         couleur: "#8e44ad", icone: "fa-car-burst" },
-  controle:      { nom: "Contrôle routier", couleur: "#607d8b", icone: "fa-user-shield" }
+  autre:      { nom: "autre", couleur: "#606d8b", icone: "fa-user-question" }
 };
 
 /* rues de la carte (position en % de l'image), pour proposer un nom de lieu */
@@ -133,7 +133,7 @@ const ROUTES_Y = [[17, "Rue des Fleurs"], [50, "Avenue principale"], [83, "Rue d
 
 const CLE = "faster-signalements";           /* lu aussi par la page admin « Obstacles » */
 const MOI = { x: 40, y: 62 };                /* position actuelle du livreur */
-const NOM = "Jean Dupont";
+const NOM = "Amarachoukou Isoken";
 
 let position = null;
 
