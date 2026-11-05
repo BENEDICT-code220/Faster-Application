@@ -108,7 +108,7 @@
         <!-- Livraison en cours -->
         <fieldset id="f11">
             <h3 style="margin-top: 0.4px;">Livraison en cours</h3>
-            <img id="img2" src="OIP.webp" alt="carte">
+            <img id="img2" src="OIP.webp" onclick="love()" alt="carte">
 
             <div class="suivi">
                 <img id="img3" src="liv.webp" alt="livreur">
@@ -291,6 +291,7 @@ function barres(idCanvas, donnees) {
 histogramme("histo", { Lun: [5, 3], Mar: [65, 25], Mer: [55, 15], Jeu: [20, 5], Ven: [95, 30], Sam: [60, 20], Dim: [100, 45] });
 camembert("camembert", { "Livrées": 120, "En cours": 45, "En attentes": 70, "Annulées": 15 });
 barres("ca", { Lun: 4, Mar: 3, Mer: 4.6, Jeu: 6, Ven: 3.7, Sam: 3, Dim: 6 });
+
 </script>
 
     </fieldset>
